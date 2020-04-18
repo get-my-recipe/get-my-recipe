@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Switch , Route } from 'react-router-dom' ;
 import 'bootstrap/dist/css/bootstrap.css';
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
@@ -6,11 +7,7 @@ import './App.css';
 import Home from './components/home/home';
 import Contact from './components/contact/contact';
 import About from './components/about/about';
-
-import { Switch , Route } from 'react-router-dom' ;
-
-
-
+import TestAPI from './components/home/testapi';
 
 class App extends Component {
  
@@ -19,6 +16,7 @@ class App extends Component {
       <div> 
         <Switch>
           <Route exact path="/" component = {Home} />
+          <Route exact path="/test" component = {TestAPI} />
           <Route path="/contact" component = {Contact} />
           <Route path="/about" component = {About} />
         </Switch>
@@ -30,5 +28,5 @@ class App extends Component {
 
 }
 
-
 export default App;
+
