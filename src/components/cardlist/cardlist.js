@@ -2,10 +2,16 @@ import React from 'react';
 import './cardList.css';
 import Cards from './cards/cards';
 
-const CardList = () => (
-  <div className="cardlist-container">
-    <Cards />
-  </div>
-)
+function CardList(props) {
+  return (
+    <div className="cardlist-container">
+      <container>
+        <row>
+          <Cards />
+        </row>
+      </container>
+    </div>
+  );
+}
 
 export default CardList;
