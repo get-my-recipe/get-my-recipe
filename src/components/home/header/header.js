@@ -1,9 +1,11 @@
 import React from 'react';
+import Nav from '../../sharedcomponents/nav/nav';
 import './header.css';
 
 const Header = () => (
   <div className="container-home-welcome-section">
-    <h1>Get my recipe</h1>
+    <Nav />
+    <h1 className="home-page-title">Get my recipe</h1>
     </div>
 );
 
