@@ -1,14 +1,20 @@
 .container-home-welcome-section {
     background-image: url('../../../assets/images/Image3.jpg');
-    height: 60vh;
+    height: 65vh;
     width: 100%;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    position: absolute;
+    opacity: .9;
 }
 
 .container-home-welcome-section h1 {
-top: 40%;
-left: 50%;
-transform: translate(-50%, -50%);
+    font-family: '';
+    font-weight: ;
+    font-size: 3rem;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
