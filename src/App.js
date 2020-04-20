@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
 import { Switch , Route } from 'react-router-dom' ;
+import React from 'react';
+import Home from './components/home/home';
 import 'bootstrap/dist/css/bootstrap.css';
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
@@ -20,11 +21,10 @@ class App extends Component {
           <Route path="/contact" component = {Contact} />
           <Route path="/about" component = {About} />
         </Switch>
-      </div>  
-
-    
+      </div>
     )
   }
+
 
 }
 

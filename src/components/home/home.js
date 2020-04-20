@@ -1,8 +1,10 @@
 import React from 'react';
-import Nav from '../sharedcomponents/nav/nav';
+import Header from './header/header';import Nav from '../sharedcomponents/nav/nav';
 
 const Home = () => (
   <Nav />
+  <Header />
 );
 
 export default Home;
+
