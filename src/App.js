@@ -1,6 +1,5 @@
 import { Switch , Route } from 'react-router-dom' ;
-import React from 'react';
-import Home from './components/home/home';
+import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
