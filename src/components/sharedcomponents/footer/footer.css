@@ -8,11 +8,21 @@
   border-bottom: 5px solid #cecece;
 }
 
+/* The link that has not been visited */
+a:link {
+  color: whitesmoke;
+}
+/* A link that has been visited */
+a:visited {
+  color:rgb(160, 140, 144);
+}
+
 .containerFooter ul {
   list-style: none;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+ 
 }
 
 .copyRight {
