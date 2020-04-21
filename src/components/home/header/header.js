@@ -5,7 +5,7 @@ import './header.css';
 const Header = () => (
   <div className="container-home-welcome-section">
     <Nav />
-    <h1>Get my recipe</h1>
+    <h1 className="home-page-title">Get my recipe</h1>
     </div>
 );
 
