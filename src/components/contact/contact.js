@@ -1,5 +1,5 @@
 import React from 'react';
-import Nav from '../sharedcomponents/Nav/Nav';
+import Nav from '../sharedcomponents/nav/nav';
 
 const Contact = () => (
   <Nav />

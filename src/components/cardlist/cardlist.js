@@ -1,7 +1,7 @@
 import React from 'react';
-import './Cardlist.css';
-import Cards from './Cards/Cards';
-import RecipeCarousel from './Carousel/Carousel'
+import Cards from './cards/cards';
+import RecipeCarousel from './carousel/carousel';
+import '../cardlist/cardlist.css';
 
 function CardList(props) {
   return (
