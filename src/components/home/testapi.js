@@ -1,9 +1,9 @@
 
 import React, { Component } from 'react';
 import axios from 'axios';
-import Nav from '../sharedcomponents/nav/nav';
-import TestFormAPI from './testFormAPI';
-import TestRecipe from './testRecipe';
+import Nav from '../sharedcomponents/Nav/Nav';
+import TestFormAPI from './TestFormAPI';
+import TestRecipe from './TestRecipe';
 
 class TestAPI extends Component {
   constructor(){

@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from './header/header';
-import CardList from '../cardlist/cardlist';
-import './home.css';
+import Header from './Header/Header';
+import CardList from '../Cardlist/Cardlist';
+import './Home.css';
 
 const Home = () => (
   <div>

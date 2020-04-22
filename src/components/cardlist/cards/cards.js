@@ -2,7 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Image14 from '../../../assets/images/Image14.jpg';
 import { CardColumns, ListGroup, ListGroupItem } from 'react-bootstrap';
-import './cards.css';
+import './Cards.css';
 
 const Cards = () => (
   <CardColumns>

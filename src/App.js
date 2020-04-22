@@ -5,11 +5,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 // components takes precedence over default styles.
 import './App.css';
 
-import Home from './components/home/home';
-import Contact from './components/contact/contact';
-import About from './components/about/about';
-import TestAPI from './components/home/testapi';
-import Footer from './components/sharedcomponents/footer/footer';
+import Home from './components/Home/Home';
+import Contact from './components/Contact/Contact';
+import About from './components/About/About';
+import TestAPI from './components/Home/TestApi';
+import Footer from './components/sharedcomponents/Footer/Footer';
 
 class App extends Component {
  

@@ -1,5 +1,5 @@
 import React from 'react';
-import Nav from '../sharedcomponents/nav/nav';
+import Nav from '../sharedcomponents/Nav/Nav';
 
 const About = () => (
   <Nav />
