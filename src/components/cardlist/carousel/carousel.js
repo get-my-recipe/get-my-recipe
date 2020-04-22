@@ -1,6 +1,9 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import Image11 from '../../../assets/images/Image11.jpg';
+import Image10 from '../../../assets/images/Image10.jpg';
+import Image6 from '../../../assets/images/Image6.jpg';
+import Image9 from '../../../assets/images/Image9.jpg';
+import './carousel.css';
 
 
 function RecipeCarousel() {
@@ -8,9 +11,11 @@ function RecipeCarousel() {
     <Carousel>
       <Carousel.Item>
         <img
-          className="d-block w-100"
-          src={Image11}
-          alt="First slide"
+          className="d-block"
+          src={Image10}
+          width={171}
+          height={180}
+          alt="Recipe of the day"
         />
         <Carousel.Caption>
           <h3>First Recipe</h3>
@@ -19,9 +24,11 @@ function RecipeCarousel() {
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=Second slide&bg=282c34"
-          alt="Third slide"
+        className="d-block"
+        src={Image6}
+        width={171}
+        height={180}
+        alt="Recipe of the day"
         />
 
         <Carousel.Caption>
@@ -31,9 +38,11 @@ function RecipeCarousel() {
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=Third slide&bg=20232a"
-          alt="Third slide"
+        className="d-block"
+        src={Image9}
+        width={171}
+        height={180}
+        alt="Recipe of the day"
         />
 
         <Carousel.Caption>

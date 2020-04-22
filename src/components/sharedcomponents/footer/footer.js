@@ -17,7 +17,7 @@ const Footer = () => (
     </ul>
 
     <ul className="footerList3">
-      <img className="twitter" src={twitter} alt="twitter logo" />
+      <img className="fb" src={twitter} alt="twitter logo" />
       <img className="fb" src={facebook} alt="facebook logo" />
       <img className="fb" src={insta} alt="facebook instagramme" />
     </ul>

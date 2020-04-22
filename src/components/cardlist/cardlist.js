@@ -1,17 +1,15 @@
 import React from 'react';
-import Cards from './cards/cards';
 import RecipeCarousel from './carousel/carousel';
+import Cards from './cards/cards';
+
 
 function CardList(props) {
   return (
-    <div className="cardlist-container">
-      <container>
-        <row>
-          <RecipeCarousel />
-          <Cards />
-        </row>
-      </container>
+    <div>
+      <RecipeCarousel />
+      <Cards />
     </div>
+
   );
 }
 
