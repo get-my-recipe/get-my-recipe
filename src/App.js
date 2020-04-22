@@ -8,7 +8,7 @@ import './App.css';
 import Home from './components/home/home';
 import Contact from './components/contact/contact';
 import About from './components/about/about';
-import TestAPI from './components/home/testApi';
+import TestAPI from './components/home/testapi';
 import Footer from './components/sharedcomponents/footer/footer';
 
 class App extends Component {
