@@ -1,13 +1,13 @@
 import React from 'react';
-import Header from './header/header';import Nav from '../sharedcomponents/nav/nav';
+import Header from './header/header';
+import CardList from '../cardlist/cardlist';
+import './home.css';
 
 const Home = () => (
   <div>
-  <Nav />
-  <Header />
+    <Header />
+    <CardList />
   </div>
-
 );
 
 export default Home;
-
