@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { ListGroup, ListGroupItem } from 'react-bootstrap';
+import { ListGroup, ListGroupItem, Badge } from 'react-bootstrap';
 import Image14 from '../../../assets/images/Image14.jpg';
 import './cards.css';
 
@@ -20,9 +20,9 @@ const Cards = () => (
             </Card.Text>
           </Card.Body>
           <ListGroup className="list-group-flush">
-            <ListGroupItem>Restriction 1</ListGroupItem>
-            <ListGroupItem>Restriction 2</ListGroupItem>
-            <ListGroupItem>Restriction 3</ListGroupItem>
+            <ListGroupItem><Badge variant="light">Light</Badge></ListGroupItem>
+            <ListGroupItem><Badge variant="info">Vegan</Badge></ListGroupItem>
+            <ListGroupItem><Badge variant="success">Fast</Badge></ListGroupItem>
           </ListGroup>
           <Card.Body>
             <Card.Link href="#">Recipe Link</Card.Link>
