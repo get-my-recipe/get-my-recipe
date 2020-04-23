@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const TestFormAPI = ({value,handleInputChange, updateAPI}) => (
+const TestFormAPI = ({value, handleInputChange, updateAPI}) => (
     <form>
       <input type='text'
              value={value}
