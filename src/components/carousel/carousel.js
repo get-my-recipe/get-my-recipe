@@ -3,9 +3,9 @@ import Carousel from 'react-bootstrap/Carousel';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Image10 from '../../../assets/images/Image10.jpg';
-import Image6 from '../../../assets/images/Image6.jpg';
-import Image9 from '../../../assets/images/Image9.jpg';
+import Image10 from '../../assets/images/Image10.jpg';
+import Image6 from '../../assets/images/Image6.jpg';
+import Image9 from '../../assets/images/Image9.jpg';
 import './carousel.css';
 
 
