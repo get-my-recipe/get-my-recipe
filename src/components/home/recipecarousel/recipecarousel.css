@@ -8,6 +8,11 @@
     height: auto;
 }
 
+.container-carousel {
+    width: 50%;
+    margin: auto;
+}
+
 .title-recipe-of-the-day {
     font-family: 'Raleway';
     font-weight: 950;

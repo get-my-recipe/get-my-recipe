@@ -6,12 +6,13 @@ import Col from 'react-bootstrap/Col';
 import Image10 from '../../../assets/images/Image10.jpg';
 import Image6 from '../../../assets/images/Image6.jpg';
 import Image9 from '../../../assets/images/Image9.jpg';
-import './carousel.css';
+import './recipecarousel.css';
 
 
 function RecipeCarousel() {
   return (
-    <Container className="container-carousel">
+    <div className="container-carousel">
+    <Container >
       <Row>
       <Col className="title-recipe-of-the-day">
         <h4>Suggestions of the day</h4>
@@ -58,6 +59,7 @@ function RecipeCarousel() {
         </Col>
       </Row>
     </Container>
+    </div>
   );
 }
 

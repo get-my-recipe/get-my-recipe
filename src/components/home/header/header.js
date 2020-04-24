@@ -4,9 +4,11 @@ import './header.css';
 
 const Header = () => (
   <div className="container-home-welcome-section">
-    <Nav />
-    <h1 className="home-page-title">Get my recipe</h1>
+    <div className="container-home-image">
+      <Nav />
+      <h1 className="home-page-title">Get my recipe</h1>
     </div>
+  </div>
 );
 
-export default Header ;
+export default Header;

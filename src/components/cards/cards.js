@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { ListGroup, ListGroupItem, Badge } from 'react-bootstrap';
-import Image14 from '../../../assets/images/Image14.jpg';
+import Image14 from '../../assets/images/Image14.jpg';
 import './cards.css';
 
 const Cards = () => (
