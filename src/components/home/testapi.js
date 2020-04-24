@@ -4,6 +4,13 @@ import axios from 'axios';
 import Nav from '../sharedcomponents/nav/nav';
 import TestFormAPI from './testFormAPI';
 import TestRecipe from './testRecipe';
+import Bouton from './searchbar/boutons/bouton';
+import Range from './searchbar/boutons/range';
+import Dropdown from './searchbar/boutons/dropdown';
+import Checkbox from './searchbar/boutons/checkbox';
+import Input from './searchbar/boutons/input';
+
+
 
 
 class TestAPI extends Component {
@@ -150,6 +157,11 @@ class TestAPI extends Component {
     return (
       <div> 
         <Nav />
+        <Bouton />
+        <Range />
+        <Dropdown />
+        <Checkbox />
+        <Input />
         <TestFormAPI
          value={ingredient} 
          handleInputChange={this.handleInputChange}
