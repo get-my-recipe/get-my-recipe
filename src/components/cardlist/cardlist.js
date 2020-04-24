@@ -1,6 +1,5 @@
 import React from 'react';
 import RecipeCarousel from './carousel/carousel';
-import Cards from './cards/cards';
 
 
 function CardList(props) {

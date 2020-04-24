@@ -8,13 +8,11 @@
   border-bottom: 5px solid #cecece;
 }
 
-/* The link that has not been visited */
 a:link {
   color: whitesmoke;
 }
-/* A link that has been visited */
 a:visited {
-  color:rgb(160, 140, 144);
+  color: whitesmoke;
 }
 
 .containerFooter ul {
@@ -22,7 +20,6 @@ a:visited {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
- 
 }
 
 .copyRight {
@@ -39,35 +36,24 @@ a:visited {
   margin-left: 6px;
 }
 
-.img {
-  
-  height: 30px;
-  width: 30px;
-}
 
 .fb {
   height: 45px;
   width: 45px;
 }
 
+.tw {
+  height: 35px;
+  width: 35px;
+}
 
 @media screen and (max-width: 961px) {
-      .containerFooter {
-      display: flex;
-      align-items: center;
-    }
-  
-    .containerFooter ul {
-      margin: 0;
-    }
-  
-    .footerList3 {
-      padding-left: 90px;
-    }
-  
-    .footerList {
-      padding-right: 35px;
-    }
+  .containerFooter {
+    display: flex;
+    align-items: center;
   }
- 
-  
+
+  .containerFooter ul {
+    margin: 0;
+  }
+}

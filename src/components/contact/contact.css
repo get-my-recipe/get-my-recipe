@@ -1,0 +1,23 @@
+.contactUsForm {
+    background-color: #f1db4b;
+    width: 45%;
+    margin: 0 auto;
+    height: 700px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 120px;
+    margin-bottom: 120px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-style: solid;
+    border-color: #9eb25d;
+    border-width: 10px;
+}
+
+@media screen and (max-width: 840px) {
+    .contactUsForm {
+    width: 100%;
+};
+}
