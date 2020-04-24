@@ -4,14 +4,14 @@
     width: 100%;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
     opacity: .9;
 }
 
 .container-home-welcome-section h1 {
-    font-family: '';
-    font-weight: ;
+    font-family: 'Raleway';
+    font-weight: 550;
     font-size: 3rem;
+    color: #9EB25D;
     position: absolute;
     top: 30%;
     left: 50%;

@@ -21,11 +21,13 @@ const Footer = () => (
           <a href="https://github.com/cath974">Catherine Blecon</a>
         </ul>
 
+
         <ul className="footerList3">
           <img className="tw" src={twitter} alt="twitter logo" />
           <img className="fb" src={facebook} alt="facebook logo" />
           <img className="fb" src={insta} alt="facebook instagramme" />
         </ul>
+
 
         <ul className="copyRight">
           <p> &copy; Copyright 2020 </p>
