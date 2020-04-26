@@ -1,7 +1,6 @@
 import React from "react";
-import Form from "react-bootstrap/Form";
-import { Col } from "react-bootstrap";
-import { Row } from "react-bootstrap";
+import { Col, Form } from "react-bootstrap";
+
 
 const Input = () => (
   <div>

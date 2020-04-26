@@ -24,3 +24,4 @@ const SearchBar = ({ value, handleInputChange, updateAPI }) => (
 
 export default SearchBar;
 
+
