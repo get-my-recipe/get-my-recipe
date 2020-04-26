@@ -3,7 +3,7 @@ import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Header from './header/header';
-import RecipeCarousel from '../carousel/carousel';
+import DailyRecipe from './dailyrecipe/dailyrecipe';
 import Searchbar from './searchbar/searchbar';
 import SingleCard from './singlecard/singlecard';
 import './home.css';
@@ -58,7 +58,7 @@ class Home extends Component {
          handleInputChange={this.handleInputChange}
          updateAPI={this.getAPi}
         />
-        <RecipeCarousel />
+    <DailyRecipe />
 
         <Container className="card-template">
           <Row>
