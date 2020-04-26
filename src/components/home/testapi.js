@@ -4,19 +4,15 @@ import axios from 'axios';
 import Nav from '../sharedcomponents/nav/nav';
 import TestFormAPI from './testFormAPI';
 import TestRecipe from './testRecipe';
-// import Bouton from './searchbar/boutons/bouton';
-// import Range from './searchbar/boutons/range';
-// import Dropdown from './searchbar/boutons/dropdown';
-// import Checkbox from './searchbar/boutons/checkbox';
-// import Input from './searchbar/boutons/input';
 
 const apiID='a3b47c77';
 const apiKey='742e6a73e3d13dd35b00ec2852aaf28d';
 const nb=100;
 
 class TestAPI extends Component {
-  constructor(){
+  constructor() {
     super();
+
 
   this.state = {
     ingredient: '',
@@ -36,6 +32,8 @@ class TestAPI extends Component {
   
  // "https://api.edamam.com/search?q=chicken&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}&from=0&to=3&calories=591-722&health=alcohol-free"
 
+
+  // "https://api.edamam.com/search?q=chicken&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}&from=0&to=3&calories=591-722&health=alcohol-free"
 
     //display recipes
     getAPi = (event) => {
@@ -143,11 +141,11 @@ class TestAPI extends Component {
     //change search ingredient
     handleInputChange = (event) => {
       event.preventDefault();
-      const target = event.target;
-      const value = target.value;
+      const { target } = event;
+      const { value } = target;
       this.setState({
-        ingredient:value
-      })
+        ingredient: value,
+      });
     }
 
     //change username
