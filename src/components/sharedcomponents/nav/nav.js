@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar } from 'react-bootstrap';
+import { Navbar, Form, FormControl, Button } from 'react-bootstrap';
 import logo from '../../../assets/images/logo.png';
 import './nav.css';
 
-const Nav = () => (
+const Nav = ({value, handleInputChange, book}) => (
 
   <Navbar collapseOnSelect expand="md" className="color-nav">
     <Navbar.Brand>
@@ -27,10 +27,22 @@ const Nav = () => (
         </li>
       </ul>
     </Navbar.Collapse>
+    <Form inline>
+      <FormControl type="text" 
+      placeholder="UserName" 
+      className="mr-sm-2"
+      value={value}
+      onChange={handleInputChange}
+       />
+      <Button variant="outline-success"
+        onClick={book}
+      >Bookmark</Button>
+    </Form>
   </Navbar>
 
 
 );
+
 
 
 export default Nav;

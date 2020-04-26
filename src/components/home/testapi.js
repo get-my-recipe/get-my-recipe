@@ -4,14 +4,15 @@ import axios from 'axios';
 import Nav from '../sharedcomponents/nav/nav';
 import TestFormAPI from './testFormAPI';
 import TestRecipe from './testRecipe';
-import Bouton from './searchbar/boutons/bouton';
-import Range from './searchbar/boutons/range';
-import Dropdown from './searchbar/boutons/dropdown';
-import Checkbox from './searchbar/boutons/checkbox';
-import Input from './searchbar/boutons/input';
+// import Bouton from './searchbar/boutons/bouton';
+// import Range from './searchbar/boutons/range';
+// import Dropdown from './searchbar/boutons/dropdown';
+// import Checkbox from './searchbar/boutons/checkbox';
+// import Input from './searchbar/boutons/input';
 
-
-
+const apiID='a3b47c77';
+const apiKey='742e6a73e3d13dd35b00ec2852aaf28d';
+const nb=100;
 
 class TestAPI extends Component {
   constructor(){
@@ -21,20 +22,28 @@ class TestAPI extends Component {
     ingredient: '',
     recipes: [],
     count:0,
+    username: '',
+    displayBook: true,
+    postBook:
+     {
+      title: '',
+      poster: '',
+      comment: '',
+    }
   }
   }
 
+  
  // "https://api.edamam.com/search?q=chicken&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}&from=0&to=3&calories=591-722&health=alcohol-free"
 
 
-
+    //display recipes
     getAPi = (event) => {
     event.preventDefault()
-    const apiID='a3b47c77';
-    const apiKey='742e6a73e3d13dd35b00ec2852aaf28d';
+    
     
     //let the user enter a number beetween 1 and max 100?
-    const nb=10; //Max 100
+     //Max 100
 
     
     const ingredient=this.state.ingredient
@@ -121,21 +130,17 @@ class TestAPI extends Component {
 // • ‘spaghetti’ will exclude any type of normal pasta like macaroni or linguini as they are all the same food nutritionally just in different format. However it will not exclude cooked pasta or whole wheat pasta as they are distinct from regular pasta.
 // The negative search also looks for a presense of the phrase from the “excluded=” parameter in the title of the recipe. So “excluded=yogurt” will exclude not only any recipes which contain the specific ingredient plain yogurt in their ingredient list but also for any recipes which contain the phrase yogurt in their title – for example “Greek Yogurt Dressing”
 
-    console.log(example)
-
-    
     
     axios.get(example)
         .then(res => {
-        const recipes = res.data.hits;
+        const recipes = res.data.hits.map(el => el.recipe);
         const count = res.data.count;
-        console.log(res.data)
-        this.setState({ recipes, count });
-        // console.log(this.state)
+        const displayBook = true;
+        this.setState({ recipes, count, displayBook });
         })
-    console.log('getAPI')
     }
 
+    //change search ingredient
     handleInputChange = (event) => {
       event.preventDefault();
       const target = event.target;
@@ -145,40 +150,125 @@ class TestAPI extends Component {
       })
     }
 
-    handleStarChange = (uri) => {
-      console.log(uri)
-      // do a post request to send bookmarked=true
+    //change username
+    handleInputChangeUsername = (event) => {
+      event.preventDefault();
+      const target = event.target;
+      const value = target.value;
+      this.setState({
+        username:value
+      })
     }
-     
-     
+
+    //display book
+    getBook = (event) => {
+      event.preventDefault();
+      if(this.state.username==='') {
+        alert(`Please, enter your username`);
+    }
+      else {
+        axios
+      .get("https://post-a-form.herokuapp.com/api/movies/")
+      .then(res => {
+         const booksUsername =  res.data.filter(book => book.poster === this.state.username).map (el => el.title).filter(el => el.includes('recipe') && el.indexOf('recipe')===0);
+         const uniqueSet = new Set(booksUsername);
+         const books = [...uniqueSet]
+
+         if (books.length>0) {
+                  let r = ''
+                    for (let i=0;i<books.length;i++){
+                      r+=`r=http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23${books[i]}&`
+                    }
+                  const url= `https://api.edamam.com/search?${r}app_id=${apiID}&app_key=${apiKey}&from=0&to=${nb}`
+
+                    axios.get(url)
+                          .then(res => {
+                          const recipes = res.data;
+                          const displayBook= false;
+                          this.setState({recipes,displayBook});
+                          })
+                        }
+            else {
+              alert(`nothing in your bookmark`);
+            }   
+
+              })
+              
+    }
+  }
+
+    //mark a recipe change state.postBook
+    handleStarChange = (uri) => {
+        if(this.state.username==='') {
+          alert(`Please, enter your username`);
+      }
+      else {
+        const searchTerm = '#'; 
+        const postBook = {
+            title: uri.substring(uri.indexOf(searchTerm) + 1 ,uri.length),
+            poster: this.state.username,
+            comment: 'TRUE',
+          };        
+          
+          this.setState({
+             title: '',
+             poster:'',
+             comment:'',
+             colorStar: true,
+            postBook: postBook,
+          })
+        
+      }
+
+    }
+    //mark a recipe api post
+    componentDidUpdate(prevProps, prevState) {
+      if(prevState.postBook !== this.state.postBook) {
+        const url = 'https://post-a-form.herokuapp.com/api/movies/';
+        axios.post(url, this.state.postBook)
+          .then(res => res.data)
+          .then(res => {
+            alert(`BookmarK added ID: ${res.id} !`);
+          })
+          .catch(e => {
+            console.error(e);
+            alert(`Error Bookmark no added : ${e.message}`);
+          });
+        }
+    }
     
+
+        
   render() {
-    const { ingredient, recipes, count } = this.state;
+    console.log(this.state)
+    const { ingredient, recipes, count , username, displayBook } = this.state;
     return (
       <div> 
-        <Nav />
-        <Bouton />
+        <Nav 
+        value={username} 
+        handleInputChange={this.handleInputChangeUsername}
+        book={this.getBook}
+        />
+        {/* <Bouton />
         <Range />
         <Dropdown />
         <Checkbox />
-        <Input />
+        <Input /> */}
         <TestFormAPI
          value={ingredient} 
          handleInputChange={this.handleInputChange}
          updateAPI={this.getAPi}
         />
         <div>Count: {count}</div>
-        {recipes.map(r => 
+        {recipes.map((r) => 
         <TestRecipe 
-        key = {r.recipe.uri}
-        title={r.recipe.label}
-        image={r.recipe.image}
-        uri={r.recipe.uri}
-        bookmarked={r.bookmarked}
+        key = {r.uri}
+        title={r.label}
+        image={r.image}
+        uri={r.uri}
+        display= {displayBook}
         bookmarkF={this.handleStarChange}
-        />)}
-                  
-                 
+        />)}        
       </div>
     
     )
