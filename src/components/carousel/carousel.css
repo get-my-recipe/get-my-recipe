@@ -1,0 +1,30 @@
+.carousel h3, p {
+    font-family: 'Raleway';
+    font-size: 900;
+    }
+
+.carousel img {
+    width: 100%;
+    height: auto;
+}
+
+.title-recipe-of-the-day {
+    font-family: 'Raleway';
+    font-weight: 950;
+    font-size: 3rem;
+    color: #A7C6DA;  
+    text-align: center;
+}
+.title-recipe-of-the-day h4 {
+    margin-bottom: 0;
+    padding-top: 15px;
+}
+
+.col-carousel {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.d-block {
+    border-radius: 5%;
+}

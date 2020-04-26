@@ -4,6 +4,13 @@ import axios from 'axios';
 import Nav from '../sharedcomponents/nav/nav';
 import TestFormAPI from './testFormAPI';
 import TestRecipe from './testRecipe';
+import Bouton from './searchbar/boutons/bouton';
+import Range from './searchbar/boutons/range';
+import Dropdown from './searchbar/boutons/dropdown';
+import Checkbox from './searchbar/boutons/checkbox';
+import Input from './searchbar/boutons/input';
+
+
 
 
 class TestAPI extends Component {
@@ -137,8 +144,7 @@ class TestAPI extends Component {
       console.log(uri);
       // do a post request to send bookmarked=true
     }
-
-
+     
     render() {
       const { ingredient, recipes, count } = this.state;
       return (
