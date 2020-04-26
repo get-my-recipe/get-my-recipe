@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RecipeCarousel from '../recipecarousel/recipecarousel';
+import '../header/header.css';
 
 class DailyRecipe extends Component {
   constructor(props) {
@@ -27,10 +28,10 @@ class DailyRecipe extends Component {
     return (
       <div>
         <button
+          className="display-carousel-button"
           type="button"
           onClick={this.displayCarousel}
         >
-          {' '}
           {buttonName}
         </button>
         { clickStatus && <RecipeCarousel /> }
