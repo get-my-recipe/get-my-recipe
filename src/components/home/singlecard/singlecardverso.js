@@ -5,22 +5,12 @@ import { ListGroup, ListGroupItem, Badge } from 'react-bootstrap';
 import './singlecard.css';
 
 
-const SingleCard = ({ display ,uri,title,image, bookmarkF, flip }) => (
-        <Card>
-          <Card.Img variant="top" src={image} alt={title}
-          onClick={() => flip(uri)} />
-          {(display) &&  (
-          <span
-                  onClick={() => bookmarkF(uri)}
-                >
-                  &#9733;
-          </span>
-      )
-      }
+const SingleCardVerso = ({uri, title, flip }) => (
+        <Card onClick={() => flip(uri)}>
           <Card.Body>
             <Card.Title>{title}</Card.Title>
             <Card.Text>
-              Recipe description
+              VERSO
             </Card.Text>
           </Card.Body>
           <ListGroup className="list-group-flush">
@@ -33,4 +23,4 @@ const SingleCard = ({ display ,uri,title,image, bookmarkF, flip }) => (
           </Card.Body>
         </Card>
 );
-export default SingleCard;
+export default SingleCardVerso;
