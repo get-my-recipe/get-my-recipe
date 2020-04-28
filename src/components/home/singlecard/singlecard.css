@@ -6,3 +6,7 @@ margin: auto;
 .col-lg-4, .col-sm-6  {
     padding-bottom: 15px;
 }
+  
+.is-bookmarked {
+    color: #9EB25D;
+  }

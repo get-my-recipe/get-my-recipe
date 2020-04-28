@@ -5,12 +5,13 @@ import { ListGroup, ListGroupItem, Badge } from 'react-bootstrap';
 import './singlecard.css';
 
 
-const SingleCard = ({ display ,uri,title,image, bookmarkF, flip }) => (
+const SingleCard = ({ display ,uri,title,image, bookmarkF, flip, bookmarked }) => (
         <Card>
           <Card.Img variant="top" src={image} alt={title}
           onClick={() => flip(uri)} />
           {(display) &&  (
           <span
+                  className={(bookmarked) ? 'is-bookmarked' : ''}
                   onClick={() => bookmarkF(uri)}
                 >
                   &#9733;

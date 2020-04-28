@@ -133,18 +133,22 @@ class Home extends Component {
             title: uri.substring(uri.indexOf(searchTerm) + 1 ,uri.length),
             poster: this.state.username,
             comment: 'TRUE',
-          };        
+          };  
           
+          let recipes=this.state.recipes
+          const select = this.state.recipes.findIndex(el =>el.uri===uri)
+          recipes[select].bookmarked=true
+         
           this.setState({
              title: '',
              poster:'',
              comment:'',
-             colorStar: true,
-            postBook: postBook,
-          })
+             postBook: postBook,
+             recipes
+          }) 
       }
-
     }
+
     //mark a recipe api post
     componentDidUpdate(prevProps, prevState) {
       if(prevState.postBook !== this.state.postBook) {
@@ -192,6 +196,7 @@ class Home extends Component {
                   uri={r.uri}
                   display= {displayBook}
                   bookmarkF={this.handleStarChange}
+                  bookmarked={r.bookmarked}
                  />           
 
                 <SingleCardVerso
