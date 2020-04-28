@@ -1,4 +1,5 @@
 import React from "react";
+import "./testboutoncss.css";
 
 class TestCheckbox extends React.Component {
   constructor(props) {
@@ -10,7 +11,6 @@ class TestCheckbox extends React.Component {
       isNutFree: false,
       isSugarConscious: false,
       isAlcoolFree: false,
-
     };
   }
 
@@ -60,7 +60,6 @@ class TestCheckbox extends React.Component {
     this.setState({
       [name]: value,
     });
-   
   };
 
   handleInputAlcool = (event) => {
@@ -71,7 +70,6 @@ class TestCheckbox extends React.Component {
     this.setState({
       [name]: value,
     });
-    
   };
 
   render() {
@@ -79,9 +77,9 @@ class TestCheckbox extends React.Component {
     const { vega, vege, peanut, treenutfree, sugar, alcool } = this.state;
     return (
       <form>
-        <h3>Choose a special diet option: </h3>
-        <label htmlFor="veganDiet">
-          Vegan
+        <h5>Choose a special diet option : </h5>
+        <label style={{ fontFamily: 'helvetica', fontStyle: 'italic' }} htmlFor="veganDiet">
+         vegan
           <input
             id="veganDiet"
             name="isVegan"
@@ -91,8 +89,8 @@ class TestCheckbox extends React.Component {
           />
         </label>
 
-        <label htmlFor="vegeDiet">
-          Vegeterian
+        <label htmlFor="vegeDiet" style={{ fontFamily: 'helvetica', fontStyle: 'italic' }}>
+        &nbsp; vegeterian
           <input
             id="vegeDiet"
             name="isVegetarian"
@@ -101,8 +99,8 @@ class TestCheckbox extends React.Component {
             onChange={this.handleInputVege}
           />
         </label>
-        <label htmlFor="peanutfreeDiet">
-          Peanut free
+        <label htmlFor="peanutfreeDiet" style={{ fontFamily: 'helvetica', fontStyle: 'italic' }}>
+        &nbsp;  peanut free
           <input
             id="peanutfreeDiet"
             name="isPeanutFree"
@@ -111,19 +109,10 @@ class TestCheckbox extends React.Component {
             onChange={this.handleInputPeanut}
           />
         </label>
-        <label htmlFor="nutfreeDiet">
-          Tree nut free
-          <input
-            id="nutfreeDiet"
-            name="isNutFree"
-            type="checkbox"
-            checked={treenutfree}
-            onChange={this.handleInputNutFree}
-          />
-        </label>
+        <br />
 
-        <label htmlFor="sugar-conscious">
-          Sugar conscious
+        <label htmlFor="sugar-conscious" style={{ fontFamily: 'helvetica', fontStyle: 'italic' }}>
+        sugar conscious
           <input
             id="sugar-conscious"
             name="isSugarConscious"
@@ -133,14 +122,24 @@ class TestCheckbox extends React.Component {
           />
         </label>
 
-        <label htmlFor="alcool-free">
-          Alcool free
+        <label htmlFor="alcool-free" style={{ fontFamily: 'helvetica', fontStyle: 'italic' }}>
+        &nbsp; alcool free
           <input
             id="alcool-free"
             name="isAlcoolFree"
             type="checkbox"
             checked={alcool}
             onChange={this.handleInputAlcool}
+          />
+        </label>
+        <label htmlFor="nutfreeDiet" style={{ fontFamily: 'helvetica', fontStyle: 'italic' }}>
+        tree nut free
+          <input
+            id="nutfreeDiet"
+            name="isNutFree"
+            type="checkbox"
+            checked={treenutfree}
+            onChange={this.handleInputNutFree}
           />
         </label>
       </form>

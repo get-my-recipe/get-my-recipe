@@ -2,14 +2,15 @@ import React from "react";
 import Form from "react-bootstrap/Form";
 import { Col } from "react-bootstrap";
 import { Row } from "react-bootstrap";
+import "./testboutoncss.css";
 
 const TestIngredientYouDontWant = ({ value, handleInputChange }) => (
   <Form.Group>
+    <br />
     <Form.Row>
-      <Form.Label column lg={2}>
-        Ingredients you don&apos;t want :
-      </Form.Label>
-      <Col lg={6}>
+      
+      <h5>&nbsp;Ingredient you don&rsquo;t want</h5>
+      <Col lg={8}>
         <Form.Control
           type="text"
           value={value}

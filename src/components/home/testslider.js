@@ -1,10 +1,11 @@
 import React from "react";
+import "./testboutoncss.css";
 
 class Slider extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 0,
+      value: 750,
     };
   }
 
@@ -16,17 +17,21 @@ class Slider extends React.Component {
   };
 
   render() {
-      console.log(this.state)
+    console.log(this.state);
     return (
       <div>
+        <br />
+        <h5>Choose the number of calories you want :</h5>
+     
+        <div  style={{ textAlign: 'center' }}> {this.state.value} </div>
         <input
+        style={{ width: '100%' }}
           type="range"
           value={this.state.value}
           min={0}
           max={1500}
           onChange={this.handleOnChange}
         />
-        <div> {this.state.value} </div>
       </div>
     );
   }

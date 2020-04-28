@@ -13,6 +13,7 @@ import TestIngredientYouDontWant from "./testIngredientYouDontWant";
 import TestDropdownDiet from "./testdropdowndiet";
 import TestCheckbox from "./testcheckbox";
 import Slider from "./testslider";
+import "./testboutoncss.css";
 
 class TestAPI extends Component {
   constructor() {
@@ -166,7 +167,6 @@ class TestAPI extends Component {
     });
   };
 
-
   handleStarChange = (uri) => {
     console.log(uri);
     // do a post request to send bookmarked=true
@@ -187,19 +187,26 @@ class TestAPI extends Component {
           handleInputChange={this.handleInputChange}
           updateAPI={this.getAPi}
         />
-        <Testfilteringredient
-          value={ingr}
-          handleInputChange={this.handleInputIngrChange}
-          incrementIngr={this.incrementIngrButton}
-          decrementIngr={this.decrementIngrButton}
-        />
-        <TestIngredientYouDontWant
-          value={health}
-          handleInputChange={this.handleInputNotWantedIngr}
-        />
-        <TestDropdownDiet />
-        <TestCheckbox />
-        <Slider />
+        <div className="test-container">
+          <div className="test-container1">
+            <TestCheckbox />
+            <Slider />
+          </div>
+          <div className="test-container2">
+            <TestDropdownDiet />
+
+            <Testfilteringredient
+              value={ingr}
+              handleInputChange={this.handleInputIngrChange}
+              incrementIngr={this.incrementIngrButton}
+              decrementIngr={this.decrementIngrButton}
+            />
+            <TestIngredientYouDontWant
+              value={health}
+              handleInputChange={this.handleInputNotWantedIngr}
+            />
+          </div>
+        </div>
         {/* <div>Count: {count}</div>
         {recipes.map((r) => (
           <TestRecipe
