@@ -3,7 +3,7 @@ import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Header from './header/header';
-import RecipeCarousel from '../carousel/carousel';
+import DailyRecipe from './dailyrecipe/dailyrecipe';
 import Searchbar from './searchbar/searchbar';
 import SingleCard from './singlecard/singlecard';
 import './home.css';
@@ -17,7 +17,7 @@ class Home extends Component {
   this.state = {
     ingredient: '',
     recipes: [],
-    count:0,
+    
   }
   }
     getAPi = (event) => {
@@ -27,15 +27,14 @@ class Home extends Component {
     const nb=100;
     
     const ingredient=this.state.ingredient
-    let example=`https://api.edamam.com/search?q=${ingredient}&app_id=${apiID}&app_key=${apiKey}&from=0&to=${nb}`
+    let api=`https://api.edamam.com/search?q=${ingredient}&app_id=${apiID}&app_key=${apiKey}&from=0&to=${nb}`
 
     
-    axios.get(example)
+    axios.get(api)
         .then(res => {
         const recipes = res.data.hits;
-        const count = res.data.count;
         console.log(res.data)
-        this.setState({ recipes, count });
+        this.setState({ recipes });
         })
     }
 
@@ -49,7 +48,7 @@ class Home extends Component {
     }
     
   render() {
-    const { ingredient, recipes, count } = this.state;
+    const { ingredient, recipes } = this.state;
     return (
       <div> 
         <Header />
@@ -58,7 +57,7 @@ class Home extends Component {
          handleInputChange={this.handleInputChange}
          updateAPI={this.getAPi}
         />
-        <RecipeCarousel />
+    <DailyRecipe />
 
         <Container className="card-template">
           <Row>

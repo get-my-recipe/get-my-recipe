@@ -1,19 +1,52 @@
-.container-home-welcome-section {
+.container-home-image {
     background-image: url('../../../assets/images/Image3.jpg');
     height: 65vh;
     width: 100%;
     background-size: cover;
     background-position: center;
-    opacity: .9;
+    opacity: .9;   
+}
+
+.container-home-welcome-section {
+    height: 100vh;
+    width: 100%;
+}
+
+.searchbar-container{
+    background-color: white;
+    position: absolute;
+    height: 40%;
+    width: 60%;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    box-shadow: 0 0 10px 1px #9eb25d;
+    opacity: .8;   
+}
+
+.searchbar-form {
+    position: relative;
+    top: 35%;
+    left: 20%;
+}
+
+.searchbar-input {
+    width: 50%
+    
+}
+
+.searchbar-button{
+    font-family: 'Raleway'; 
+    color: #9EB25D; 
 }
 
 .container-home-welcome-section h1 {
     font-family: 'Raleway';
-    font-weight: 550;
+    font-weight: 700;
     font-size: 3rem;
     color: #9EB25D;
     position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+   top: 35%;
+    left: 20%;
+    transform: translate(-50%, -50%); 
 }
