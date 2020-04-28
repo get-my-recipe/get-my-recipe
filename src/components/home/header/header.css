@@ -8,7 +8,7 @@
 }
 
 .container-home-welcome-section {
-    height: 100vh;
+    height: 92vh;
     width: 100%;
 }
 
@@ -36,17 +36,38 @@
     border-radius: 5px;  
 }
 
-.display-carousel-button:hover, .searchbar-button:hover {
+.display-carousel-button, .searchbar-button {
+    font-family: 'Raleway'; 
+    background-color: #9EB25D; 
+    color: #f1db4b;
+    border-radius: 5px; 
+    margin-top: 10px; 
+}
+
+.searchbar-button:hover {
     font-family: 'Raleway'; 
     color: #9EB25D; 
     background-color: #f1db4b;
     border-radius: 5px;  
 }
-
-.display-carousel-button, .searchbar-button {
+.searchbar-button {
     font-family: 'Raleway'; 
     background-color: #9EB25D; 
     color: #f1db4b;
+    border-radius: 5px; 
+    margin-top: 10px; 
+}
+
+.display-carousel-button {
+    font-family: 'Raleway'; 
+    color: #eefcce; 
+    background-color: #a7c6da;
+    border-radius: 5px;  
+}
+.display-carousel-button:hover {
+    font-family: 'Raleway'; 
+    color: #a7c6da; 
+    background-color: #eefcce;
     border-radius: 5px;  
 }
 
