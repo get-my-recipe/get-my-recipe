@@ -58,7 +58,27 @@ class Home extends Component {
 
     axios.get(api)
         .then(res => {
-        const recipes = res.data.hits.map(el => el.recipe).map(el=> ({...el, isFlipped:false, bookmarked:false}));
+        // let recipes = res.data.hits.map(el => el.recipe).map(el=> ({...el, isFlipped:false, bookmarked:false}));
+          
+       
+       //function ingredients in the search bar
+        const incl=(el,ingred)=> {
+          const ingredientArray= ingred.split(' ')
+            let result=false
+          if (ingredientArray.length>0) {   
+            let val=false   
+            for (let i=0; i<ingredientArray.length;i++){
+                 val= el.includes(ingredientArray[i])
+                  if (val===true) {result=true}
+                }
+               
+        }
+        return result
+      }
+        
+        const addask = res.data.hits.map(el => el.recipe).map(el=> el.ingredientLines.map(el => ({ingr:el, ask:incl(el,ingredient)})))
+        const recipes = res.data.hits.map(el => el.recipe).map((el,ind)=> ({...el, isFlipped:false, bookmarked:false, ask: addask[ind]}));
+        
         const displayBook = true;
         this.setState({ recipes, displayBook });
         })
@@ -197,6 +217,7 @@ class Home extends Component {
                   display= {displayBook}
                   bookmarkF={this.handleStarChange}
                   bookmarked={r.bookmarked}
+                  url={r.url}
                  />           
 
                 <SingleCardVerso
@@ -204,6 +225,7 @@ class Home extends Component {
                   title={r.label}
                   flip={this.handleFlip}
                   uri={r.uri}
+                  ask={r.ask}
                 />
               </ReactCardFlip>
               </Col>

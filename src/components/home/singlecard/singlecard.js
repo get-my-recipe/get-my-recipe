@@ -5,7 +5,7 @@ import { ListGroup, ListGroupItem, Badge } from 'react-bootstrap';
 import './singlecard.css';
 
 
-const SingleCard = ({ display ,uri,title,image, bookmarkF, flip, bookmarked }) => (
+const SingleCard = ({ display ,uri,title,image, bookmarkF, flip, bookmarked, url }) => (
         <Card>
           <Card.Img variant="top" src={image} alt={title}
           onClick={() => flip(uri)} />
@@ -30,7 +30,7 @@ const SingleCard = ({ display ,uri,title,image, bookmarkF, flip, bookmarked }) =
             <ListGroupItem><Badge variant="success">Fast</Badge></ListGroupItem>
           </ListGroup>
           <Card.Body>
-            <Card.Link href="#">Recipe Link</Card.Link>
+            <Card.Link href={url}  target="_blank">Recipe</Card.Link>
           </Card.Body>
         </Card>
 );
