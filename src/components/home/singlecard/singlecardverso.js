@@ -5,17 +5,31 @@ import { ListGroup, ListGroupItem, Badge } from 'react-bootstrap';
 import './singlecard.css';
 
 
-const SingleCardVerso = ({uri, title, flip, ask }) => (
+const SingleCardVerso = ({uri, title, flip, ask, ingredientLines }) => (
         <Card onClick={() => flip(uri)}>
           <Card.Body>
             <Card.Title>{title}</Card.Title>
            
-            {/* bad practice */}
-            <ul>{ask.map((el, id) => (
+            {(ask===undefined) ?   
+
+            (
+            <ul>{ingredientLines.map((el, id) => (
+                        <li key={id}>
+                           {el}</li>
+                              ))}
+                      </ul>  
+            )
+            
+            :
+
+            (
+
+             <ul>{ask.map((el, id) => (
                         <li className={(el.ask===true) ? 'ask' : ''} key={id}>
                            {el.ingr}</li>
                               ))}
-                      </ul>      
+                      </ul>  
+            ) }                
  
           </Card.Body>
           <ListGroup className="list-group-flush">
