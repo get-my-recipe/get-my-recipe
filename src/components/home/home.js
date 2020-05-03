@@ -226,6 +226,7 @@ class Home extends Component {
                   flip={this.handleFlip}
                   uri={r.uri}
                   ask={r.ask}
+                  ingredientLines={r.ingredientLines}
                 />
               </ReactCardFlip>
               </Col>
