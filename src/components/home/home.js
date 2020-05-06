@@ -5,7 +5,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ReactCardFlip from 'react-card-flip';
 import Header from './header/header';
-import Example from './buttontestcarousel';
 import Searchbar from './searchbar/searchbar';
 import SingleCard from './singlecard/singlecard';
 import SingleCardVerso from './singlecard/singlecardverso';
@@ -184,7 +183,6 @@ class Home extends Component {
             handleInputChange={this.handleInputChange}
             updateAPI={this.getAPi}
           />
-          <Example />
           <Container className="card-template">
             <Row>
               {recipes.map((r) => (

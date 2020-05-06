@@ -1,6 +1,6 @@
 import React from 'react';
 import Nav from '../../sharedcomponents/nav/nav';
-import Example from '../buttontestcarousel';
+import ButtonCarousel from '../buttoncarousel/buttoncarousel';
 import './header.css';
 
 const Header =({value, handleInputChange, book}) => (
@@ -11,7 +11,7 @@ const Header =({value, handleInputChange, book}) => (
         handleInputChange={handleInputChange}
         book={book}
       />
-      <Example />
+      <ButtonCarousel />
       <h1 className="home-page-title">Get my recipe</h1>
     </div>
   </div>
