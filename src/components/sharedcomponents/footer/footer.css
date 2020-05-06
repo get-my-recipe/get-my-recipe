@@ -4,8 +4,7 @@
   background-color: #9eb25d;
   height: 200px;
   justify-content: space-around;
-  border-top: 5px solid #cecece;
-  border-bottom: 5px solid #cecece;
+  margin-top: 10px ;
 }
 
 a:link {

@@ -8,7 +8,7 @@
 }
 
 .container-home-welcome-section {
-    height: 100vh;
+    height: 92vh;
     width: 100%;
 }
 
@@ -21,23 +21,54 @@
     left: 50%;
     transform: translate(-50%, 0);
     box-shadow: 0 0 10px 1px #9eb25d;
-    opacity: .8;   
+    opacity: .9;   
 }
 
 .searchbar-form {
     position: relative;
-    top: 35%;
+    top: 15%;
     left: 20%;
 }
 
 .searchbar-input {
-    width: 50%
-    
+    width: 50%;
+    border: 1px solid #9eb25d;;
+    border-radius: 5px;  
 }
 
-.searchbar-button{
+.display-carousel-button, .searchbar-button {
+    font-family: 'Raleway'; 
+    background-color: #9EB25D; 
+    color: #f1db4b;
+    border-radius: 5px; 
+    margin-top: 10px; 
+}
+
+.searchbar-button:hover {
     font-family: 'Raleway'; 
     color: #9EB25D; 
+    background-color: #f1db4b;
+    border-radius: 5px;  
+}
+.searchbar-button {
+    font-family: 'Raleway'; 
+    background-color: #9EB25D; 
+    color: #f1db4b;
+    border-radius: 5px; 
+    margin-top: 10px; 
+}
+
+.display-carousel-button {
+    font-family: 'Raleway'; 
+    color: #eefcce; 
+    background-color: #a7c6da;
+    border-radius: 5px;  
+}
+.display-carousel-button:hover {
+    font-family: 'Raleway'; 
+    color: #a7c6da; 
+    background-color: #eefcce;
+    border-radius: 5px;  
 }
 
 .container-home-welcome-section h1 {
