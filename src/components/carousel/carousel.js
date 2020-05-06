@@ -13,8 +13,8 @@ function RecipeCarousel() {
   return (
     <Container className="container-carousel">
       <Row>
-      <Col className="title-recipe-of-the-day">
-        <h4>Suggestions of the day</h4>
+        <Col className="title-recipe-of-the-day">
+          <h4>Suggestions of the day</h4>
         </Col>
       </Row>
       <Row>
@@ -23,12 +23,13 @@ function RecipeCarousel() {
             <Carousel.Item>
               <img
                 className="d-block"
-                src={Image10}           
+                src={Image10}
                 alt="Recipe of the day"
               />
               <Carousel.Caption>
                 <h3>First Recipe</h3>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                <p>Recipe title</p>
+                <a href="link" />
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -39,7 +40,8 @@ function RecipeCarousel() {
               />
               <Carousel.Caption>
                 <h3>Second Recipe</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Recipe title</p>
+                <a href="link" />
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -51,7 +53,8 @@ function RecipeCarousel() {
 
               <Carousel.Caption>
                 <h3>Third Recipe</h3>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                <p>Recipe title</p>
+                <a href="link" />
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
