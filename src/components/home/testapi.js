@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import axios from "axios";
-import Nav from "../sharedcomponents/nav/nav";
-import TestFormAPI from "./testFormAPI";
-import TestRecipe from "./testRecipe";
+import React, { Component } from 'react';
+import axios from 'axios';
+import Nav from '../sharedcomponents/nav/nav';
+import TestFormAPI from './testFormAPI';
+import TestRecipe from './testRecipe';
 // import Bouton from "./searchbar/boutons/bouton";
 // import Range from "./searchbar/boutons/range";
 // import Dropdown from "./searchbar/boutons/dropdown";
@@ -19,13 +19,12 @@ import Forbiden from './filter/forbiden';
 class TestAPI extends Component {
   constructor() {
     super();
-
     this.state = {
-      ingredient: "",
+      ingredient: '',
       recipes: [],
       count: 0,
       ingr: 0,
-      health: "",
+      health: '',
     };
   }
 
@@ -33,13 +32,13 @@ class TestAPI extends Component {
 
   getAPi = (event) => {
     event.preventDefault();
-    const apiID = "a3b47c77";
-    const apiKey = "742e6a73e3d13dd35b00ec2852aaf28d";
+    const apiID = 'a3b47c77';
+    const apiKey = '742e6a73e3d13dd35b00ec2852aaf28d';
 
-    //let the user enter a number beetween 1 and max 100?
-    const nb = 10; //Max 100
+    // let the user enter a number beetween 1 and max 100?
+    const nb = 10; // Max 100
 
-    const ingredient = this.state.ingredient;
+    const { ingredient } = this.state;
     let example = `https://api.edamam.com/search?q=${ingredient}&app_id=${apiID}&app_key=${apiKey}&from=0&to=${nb}`;
 
     // ou????
@@ -47,37 +46,37 @@ class TestAPI extends Component {
     // const ingr2='onion';
     // example=`https://api.edamam.com/search?q=${ingr1}&${ingr2}&app_id=${apiID}&app_key=${apiKey}&from=0&to=${nb}`
 
-    //calories
-    //do intervalles or let the user enters intervalles?
+    // calories
+    // do intervalles or let the user enters intervalles?
     const caloriesInt1Min = 591;
     const caloriesInt1Max = 722;
-    //The format is calories=RANGE where RANGE is replaced by the value in kcal. RANGE is in one of MIN+, MIN-MAX or MAX, where MIN and MAX are non-negative integer numbers. The + symbol needs to be properly encoded.
+    // The format is calories=RANGE where RANGE is replaced by the value in kcal. RANGE is in one of MIN+, MIN-MAX or MAX, where MIN and MAX are non-negative integer numbers. The + symbol needs to be properly encoded.
     // Examples: “calories=100-300” will return all recipes with which have between 100 and 300 kcal per serving.
     example = `${example}&calories=${caloriesInt1Min}-${caloriesInt1Max}`;
     // calcul ( calories / yield )
 
-    //ingr = Maximum number of ingredients.
-    //let the user choose?
+    // ingr = Maximum number of ingredients.
+    // let the user choose?
     const ingr = 5;
     example = `${example}&ingr=${ingr}`;
 
-    //Diet label: one of “balanced”, “high-protein”, “low-fat”, “low-carb”  (labels are per serving)
-    const diet = "balanced";
+    // Diet label: one of “balanced”, “high-protein”, “low-fat”, “low-carb”  (labels are per serving)
+    const diet = 'balanced';
     example = `${example}&diet=${diet}`;
     // HAVE TO PAY FOR “high-fiber”  “low-sodium”
 
-    //Health label: One of the Health api parameters listed in Diet and Health Labels table at the end of this documentation.
-    //Multiple labels can be submitted simultatniousely this way “health=peanut-free&health=tree-nut-free”
-    const health = "peanut-free";
+    // Health label: One of the Health api parameters listed in Diet and Health Labels table at the end of this documentation.
+    // Multiple labels can be submitted simultatniousely this way “health=peanut-free&health=tree-nut-free”
+    const health = 'peanut-free';
     example = `${example}&health=${health}`;
-    //Health labels: “vegan”, “vegetarian”, “peanut-free”, “tree-nut-free”, "sugar-conscious" , "alcohol-free" (labels are per serving)
+    // Health labels: “vegan”, “vegetarian”, “peanut-free”, “tree-nut-free”, "sugar-conscious" , "alcohol-free" (labels are per serving)
     // HAVE TO PAY FOR the other
 
     // The type of cuisine of the recipe.
     // You can simultatniousely use saveral cuisines this way “cuisineType=chinese&cuisineType=indian”
     // const cuisineType='indian'
     // example=`${example}&cuisineType=${cuisineType}`
-    //HAVE TO PAY FOR THIS
+    // HAVE TO PAY FOR THIS
 
     // The type of meal a recipe belongs to – lunch, dinner, breakfast, snack
     // const mealType='breakfast'
@@ -90,20 +89,20 @@ class TestAPI extends Component {
     // example=`${example}&dishType=${dishType}`
     // HAVE TO PAY FOR THIS
 
-    //Time range for the total cooking and prep time for a recipe . The format is time=RANGE where RANGE is replaced by the value in minutes. RANGE is in one of MIN+, MIN-MAX or MAX, where MIN and MAX are non-negative integer numbers. The + symbol needs to be properly encoded.
-    //Examples: “time=1%2B” will return all recipes with available total time greater then 1 minute
-    const timeMin = 1; //avoid to put 0 because sometimes it's null
+    // Time range for the total cooking and prep time for a recipe . The format is time=RANGE where RANGE is replaced by the value in minutes. RANGE is in one of MIN+, MIN-MAX or MAX, where MIN and MAX are non-negative integer numbers. The + symbol needs to be properly encoded.
+    // Examples: “time=1%2B” will return all recipes with available total time greater then 1 minute
+    const timeMin = 1; // avoid to put 0 because sometimes it's null
     const timeMax = 30;
     example = `${example}&time=${timeMin}-${timeMax}`;
 
     // Excluding recipes with certain ingredients. The format is excluded=FOOD where FOOD is replaced by the name of the specific food you don’t want to be present in the recipe results. More than one food can be excluded at the same time.
     // Example: excluded=vinegar&excluded=pretzel will exclude any recipes which contain vinegar or pretzels in their ingredient list
-    const excluded = "vinegar";
+    const excluded = 'vinegar';
     example = `${example}&excluded=${excluded}`;
-    //add control to check excluded<>ingredient
+    // add control to check excluded<>ingredient
 
-    //Negative search (excluded ingredients)
-    //You can specify foods which you don’t want to be present in the results which the search request returns.
+    // Negative search (excluded ingredients)
+    // You can specify foods which you don’t want to be present in the results which the search request returns.
     // This method is to be combined with the diet/health/allergen labels and is not designed to replace them.
     // Example: You want to get back only recipes which do not contain gluten, pork or yogurt. You will use the following exclusions then:
     // health=gluten-free&health=pork-free&excluded=yogurt&excluded=greek+yogurt
@@ -119,18 +118,18 @@ class TestAPI extends Component {
 
     axios.get(example).then((res) => {
       const recipes = res.data.hits;
-      const count = res.data.count;
+      const { count } = res.data;
       console.log(res.data);
       this.setState({ recipes, count });
       // console.log(this.state)
     });
-    console.log("getAPI");
+    console.log('getAPI');
   };
 
   handleInputChange = (event) => {
     event.preventDefault();
-    const target = event.target;
-    const value = target.value;
+    const { target } = event;
+    const { value } = target;
     this.setState({
       ingredient: value,
     });
@@ -138,7 +137,7 @@ class TestAPI extends Component {
 
   handleInputIngrChange = (event) => {
     event.preventDefault();
-    const target = event.target;
+    const { target } = event;
     const valueIngr = target.value;
     this.setState({
       ingr: valueIngr,
@@ -161,7 +160,7 @@ class TestAPI extends Component {
 
   handleInputNotWantedIngr = (event) => {
     event.preventDefault();
-    const target = event.target;
+    const { target } = event;
     const valuehealth = target.value;
     this.setState({
       health: valuehealth,
@@ -174,7 +173,9 @@ class TestAPI extends Component {
   };
 
   render() {
-    const { ingredient, recipes, count, ingr, health } = this.state;
+    const {
+      ingredient, recipes, count, ingr, health,
+    } = this.state;
     return (
       <div>
         <Nav />
