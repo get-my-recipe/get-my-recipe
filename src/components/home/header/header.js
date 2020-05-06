@@ -10,7 +10,8 @@ const Header =({value, handleInputChange, book}) => (
         value={value} 
         handleInputChange={handleInputChange}
         book={book}
-        />
+      />
+      <Example />
       <h1 className="home-page-title">Get my recipe</h1>
     </div>
   </div>
