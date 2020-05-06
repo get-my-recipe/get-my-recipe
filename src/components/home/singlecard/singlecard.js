@@ -1,15 +1,23 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
 import { ListGroup, ListGroupItem, Badge } from 'react-bootstrap';
 
 import './singlecard.css';
 
 
-const SingleCard = ({ title, image }) => (
-      <Col sm={6} lg={4}>
+const SingleCard = ({ display ,uri,title,image, bookmarkF, flip, bookmarked, url }) => (
         <Card>
-          <Card.Img variant="top" src={image} alt={title} />
+          <Card.Img variant="top" src={image} alt={title}
+          onClick={() => flip(uri)} />
+          {(display) &&  (
+          <span
+                  className={(bookmarked) ? 'is-bookmarked' : ''}
+                  onClick={() => bookmarkF(uri)}
+                >
+                  &#9733;
+          </span>
+      )
+      }
           <Card.Body>
             <Card.Title>{title}</Card.Title>
             <Card.Text>
@@ -22,9 +30,8 @@ const SingleCard = ({ title, image }) => (
             <ListGroupItem><Badge variant="success">Fast</Badge></ListGroupItem>
           </ListGroup>
           <Card.Body>
-            <Card.Link href="#">Recipe Link</Card.Link>
+            <Card.Link href={url}  target="_blank">Recipe</Card.Link>
           </Card.Body>
         </Card>
-      </Col>
 );
 export default SingleCard;
