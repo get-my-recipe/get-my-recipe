@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ReactCardFlip from 'react-card-flip';
 import Header from './header/header';
-import ButtonCarousel from './buttoncarousel/buttoncarousel';
+import Example from './buttontestcarousel';
 import Searchbar from './searchbar/searchbar';
 import SingleCard from './singlecard/singlecard';
 import SingleCardVerso from './singlecard/singlecardverso';
@@ -14,22 +14,20 @@ import './home.css';
 const apiID = 'a3b47c77';
 const apiKey = '742e6a73e3d13dd35b00ec2852aaf28d';
 const nb = 100;
-
 class Home extends Component {
   constructor() {
     super();
-
     this.state = {
       ingredient: '',
       recipes: [],
       username: '',
       displayBook: true,
       postBook:
-       {
-         title: '',
-         poster: '',
-         comment: '',
-       },
+      {
+        title: '',
+        poster: '',
+        comment: '',
+      },
     };
   }
 
@@ -51,15 +49,11 @@ class Home extends Component {
       const apiID = 'a3b47c77';
       const apiKey = '742e6a73e3d13dd35b00ec2852aaf28d';
       const nb = 100;
-
       const { ingredient } = this.state;
       const api = `https://api.edamam.com/search?q=${ingredient}&app_id=${apiID}&app_key=${apiKey}&from=0&to=${nb}`;
-
       axios.get(api)
         .then((res) => {
         // let recipes = res.data.hits.map(el => el.recipe).map(el=> ({...el, isFlipped:false, bookmarked:false}));
-
-
           // function ingredients in the search bar
           const incl = (el, ingred) => {
             const ingredientArray = ingred.split(' ');
@@ -73,17 +67,14 @@ class Home extends Component {
             }
             return result;
           };
-
           const addask = res.data.hits.map((el) => el.recipe).map((el) => el.ingredientLines.map((el) => ({ ingr: el, ask: incl(el, ingredient) })));
           const recipes = res.data.hits.map((el) => el.recipe).map((el, ind) => ({
             ...el, isFlipped: false, bookmarked: false, ask: addask[ind],
           }));
-
           const displayBook = true;
           this.setState({ recipes, displayBook });
         });
     }
-
 
     // change search ingredient
     handleInputChange = (event) => {
@@ -117,14 +108,12 @@ class Home extends Component {
             const booksUsername = res.data.filter((book) => book.poster === this.state.username).map((el) => el.title).filter((el) => el.includes('recipe') && el.indexOf('recipe') === 0);
             const uniqueSet = new Set(booksUsername);
             const books = [...uniqueSet];
-
             if (books.length > 0) {
               let r = '';
               for (let i = 0; i < books.length; i++) {
                 r += `r=http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23${books[i]}&`;
               }
               const url = `https://api.edamam.com/search?${r}app_id=${apiID}&app_key=${apiKey}&from=0&to=${nb}`;
-
               axios.get(url)
                 .then((res) => {
                   const recipes = res.data;
@@ -149,11 +138,9 @@ class Home extends Component {
           poster: this.state.username,
           comment: 'TRUE',
         };
-
         const { recipes } = this.state;
         const select = this.state.recipes.findIndex((el) => el.uri === uri);
         recipes[select].bookmarked = true;
-
         this.setState({
           title: '',
           poster: '',
@@ -180,7 +167,6 @@ class Home extends Component {
       }
     }
 
-
     render() {
       console.log(this.state);
       const {
@@ -198,8 +184,7 @@ class Home extends Component {
             handleInputChange={this.handleInputChange}
             updateAPI={this.getAPi}
           />
-          <DailyRecipe />
-
+          <Example />
           <Container className="card-template">
             <Row>
               {recipes.map((r) => (
@@ -216,7 +201,6 @@ class Home extends Component {
                       bookmarked={r.bookmarked}
                       url={r.url}
                     />
-
                     <SingleCardVerso
                       key={r.uri}
                       title={r.label}
@@ -230,24 +214,8 @@ class Home extends Component {
               ))}
             </Row>
           </Container>
-
-          <Container className="card-template">
-            <Row>
-              {recipes.map((r) => (
-                <SingleCard
-                  key={r.recipe.uri}
-                  title={r.recipe.label}
-                  image={r.recipe.image}
-                />
-              ))}
-            </Row>
-          </Container>
-
         </div>
-
       );
     }
 }
-
-
 export default Home;
