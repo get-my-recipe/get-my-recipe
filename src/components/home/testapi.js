@@ -14,6 +14,7 @@ import TestDropdownDiet from "./testdropdowndiet";
 import TestCheckbox from "./testcheckbox";
 import Slider from "./testslider";
 import "./testboutoncss.css";
+import Forbiden from './filter/forbiden';
 
 class TestAPI extends Component {
   constructor() {
@@ -205,6 +206,7 @@ class TestAPI extends Component {
               value={health}
               handleInputChange={this.handleInputNotWantedIngr}
             />
+            <Forbiden />
           </div>
         </div>
         {/* <div>Count: {count}</div>

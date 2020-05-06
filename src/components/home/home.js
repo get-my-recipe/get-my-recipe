@@ -30,6 +30,7 @@ class Home extends Component {
         poster: '',
         comment: '',
       }
+      
     }
   }
    
