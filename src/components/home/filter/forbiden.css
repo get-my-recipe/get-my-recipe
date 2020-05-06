@@ -1,0 +1,11 @@
+ .forbideItem input {
+    padding: 10px;
+}
+
+.theList li {
+    background-color: #9EB25D;
+    padding:5px;
+    margin: 5px;
+    list-style: none;
+    text-decoration: line-through;
+}

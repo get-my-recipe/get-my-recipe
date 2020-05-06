@@ -8,12 +8,13 @@ import TestRecipe from './testRecipe';
 // import Dropdown from "./searchbar/boutons/dropdown";
 // import Checkbox from "./searchbar/boutons/checkbox";
 // import Input from "./searchbar/boutons/input";
-import Testfilteringredient from './testfilteringredient';
-import TestIngredientYouDontWant from './testIngredientYouDontWant';
-import TestDropdownDiet from './testdropdowndiet';
-import TestCheckbox from './testcheckbox';
-import Slider from './testslider';
-import './testboutoncss.css';
+import Testfilteringredient from "./testfilteringredient";
+import TestIngredientYouDontWant from "./testIngredientYouDontWant";
+import TestDropdownDiet from "./testdropdowndiet";
+import TestCheckbox from "./testcheckbox";
+import Slider from "./testslider";
+import "./testboutoncss.css";
+import Forbiden from './filter/forbiden';
 
 class TestAPI extends Component {
   constructor() {
@@ -206,6 +207,7 @@ class TestAPI extends Component {
               value={health}
               handleInputChange={this.handleInputNotWantedIngr}
             />
+            <Forbiden />
           </div>
         </div>
         {/* <div>Count: {count}</div>
