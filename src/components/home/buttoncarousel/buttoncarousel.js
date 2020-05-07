@@ -1,44 +1,103 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import axios from 'axios';
 import RecipeCarousel from '../recipecarousel/recipecarousel';
+import Loader from '../loader/loader';
 import '../header/header.css';
 
-class ButtonCarousel extends Component {
+
+class ButtonCarousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      clickStatus: false,
-      buttonName: 'Random recipes',
+      show: false,
+      isShowing: false,
+      randomRecipes: [],
     };
   }
 
-  displayCarousel = () => {
-    const clickStatus = !this.state.clickStatus;
-    let buttonName;
-    if (this.state.clickStatus === true) {
-      buttonName = 'Random recipes';
-    } else {
-      buttonName = 'Close random recipes';
-    }
-    this.setState({ clickStatus, buttonName });
+  handleClick = () => {
+    this.handleShow();
+    this.getApi();
   }
 
+  handleShow = () => {
+    const { show } = this.state;
+    this.setState({ show: !show });
+  }
+
+  handleClose = () => {
+    const { show } = this.state;
+    this.setState({ show: !show });
+    this.handleShowStatus();
+  }
+
+  handleShowStatus = () => {
+    const { isShowing } = this.state;
+    this.setState({ isShowing: !isShowing });
+  }
+
+  getApi = () => {
+    const apiID = 'a3b47c77';
+    const apiKey = '742e6a73e3d13dd35b00ec2852aaf28d';
+    const nb = 100;
+    const url = `https://api.edamam.com/search?q=&app_id=${apiID}&app_key=${apiKey}&from=0&to=${nb}&diet=balanced`;
+    axios.get(url)
+      .then((res) => {
+        const min = 1;
+        const max = 100;
+        const randomrecipes = res.data.hits.map((randomrecipe) => randomrecipe.recipe);
+        const randomRec1 = randomrecipes[Math.floor(Math.random() * (max - min) + min)];
+        const randomRec2 = randomrecipes[Math.floor(Math.random() * (max - min) + min)];
+        const randomRec3 = randomrecipes[Math.floor(Math.random() * (max - min) + min)];
+        const randomRecipeArr = [randomRec1, randomRec2, randomRec3];
+        this.setState({ randomRecipes: randomRecipeArr });
+        this.handleShowStatus();
+      });
+  }
 
   render() {
-    const { clickStatus, buttonName } = this.state;
+    const { show, randomRecipes, isShowing } = this.state;
     return (
-      <div className="button-carousel-container text-center">
+      <div>
         <button
-          className="display-carousel-button"
           type="button"
-          onClick={this.displayCarousel}
+          className="display-carousel-button"
+          onClick={this.handleClick}
         >
-          {buttonName}
+          Random Recipies
         </button>
-        { clickStatus && <RecipeCarousel /> }
+
+        {show
+          && (
+            <Modal show={show}>
+              <Modal.Header>
+                <Modal.Title>3 random recipies</Modal.Title>
+                <Button variant="secondary" onClick={this.handleClose}>
+                  X
+                </Button>
+              </Modal.Header>
+              <Modal.Body>
+                {isShowing
+                  ? (
+                    <RecipeCarousel
+                      randomRecipes={randomRecipes}
+                    />
+                  ) : (
+                    <Loader />
+                  )}
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={this.handleClose}>
+                  Close
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          )}
       </div>
     );
   }
 }
-
 
 export default ButtonCarousel;
