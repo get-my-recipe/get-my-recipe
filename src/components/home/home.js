@@ -45,9 +45,9 @@ class Home extends Component {
     // display recipes
     getAPi = (event) => {
       event.preventDefault();
-      const apiID = 'a3b47c77';
-      const apiKey = '742e6a73e3d13dd35b00ec2852aaf28d';
-      const nb = 100;
+      //const apiID = 'a3b47c77';
+      //const apiKey = '742e6a73e3d13dd35b00ec2852aaf28d';
+      //const nb = 100;
       const { ingredient } = this.state;
       const api = `https://api.edamam.com/search?q=${ingredient}&app_id=${apiID}&app_key=${apiKey}&from=0&to=${nb}`;
       axios.get(api)
@@ -167,7 +167,7 @@ class Home extends Component {
     }
 
     render() {
-      console.log(this.state);
+      //console.log(this.state);
       const {
         ingredient, recipes, username, displayBook,
       } = this.state;
