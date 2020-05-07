@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Form, FormControl, Button } from 'react-bootstrap';
 import logo from '../../../assets/images/logo.png';
-import './nav.css';
+import './navbarhome.css';
+import ButtonCarousel from '../buttoncarousel/buttoncarousel';
 
-const Nav = ({value, handleInputChange, book}) => (
+const NavBarHome = ({value, handleInputChange, book}) => (
 
   <Navbar collapseOnSelect expand="md" className="color-nav">
     <Navbar.Brand>
@@ -14,7 +15,7 @@ const Nav = ({value, handleInputChange, book}) => (
     <Navbar.Collapse id="responsive-navbar-nav">
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
-          <Link className="nav-link" to="/">Home</Link>
+          <ButtonCarousel />
         </li>
         <li className="nav-item">
           <Link className="nav-link" to="/contact">Contact</Link>
@@ -45,4 +46,4 @@ const Nav = ({value, handleInputChange, book}) => (
 
 
 
-export default Nav;
+export default NavBarHome;

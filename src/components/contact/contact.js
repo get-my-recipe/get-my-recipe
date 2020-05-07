@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
-import Nav from "../sharedcomponents/nav/nav";
+import NavBarShared from '../sharedcomponents/navbarshared/navbarshared';
 import './contact.css';
 
 class ContactForm extends Component {
@@ -25,7 +25,7 @@ class ContactForm extends Component {
   render() {
     return (
       <div>
-        <Nav />
+        <NavBarShared />
         <form className="contactUsForm">
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Name</Form.Label>

@@ -1,8 +1,8 @@
 import React from 'react';
-import Nav from '../sharedcomponents/nav/nav';
+import NavBarShared from '../sharedcomponents/navbarshared/navbarshared';
 
 const About = () => (
-  <Nav />
+  <NavBarShared />
 );
 
 

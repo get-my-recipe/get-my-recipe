@@ -1,12 +1,12 @@
 import React from 'react';
-import Nav from '../../sharedcomponents/nav/nav';
+import NavBarHome from '../navbarhome/navbarhome';
 import ButtonCarousel from '../buttoncarousel/buttoncarousel';
 import './header.css';
 
 const Header =({value, handleInputChange, book}) => (
   <div className="container-home-welcome-section">
     <div className="container-home-image">
-      <Nav 
+      <NavBarHome 
         value={value} 
         handleInputChange={handleInputChange}
         book={book}

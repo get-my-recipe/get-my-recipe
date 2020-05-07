@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Nav from '../sharedcomponents/nav/nav';
+import NavBarShared from '../sharedcomponents/navbarshared/navbarshared';
 import TestFormAPI from './testFormAPI';
 import TestRecipe from './testRecipe';
 // import Bouton from "./searchbar/boutons/bouton";
@@ -178,7 +178,7 @@ class TestAPI extends Component {
     } = this.state;
     return (
       <div>
-        <Nav />
+        <NavBarShared />
         {/* <Bouton />
         <Range />
         <Dropdown />
