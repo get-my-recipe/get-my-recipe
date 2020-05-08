@@ -10,14 +10,20 @@ const NavBarShared = ({ value, handleInputChange, book }) => (
 
   <Navbar collapseOnSelect expand="md" className="color-nav">
     <Navbar.Brand>
-      <img src={logo} width="30%" className="d-inline-block align-top" alt="logo" />
+      <Link className="nav-link" to="/">
+        <div>
+          <img
+            src={logo}
+            alt="button to go back to the homepage"
+            className="logo-home"
+          />
+        </div>
+      </Link>
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">
       <ul className="navbar-nav ml-auto">
-        <li className="nav-item">
-          <Link className="nav-link" to="/">Home</Link>
-        </li>
+
         <li className="nav-item">
           <Link className="nav-link" to="/contact">Contact</Link>
         </li>

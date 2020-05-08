@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, Form, FormControl, Button } from 'react-bootstrap';
+import {
+  Navbar, Form, FormControl, Button,
+} from 'react-bootstrap';
 import logo from '../../../assets/images/logo.png';
 import './navbarhome.css';
 import ButtonCarousel from '../buttoncarousel/buttoncarousel';
 
-const NavBarHome = ({value, handleInputChange, book}) => (
+const NavBarHome = ({ value, handleInputChange, book }) => (
 
   <Navbar collapseOnSelect expand="md" className="color-nav">
     <Navbar.Brand>
@@ -29,21 +31,24 @@ const NavBarHome = ({value, handleInputChange, book}) => (
       </ul>
     </Navbar.Collapse>
     <Form inline>
-      <FormControl type="text" 
-      placeholder="UserName" 
-      className="mr-sm-2"
-      value={value}
-      onChange={handleInputChange}
-       />
-      <Button variant="outline-success"
+      <FormControl
+        type="text"
+        placeholder="UserName"
+        className="mr-sm-2"
+        value={value}
+        onChange={handleInputChange}
+      />
+      <Button
+        variant="outline-success"
         onClick={book}
-      >Bookmark</Button>
+      >
+        Bookmark
+      </Button>
     </Form>
   </Navbar>
 
 
 );
-
 
 
 export default NavBarHome;
