@@ -18,10 +18,7 @@ const Testfilteringredient = ({
       onChange={handleInputChange}
     />
 
-    <Button className="btn" onClick={decrementIngr}>
-      {" "}
-      -{" "}
-    </Button>
+    <Button className="btn" onClick={decrementIngr}>-</Button>
     <Button onClick={incrementIngr}> + </Button>
   </form>
 );

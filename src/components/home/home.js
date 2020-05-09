@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -9,7 +10,18 @@ import Example from './buttontestcarousel';
 import Searchbar from './searchbar/searchbar';
 import SingleCard from './singlecard/singlecard';
 import SingleCardVerso from './singlecard/singlecardverso';
+import ForbideItem from './filter/forbideItem';
+import FilterDiet from './filter/filterdiet';
+import FilterCalories from './filter/filtercalories';
+import FilterHealth from './filter/filterhealth';
+import Filteringredient from './filter/filteringredient';
+import FilterTime from './filter/filtertime';
+
 import './home.css';
+import './filter/forbiden.css';
+
+
+
 
 const apiID = 'a3b47c77';
 const apiKey = '742e6a73e3d13dd35b00ec2852aaf28d';
@@ -28,6 +40,18 @@ class Home extends Component {
         poster: '',
         comment: '',
       },
+      excluded: [],
+      ingr: 20 ,
+      diet:'no filter',
+      isVegan: false,
+      isVegetarian: false,
+      isPeanutFree: false,
+      isNutFree: false,
+      isSugarConscious: false,
+      isAlcoolFree: false,
+      caloriesMax:'',
+      timeMax:'',
+
     };
   }
 
@@ -50,10 +74,60 @@ class Home extends Component {
       const apiKey = '742e6a73e3d13dd35b00ec2852aaf28d';
       const nb = 100;
       const { ingredient } = this.state;
-      const api = `https://api.edamam.com/search?q=${ingredient}&app_id=${apiID}&app_key=${apiKey}&from=0&to=${nb}`;
+      let api = `https://api.edamam.com/search?q=${ingredient}&app_id=${apiID}&app_key=${apiKey}&from=0&to=${nb}`;
+
+          //filter
+            //food excluded
+          const excluded = this.state.excluded
+          if (excluded.length !== -1) {
+             for (let i=0;i<excluded.length;i++){
+               api=`${api}&excluded=${excluded[i].text}`
+             }
+          }
+            //Maximum number of ingredients.
+            const ingr = this.state.ingr
+            api=`${api}&ingr=${ingr}`;
+           
+
+            //diet
+            const diet = this.state.diet;
+            if (diet !=='no filter') {
+            api=`${api}&diet=${diet}`;
+            }
+            
+            //health
+            // Health labels: “vegan”, “vegetarian”, “peanut-free”, “tree-nut-free”, "sugar-conscious" , "alcohol-free" (labels are per serving)
+            const isVegan = this.state.isVegan;
+            const isVegetarian = this.state.isVegetarian;
+            const isPeanutFree = this.state.isPeanutFree;
+            const isNutFree = this.state.isNutFree;
+            const isSugarConscious = this.state.isSugarConscious;
+            const isAlcoolFree = this.state.isAlcoolFree;
+            
+            if (isVegan) {api=`${api}&health=vegan`}
+            if (isVegetarian) {api=`${api}&health=vegetarian`}
+            if (isPeanutFree) {api=`${api}&health=peanut-free`}
+            if (isNutFree) {api=`${api}&health=tree-nut-free`}
+            if (isSugarConscious) {api=`${api}&health=sugar-conscious`}
+            if (isAlcoolFree) {api=`${api}&health=alcohol-free`}
+
+            //calories max
+            const caloriesMax = this.state.caloriesMax
+            if (caloriesMax !== ""){
+              api=`${api}&calories=${caloriesMax}`;
+            }
+
+              // time max in min
+              const timeMax = this.state.timeMax
+            if (timeMax !== ""){
+              api=`${api}&time=${timeMax}`;
+            }
+
+            console.log(api)
+
+
       axios.get(api)
         .then((res) => {
-        // let recipes = res.data.hits.map(el => el.recipe).map(el=> ({...el, isFlipped:false, bookmarked:false}));
           // function ingredients in the search bar
           const incl = (el, ingred) => {
             const ingredientArray = ingred.split(' ');
@@ -61,7 +135,7 @@ class Home extends Component {
             if (ingredientArray.length > 0) {
               let val = false;
               for (let i = 0; i < ingredientArray.length; i++) {
-                val = el.includes(ingredientArray[i]);
+                val = el.toLowerCase().includes(ingredientArray[i].toLowerCase());
                 if (val === true) { result = true; }
               }
             }
@@ -166,12 +240,157 @@ class Home extends Component {
           });
       }
     }
+ 
+    //filter ingr
+    handleInputChangeIngr = (event) => {
+      event.preventDefault();
+      const { target } = event;
+      const valueIngr = target.value;
+      this.setState({
+        ingr: valueIngr,
+      });
+    };
+  
+    incrementIngr = () => {
+      const ingr = Number(this.state.ingr) + 1;
+      this.setState({
+        ingr,
+      });
+    };
+  
+    decrementIngr = () => {
+      const ingr = Number(this.state.ingr) - 1;
+      this.setState({
+        ingr,
+      });
+    };
+    //end
+
+    //filter diet
+    handleChangeDiet = (event) => {
+      event.preventDefault();
+      this.setState({ diet: event.target.value });
+    };
+    //end
+
+    //filter health
+    handleInputVega = (event) => {
+      const target = event.target;
+      const value = target.name === 'isVegan' ? target.checked : target.value;
+      const name = target.name;
+      this.setState({
+        [name]: value,
+      });
+    };
+  
+    handleInputVege = (event) => {
+      const target = event.target;
+      const value =
+        target.name === 'isVegetarian' ? target.checked : target.value;
+      const name = target.name;
+      this.setState({
+        [name]: value,
+      });
+    };
+  
+    handleInputPeanut = (event) => {
+      const target = event.target;
+      const value =
+        target.name === 'isPeanutFree' ? target.checked : target.value;
+      const name = target.name;
+      this.setState({
+        [name]: value,
+      });
+    };
+  
+    handleInputNutFree = (event) => {
+      const target = event.target;
+      const value = target.name === 'isNutFree' ? target.checked : target.value;
+      const name = target.name;
+      this.setState({
+        [name]: value,
+      });
+    };
+  
+    handleInputSugar = (event) => {
+      const target = event.target;
+      const value =
+        target.name === 'isSugarConscious' ? target.checked : target.value;
+      const name = target.name;
+      this.setState({
+        [name]: value,
+      });
+    };
+  
+    handleInputAlcool = (event) => {
+      const target = event.target;
+      const value =
+        target.name === 'isAlcoolFree' ? target.checked : target.value;
+      const name = target.name;
+      this.setState({
+        [name]: value,
+      });
+    };
+    //end
+
+    //filter calories
+    handleOnChangeCalories = (event) => {
+      event.preventDefault();
+      this.setState({
+        caloriesMax: event.target.value,
+      });
+    };
+    //end
+
+    //filter time
+    handleOnChangeTime = (event) => {
+      event.preventDefault();
+      this.setState({
+        timeMax: event.target.value,
+      });
+    };
+    //
+    
+    //filter excluded
+    addItem = (e) => {
+      if (this._inputElement.value !== "") {
+          let newItem = {
+              text: this._inputElement.value,
+              key: uuidv4()
+          }
+         
+          this.setState((prevState) => {
+              return {
+                  excluded: prevState.excluded.concat(newItem)
+              }
+          }
+          );
+      }
+      this._inputElement.value ="";
+      console.log(this.state.excluded)
+      e.preventDefault()
+  }
+  deleteItem = (key) => {
+      const filterexcluded = this.state.excluded.filter(item => {
+         return (item.key !== key)
+      }
+          )
+  
+          this.setState ({excluded : filterexcluded })
+  }
+  
+    //end
+
+ 
 
     render() {
       console.log(this.state);
       const {
-        ingredient, recipes, username, displayBook,
+        ingredient, recipes, username, displayBook, ingr, diet, isVegan, isVegetarian, isPeanutFree,isNutFree,
+        isSugarConscious, isAlcoolFree, caloriesMax, timeMax
       } = this.state;
+      
+      
       return (
         <div>
           <Header
@@ -183,7 +402,82 @@ class Home extends Component {
             value={ingredient}
             handleInputChange={this.handleInputChange}
             updateAPI={this.getAPi}
+            valueIngr={ingr}
+            handleInputChangeIngr={this.handleInputChangeIngr}
+            decrementIngr={this.decrementIngr}
+            incrementIngr={this.incrementIngr}
+            diet={diet}
+            handleChangeDiet={this.handleChangeDiet}
+            vega={isVegan}
+            vege={isVegetarian}
+            peanut={isPeanutFree}
+            treenutfree={isNutFree}
+            sugar={isSugarConscious}
+            alcool={isAlcoolFree}
+            handleInputVega={this.handleInputVega}
+            handleInputVege={this.handleInputVege}
+            handleInputPeanut={this.handleInputPeanut}
+            handleInputSugar={this.handleInputSugar}
+            handleInputAlcool={this.handleInputAlcool}
+            handleInputNutFree={this.handleInputNutFree}
+            caloriesMax={caloriesMax}
+            handleOnChangeCalories={this.handleOnChangeCalories}
+            timeMax={timeMax}
+            handleOnChangeTime={this.handleOnChangeTime}
           />
+
+          {/* Start Filter */}
+              <div className='forbideItem'>
+                <form onSubmit={this.addItem}>
+                    <input
+                    ref={(a) => this._inputElement = a }
+                    placeholder="Enter ingredient you don't want" >
+                    </input>
+                    <button type='submit'>add item</button>
+                </form>
+          
+                <ForbideItem 
+                entries={this.state.excluded}
+                delete={this.deleteItem}
+                />
+            </div>
+            <Filteringredient
+                       valueIngr={ingr}
+                       handleInputChangeIngr={this.handleInputChangeIngr}
+                       decrementIngr={this.decrementIngr}
+                       incrementIngr={this.incrementIngr}
+                      /> 
+
+                      <FilterDiet
+                         diet={diet}
+                         handleChangeDiet={this.handleChangeDiet}
+                      />
+                      <FilterHealth
+                       vega={isVegan}
+                       vege={isVegetarian}
+                       peanut={isPeanutFree}
+                       treenutfree={isNutFree}
+                       sugar={isSugarConscious}
+                       alcool={isAlcoolFree}
+                       handleInputVega={this.handleInputVega}
+                       handleInputVege={this.handleInputVege}
+                       handleInputPeanut={this.handleInputPeanut}
+                       handleInputSugar={this.handleInputSugar}
+                       handleInputAlcool={this.handleInputAlcool}
+                       handleInputNutFree={this.handleInputNutFree}
+                       />
+                       <FilterCalories
+                       caloriesMax={caloriesMax}
+                       handleOnChangeCalories={this.handleOnChangeCalories}
+                       />
+                       <FilterTime
+                       timeMax={timeMax}
+                       handleOnChangeTime={this.handleOnChangeTime}
+                       />
+
+
+        {/* end filter */}
+       
           <Example />
           <Container className="card-template">
             <Row>
