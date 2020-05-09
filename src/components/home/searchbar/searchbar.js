@@ -17,20 +17,6 @@ handleOnChangeTime
   <div className="searchbar-container">
     <form className="searchbar-form">
     
-      <input
-        className="searchbar-input"
-        type="text"
-        value={value}
-        onChange={handleInputChange}
-      />
-      <button
-        type="button"
-        className="searchbar-button"
-        onClick={updateAPI}
-      >
-        <strong>Search</strong>
-      </button>
-      <div>
       <Filter
       handleInputChangeIngr={handleInputChangeIngr}
       diet={diet}
@@ -49,7 +35,21 @@ handleOnChangeTime
       handleInputNutFree={handleInputNutFree}
       handleOnChangeCalories={handleOnChangeCalories}
       handleOnChangeTime={handleOnChangeTime}/>
-      </div>
+      
+      <input
+        className="searchbar-input"
+        type="text"
+        value={value}
+        onChange={handleInputChange}
+      />
+      <button
+        type="button"
+        className="searchbar-button"
+        onClick={updateAPI}
+      >
+        <strong>Search</strong>
+      </button>
+      
     </form>
 
            
