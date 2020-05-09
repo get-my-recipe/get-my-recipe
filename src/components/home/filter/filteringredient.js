@@ -1,24 +1,36 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
+import CircularSlider from '@fseehawer/react-circular-slider';
+import './circular.css';
+// import { ReactComponent as PowerIcon } from './assets/power.svg';
 
+const Filteringredient =({handleInputChangeIngr}) => (
 
-const Filteringredient = ({
-  valueIngr,
-  handleInputChangeIngr,
-  decrementIngr,
-  incrementIngr,
-}) => (
-    <div>
-    <h5>Maximum number of ingredients wanted : </h5>
-    <input
-      type="Number"
-      value={valueIngr}
-      onChange={handleInputChangeIngr}
-    />
+  
+  <CircularSlider className='circuSlider' 
+  width={120}
+  heigh={120}
+  label="Ingredients"
+  min={1}
+  max={20}
+  dataIndex={4}
+  valueFontSize = '1.5rem'
+  // prependToValue="$"
+  // appendToValue="K"
+  labelColor="#9EB25D"
+  labelBottom={true}
+  knobColor="#9EB25D"
+  progressColorFrom="#EDFF71"
+  progressColorTo="#9EB25D"
+  progressSize={7}
+  trackColor="#F1DB4B"
+  trackSize={7}
+  onChange={ (value) => {handleInputChangeIngr(value) } }
+>
+  {/* <DragIcon x="9" y="8" width="18px" height="18px" /> */}
+</CircularSlider>
+    );
 
-    <Button className="btn" onClick={decrementIngr}>-</Button>
-    <Button onClick={incrementIngr}> + </Button>
-    </div>
-);
 
 export default Filteringredient;
+
+

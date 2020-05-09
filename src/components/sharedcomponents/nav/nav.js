@@ -22,9 +22,6 @@ const Nav = ({value, handleInputChange, book}) => (
         <li className="nav-item">
           <Link className="nav-link" to="/about">About us</Link>
         </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/test">Test API</Link>
-        </li>
       </ul>
     </Navbar.Collapse>
     <Form inline>

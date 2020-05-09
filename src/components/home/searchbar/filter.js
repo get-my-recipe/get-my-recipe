@@ -8,9 +8,10 @@ import FilterHealth from '../filter/filterhealth';
 import FilterCalories from '../filter/filtercalories';
 import FilterTime from '../filter/filtertime';
 
-function Filter({valueIngr,handleInputChangeIngr,decrementIngr,incrementIngr,diet,handleChangeDiet,
+
+function Filter({handleInputChangeIngr,diet,handleChangeDiet,
 vega,vege,peanut,treenutfree,sugar,alcool,handleInputVega,handleInputVege,handleInputPeanut,handleInputNutFree,handleInputSugar,handleInputAlcool,
-caloriesMax,handleOnChangeCalories,timeMax,handleOnChangeTime}) {
+handleOnChangeCalories,handleOnChangeTime}) {
     const [open, setOpen] = useState(false);
   
     return (
@@ -26,12 +27,9 @@ caloriesMax,handleOnChangeCalories,timeMax,handleOnChangeTime}) {
         
         <Collapse in={open}>
           <div id="example-collapse-text">
-          <Filteringredient
-                        valueIngr={valueIngr}
-                        handleInputChangeIngr={handleInputChangeIngr}
-                        decrementIngr={decrementIngr}
-                        incrementIngr={incrementIngr}
-                      />
+         
+          
+
            <FilterDiet
                         diet={diet}
                         handleChangeDiet={handleChangeDiet}
@@ -50,14 +48,17 @@ caloriesMax,handleOnChangeCalories,timeMax,handleOnChangeTime}) {
                         handleInputAlcool={handleInputAlcool}
                         handleInputNutFree={handleInputNutFree}
                         /> 
-           <FilterCalories
-                       caloriesMax={caloriesMax}
+           
+          <Filteringredient 
+                        handleInputChangeIngr={handleInputChangeIngr}
+                      />
+          <FilterCalories
                        handleOnChangeCalories={handleOnChangeCalories}
                        /> 
-            <FilterTime
-                       timeMax={timeMax}
+
+<         FilterTime
                        handleOnChangeTime={handleOnChangeTime}
-                       />                            
+                       />                           
 
           </div>
         </Collapse>

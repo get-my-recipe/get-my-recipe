@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -10,18 +9,7 @@ import Example from './buttontestcarousel';
 import Searchbar from './searchbar/searchbar';
 import SingleCard from './singlecard/singlecard';
 import SingleCardVerso from './singlecard/singlecardverso';
-import ForbideItem from './filter/forbideItem';
-import FilterDiet from './filter/filterdiet';
-import FilterCalories from './filter/filtercalories';
-import FilterHealth from './filter/filterhealth';
-import Filteringredient from './filter/filteringredient';
-import FilterTime from './filter/filtertime';
-
 import './home.css';
-import './filter/forbiden.css';
-
-
-
 
 const apiID = 'a3b47c77';
 const apiKey = '742e6a73e3d13dd35b00ec2852aaf28d';
@@ -40,8 +28,8 @@ class Home extends Component {
         poster: '',
         comment: '',
       },
-      excluded: [],
-      ingr: 20 ,
+  
+      ingr: '' ,
       diet:'no filter',
       isVegan: false,
       isVegetarian: false,
@@ -77,18 +65,13 @@ class Home extends Component {
       let api = `https://api.edamam.com/search?q=${ingredient}&app_id=${apiID}&app_key=${apiKey}&from=0&to=${nb}`;
 
           //filter
-            //food excluded
-          const excluded = this.state.excluded
-          if (excluded.length !== -1) {
-             for (let i=0;i<excluded.length;i++){
-               api=`${api}&excluded=${excluded[i].text}`
-             }
-          }
-            //Maximum number of ingredients.
-            const ingr = this.state.ingr
-            api=`${api}&ingr=${ingr}`;
-           
 
+            //Maximum number of ingredients.
+            const ingr = this.state.ingr;
+            if (ingr !== ""){
+              api=`${api}&ingr=${ingr}`;
+            }
+           
             //diet
             const diet = this.state.diet;
             if (diet !=='no filter') {
@@ -148,7 +131,35 @@ class Home extends Component {
           const displayBook = true;
           this.setState({ recipes, displayBook });
         });
+        this.reset()
     }
+
+    reset(){
+     const ingredient= ''
+     this.setState({ ingredient})
+      const ingr= ''
+      this.setState({ ingr})
+      const diet='no filter';
+      this.setState({ diet})
+      const isVegan= false
+      this.setState({ isVegan})
+      const isVegetarian= false
+      this.setState({ isVegetarian})
+      const isPeanutFree= false
+      this.setState({ isPeanutFree})
+      const isNutFree= false
+      this.setState({ isNutFree})
+      const isSugarConscious= false
+      this.setState({ isSugarConscious})
+      const isAlcoolFree= false
+      this.setState({ isAlcoolFree})
+      const caloriesMax= ''
+      this.setState({ caloriesMax})
+      const timeMax= ''
+      this.setState({ timeMax})
+
+    }
+
 
     // change search ingredient
     handleInputChange = (event) => {
@@ -242,26 +253,9 @@ class Home extends Component {
     }
  
     //filter ingr
-    handleInputChangeIngr = (event) => {
-      event.preventDefault();
-      const { target } = event;
-      const valueIngr = target.value;
+    handleInputChangeIngr = (value) => {
       this.setState({
-        ingr: valueIngr,
-      });
-    };
-  
-    incrementIngr = () => {
-      const ingr = Number(this.state.ingr) + 1;
-      this.setState({
-        ingr,
-      });
-    };
-  
-    decrementIngr = () => {
-      const ingr = Number(this.state.ingr) - 1;
-      this.setState({
-        ingr,
+        ingr: value,
       });
     };
     //end
@@ -334,55 +328,22 @@ class Home extends Component {
     //end
 
     //filter calories
-    handleOnChangeCalories = (event) => {
-      event.preventDefault();
+    handleOnChangeCalories = (value) => {
       this.setState({
-        caloriesMax: event.target.value,
+        caloriesMax: value,
       });
     };
     //end
 
     //filter time
-    handleOnChangeTime = (event) => {
-      event.preventDefault();
+    handleOnChangeTime = (value) => {
       this.setState({
-        timeMax: event.target.value,
+        timeMax: value,
       });
     };
     //
     
-    //filter excluded
-    addItem = (e) => {
-      if (this._inputElement.value !== "") {
-          let newItem = {
-              text: this._inputElement.value,
-              key: uuidv4()
-          }
-         
-          this.setState((prevState) => {
-              return {
-                  excluded: prevState.excluded.concat(newItem)
-              }
-          }
-          );
-      }
-      this._inputElement.value ="";
-      console.log(this.state.excluded)
-      e.preventDefault()
-  }
-  deleteItem = (key) => {
-      const filterexcluded = this.state.excluded.filter(item => {
-         return (item.key !== key)
-      }
-          )
-  
-          this.setState ({excluded : filterexcluded })
-  }
-  
-    //end
-
- 
-
+   
     render() {
       console.log(this.state);
       const {
@@ -404,8 +365,6 @@ class Home extends Component {
             updateAPI={this.getAPi}
             valueIngr={ingr}
             handleInputChangeIngr={this.handleInputChangeIngr}
-            decrementIngr={this.decrementIngr}
-            incrementIngr={this.incrementIngr}
             diet={diet}
             handleChangeDiet={this.handleChangeDiet}
             vega={isVegan}
@@ -425,58 +384,6 @@ class Home extends Component {
             timeMax={timeMax}
             handleOnChangeTime={this.handleOnChangeTime}
           />
-
-          {/* Start Filter */}
-              <div className='forbideItem'>
-                <form onSubmit={this.addItem}>
-                    <input
-                    ref={(a) => this._inputElement = a }
-                    placeholder="Enter ingredient you don't want" >
-                    </input>
-                    <button type='submit'>add item</button>
-                </form>
-          
-                <ForbideItem 
-                entries={this.state.excluded}
-                delete={this.deleteItem}
-                />
-            </div>
-            <Filteringredient
-                       valueIngr={ingr}
-                       handleInputChangeIngr={this.handleInputChangeIngr}
-                       decrementIngr={this.decrementIngr}
-                       incrementIngr={this.incrementIngr}
-                      /> 
-
-                      <FilterDiet
-                         diet={diet}
-                         handleChangeDiet={this.handleChangeDiet}
-                      />
-                      <FilterHealth
-                       vega={isVegan}
-                       vege={isVegetarian}
-                       peanut={isPeanutFree}
-                       treenutfree={isNutFree}
-                       sugar={isSugarConscious}
-                       alcool={isAlcoolFree}
-                       handleInputVega={this.handleInputVega}
-                       handleInputVege={this.handleInputVege}
-                       handleInputPeanut={this.handleInputPeanut}
-                       handleInputSugar={this.handleInputSugar}
-                       handleInputAlcool={this.handleInputAlcool}
-                       handleInputNutFree={this.handleInputNutFree}
-                       />
-                       <FilterCalories
-                       caloriesMax={caloriesMax}
-                       handleOnChangeCalories={this.handleOnChangeCalories}
-                       />
-                       <FilterTime
-                       timeMax={timeMax}
-                       handleOnChangeTime={this.handleOnChangeTime}
-                       />
-
-
-        {/* end filter */}
        
           <Example />
           <Container className="card-template">
