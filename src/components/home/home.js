@@ -27,6 +27,18 @@ class Home extends Component {
         poster: '',
         comment: '',
       },
+  
+      ingr: '' ,
+      diet:'no filter',
+      isVegan: false,
+      isVegetarian: false,
+      isPeanutFree: false,
+      isNutFree: false,
+      isSugarConscious: false,
+      isAlcoolFree: false,
+      caloriesMax:'',
+      timeMax:'',
+
     };
   }
 
@@ -49,10 +61,55 @@ class Home extends Component {
       //const apiKey = '742e6a73e3d13dd35b00ec2852aaf28d';
       //const nb = 100;
       const { ingredient } = this.state;
-      const api = `https://api.edamam.com/search?q=${ingredient}&app_id=${apiID}&app_key=${apiKey}&from=0&to=${nb}`;
+      let api = `https://api.edamam.com/search?q=${ingredient}&app_id=${apiID}&app_key=${apiKey}&from=0&to=${nb}`;
+
+          //filter
+
+            //Maximum number of ingredients.
+            const ingr = this.state.ingr;
+            if (ingr !== ""){
+              api=`${api}&ingr=${ingr}`;
+            }
+           
+            //diet
+            const diet = this.state.diet;
+            if (diet !=='no filter') {
+            api=`${api}&diet=${diet}`;
+            }
+            
+            //health
+            // Health labels: “vegan”, “vegetarian”, “peanut-free”, “tree-nut-free”, "sugar-conscious" , "alcohol-free" (labels are per serving)
+            const isVegan = this.state.isVegan;
+            const isVegetarian = this.state.isVegetarian;
+            const isPeanutFree = this.state.isPeanutFree;
+            const isNutFree = this.state.isNutFree;
+            const isSugarConscious = this.state.isSugarConscious;
+            const isAlcoolFree = this.state.isAlcoolFree;
+            
+            if (isVegan) {api=`${api}&health=vegan`}
+            if (isVegetarian) {api=`${api}&health=vegetarian`}
+            if (isPeanutFree) {api=`${api}&health=peanut-free`}
+            if (isNutFree) {api=`${api}&health=tree-nut-free`}
+            if (isSugarConscious) {api=`${api}&health=sugar-conscious`}
+            if (isAlcoolFree) {api=`${api}&health=alcohol-free`}
+
+            //calories max
+            const caloriesMax = this.state.caloriesMax
+            if (caloriesMax !== ""){
+              api=`${api}&calories=${caloriesMax}`;
+            }
+
+              // time max in min
+              const timeMax = this.state.timeMax
+            if (timeMax !== ""){
+              api=`${api}&time=${timeMax}`;
+            }
+
+            console.log(api)
+
+
       axios.get(api)
         .then((res) => {
-        // let recipes = res.data.hits.map(el => el.recipe).map(el=> ({...el, isFlipped:false, bookmarked:false}));
           // function ingredients in the search bar
           const incl = (el, ingred) => {
             const ingredientArray = ingred.split(' ');
@@ -60,7 +117,7 @@ class Home extends Component {
             if (ingredientArray.length > 0) {
               let val = false;
               for (let i = 0; i < ingredientArray.length; i++) {
-                val = el.includes(ingredientArray[i]);
+                val = el.toLowerCase().includes(ingredientArray[i].toLowerCase());
                 if (val === true) { result = true; }
               }
             }
@@ -73,7 +130,35 @@ class Home extends Component {
           const displayBook = true;
           this.setState({ recipes, displayBook });
         });
+        this.reset()
     }
+
+    reset(){
+     const ingredient= ''
+     this.setState({ ingredient})
+      const ingr= ''
+      this.setState({ ingr})
+      const diet='no filter';
+      this.setState({ diet})
+      const isVegan= false
+      this.setState({ isVegan})
+      const isVegetarian= false
+      this.setState({ isVegetarian})
+      const isPeanutFree= false
+      this.setState({ isPeanutFree})
+      const isNutFree= false
+      this.setState({ isNutFree})
+      const isSugarConscious= false
+      this.setState({ isSugarConscious})
+      const isAlcoolFree= false
+      this.setState({ isAlcoolFree})
+      const caloriesMax= ''
+      this.setState({ caloriesMax})
+      const timeMax= ''
+      this.setState({ timeMax})
+
+    }
+
 
     // change search ingredient
     handleInputChange = (event) => {
@@ -165,12 +250,107 @@ class Home extends Component {
           });
       }
     }
+ 
+    //filter ingr
+    handleInputChangeIngr = (value) => {
+      this.setState({
+        ingr: value,
+      });
+    };
+    //end
 
+    //filter diet
+    handleChangeDiet = (event) => {
+      event.preventDefault();
+      this.setState({ diet: event.target.value });
+    };
+    //end
+
+    //filter health
+    handleInputVega = (event) => {
+      const target = event.target;
+      const value = target.name === 'isVegan' ? target.checked : target.value;
+      const name = target.name;
+      this.setState({
+        [name]: value,
+      });
+    };
+  
+    handleInputVege = (event) => {
+      const target = event.target;
+      const value =
+        target.name === 'isVegetarian' ? target.checked : target.value;
+      const name = target.name;
+      this.setState({
+        [name]: value,
+      });
+    };
+  
+    handleInputPeanut = (event) => {
+      const target = event.target;
+      const value =
+        target.name === 'isPeanutFree' ? target.checked : target.value;
+      const name = target.name;
+      this.setState({
+        [name]: value,
+      });
+    };
+  
+    handleInputNutFree = (event) => {
+      const target = event.target;
+      const value = target.name === 'isNutFree' ? target.checked : target.value;
+      const name = target.name;
+      this.setState({
+        [name]: value,
+      });
+    };
+  
+    handleInputSugar = (event) => {
+      const target = event.target;
+      const value =
+        target.name === 'isSugarConscious' ? target.checked : target.value;
+      const name = target.name;
+      this.setState({
+        [name]: value,
+      });
+    };
+  
+    handleInputAlcool = (event) => {
+      const target = event.target;
+      const value =
+        target.name === 'isAlcoolFree' ? target.checked : target.value;
+      const name = target.name;
+      this.setState({
+        [name]: value,
+      });
+    };
+    //end
+
+    //filter calories
+    handleOnChangeCalories = (value) => {
+      this.setState({
+        caloriesMax: value,
+      });
+    };
+    //end
+
+    //filter time
+    handleOnChangeTime = (value) => {
+      this.setState({
+        timeMax: value,
+      });
+    };
+    //
+    
+   
     render() {
       //console.log(this.state);
       const {
-        ingredient, recipes, username, displayBook,
+        ingredient, recipes, username, displayBook, ingr, diet, isVegan, isVegetarian, isPeanutFree,isNutFree,
+        isSugarConscious, isAlcoolFree, caloriesMax, timeMax
       } = this.state;
+      
+      
       return (
         <div>
           <Header
@@ -182,7 +362,28 @@ class Home extends Component {
             value={ingredient}
             handleInputChange={this.handleInputChange}
             updateAPI={this.getAPi}
+            valueIngr={ingr}
+            handleInputChangeIngr={this.handleInputChangeIngr}
+            diet={diet}
+            handleChangeDiet={this.handleChangeDiet}
+            vega={isVegan}
+            vege={isVegetarian}
+            peanut={isPeanutFree}
+            treenutfree={isNutFree}
+            sugar={isSugarConscious}
+            alcool={isAlcoolFree}
+            handleInputVega={this.handleInputVega}
+            handleInputVege={this.handleInputVege}
+            handleInputPeanut={this.handleInputPeanut}
+            handleInputSugar={this.handleInputSugar}
+            handleInputAlcool={this.handleInputAlcool}
+            handleInputNutFree={this.handleInputNutFree}
+            caloriesMax={caloriesMax}
+            handleOnChangeCalories={this.handleOnChangeCalories}
+            timeMax={timeMax}
+            handleOnChangeTime={this.handleOnChangeTime}
           />
+
           <Container className="card-template">
             <Row>
               {recipes.map((r) => (

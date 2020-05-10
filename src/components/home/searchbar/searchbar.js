@@ -1,10 +1,41 @@
 import React from 'react';
 import '../header/header.css';
+import Filter from './filter';
 
 
-const SearchBar = ({ value, handleInputChange, updateAPI }) => (
+
+const SearchBar = ({ value, handleInputChange, updateAPI , handleInputChangeIngr,
+  diet, handleChangeDiet,
+  vega, vege, peanut, treenutfree, sugar, alcool, handleInputVega
+,handleInputVege,handleInputPeanut, handleInputSugar, handleInputAlcool,handleInputNutFree,
+handleOnChangeCalories,
+handleOnChangeTime
+
+}) => (
+  
+  
   <div className="searchbar-container">
     <form className="searchbar-form">
+    
+      <Filter
+      handleInputChangeIngr={handleInputChangeIngr}
+      diet={diet}
+      handleChangeDiet={handleChangeDiet}
+      vega={vega}
+      vege={vege}
+      peanut={peanut}
+      treenutfree={treenutfree}
+      sugar={sugar}
+      alcool={alcool}
+      handleInputVega={handleInputVega}
+      handleInputVege={handleInputVege}
+      handleInputPeanut={handleInputPeanut}
+      handleInputSugar={handleInputSugar}
+      handleInputAlcool={handleInputAlcool}
+      handleInputNutFree={handleInputNutFree}
+      handleOnChangeCalories={handleOnChangeCalories}
+      handleOnChangeTime={handleOnChangeTime}/>
+      
       <input
         className="searchbar-input"
         type="text"
@@ -18,7 +49,10 @@ const SearchBar = ({ value, handleInputChange, updateAPI }) => (
       >
         <strong>Search</strong>
       </button>
+      
     </form>
+
+           
   </div>
 );
 
