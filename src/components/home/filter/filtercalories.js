@@ -12,7 +12,7 @@ const FilterCalories =({handleOnChangeCalories}) => (
   label="Calories"
   min={200}
   max={5000}
-  dataIndex={1500}
+  dataIndex={5000}
   valueFontSize = '1.5rem'
   // prependToValue="$"
   // appendToValue="cal"

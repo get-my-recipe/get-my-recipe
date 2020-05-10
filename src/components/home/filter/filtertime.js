@@ -12,7 +12,7 @@ const FilterTime =({handleOnChangeTime}) => (
   label="Preparation"
   min={5}
   max={200}
-  dataIndex={30}
+  dataIndex={200}
   valueFontSize = '1.2rem'
   // prependToValue="min"
   appendToValue="min"

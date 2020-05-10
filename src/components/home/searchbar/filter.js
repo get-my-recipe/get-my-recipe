@@ -7,6 +7,7 @@ import FilterDiet from '../filter/filterdiet';
 import FilterHealth from '../filter/filterhealth';
 import FilterCalories from '../filter/filtercalories';
 import FilterTime from '../filter/filtertime';
+import '../filter/filterdiet.css'
 
 
 function Filter({handleInputChangeIngr,diet,handleChangeDiet,
@@ -16,7 +17,7 @@ handleOnChangeCalories,handleOnChangeTime}) {
   
     return (
       <>
-        <Button
+        <Button 
           onClick={() => setOpen(!open)}
           aria-controls="example-collapse-text"
           aria-expanded={open}
@@ -49,6 +50,7 @@ handleOnChangeCalories,handleOnChangeTime}) {
                         handleInputNutFree={handleInputNutFree}
                         /> 
            
+          
           <Filteringredient 
                         handleInputChangeIngr={handleInputChangeIngr}
                       />
@@ -56,7 +58,7 @@ handleOnChangeCalories,handleOnChangeTime}) {
                        handleOnChangeCalories={handleOnChangeCalories}
                        /> 
 
-<         FilterTime
+          <FilterTime
                        handleOnChangeTime={handleOnChangeTime}
                        />                           
 

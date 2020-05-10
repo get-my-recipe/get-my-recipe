@@ -5,7 +5,6 @@ const FilterHealth =({ vega, vege, peanut, treenutfree, sugar, alcool,handleInpu
   
   <div>
         
-        <h5>Choose a special diet option : </h5>
         <label
           htmlFor='veganDiet'
         >

@@ -1,8 +1,9 @@
 import React from "react";
+import  './filterdiet.css';
 
 const FilterDiet = ({diet, handleChangeDiet}) => (
   
-     <div>
+     <div className='diet-title'>
         <h5>Choose your favorite diet : </h5>
         <select value={diet} onChange={handleChangeDiet}>
           <option value="no filter">No filter</option>

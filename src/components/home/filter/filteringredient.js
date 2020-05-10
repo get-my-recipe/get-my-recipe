@@ -12,7 +12,7 @@ const Filteringredient =({handleInputChangeIngr}) => (
   label="Ingredients"
   min={1}
   max={20}
-  dataIndex={4}
+  dataIndex={20}
   valueFontSize = '1.5rem'
   // prependToValue="$"
   // appendToValue="K"
