@@ -27,17 +27,17 @@ class Home extends Component {
         poster: '',
         comment: '',
       },
-  
-      ingr: '' ,
-      diet:'no filter',
+
+      ingr: '',
+      diet: 'no filter',
       isVegan: false,
       isVegetarian: false,
       isPeanutFree: false,
       isNutFree: false,
       isSugarConscious: false,
       isAlcoolFree: false,
-      caloriesMax:'',
-      timeMax:'',
+      caloriesMax: '',
+      timeMax: '',
 
     };
   }
@@ -57,55 +57,55 @@ class Home extends Component {
     // display recipes
     getAPi = (event) => {
       event.preventDefault();
-      //const apiID = 'a3b47c77';
-      //const apiKey = '742e6a73e3d13dd35b00ec2852aaf28d';
-      //const nb = 100;
+      // const apiID = 'a3b47c77';
+      // const apiKey = '742e6a73e3d13dd35b00ec2852aaf28d';
+      // const nb = 100;
       const { ingredient } = this.state;
       let api = `https://api.edamam.com/search?q=${ingredient}&app_id=${apiID}&app_key=${apiKey}&from=0&to=${nb}`;
 
-          //filter
+      // filter
 
-            //Maximum number of ingredients.
-            const ingr = this.state.ingr;
-            if (ingr !== ""){
-              api=`${api}&ingr=${ingr}`;
-            }
-           
-            //diet
-            const diet = this.state.diet;
-            if (diet !=='no filter') {
-            api=`${api}&diet=${diet}`;
-            }
-            
-            //health
-            // Health labels: “vegan”, “vegetarian”, “peanut-free”, “tree-nut-free”, "sugar-conscious" , "alcohol-free" (labels are per serving)
-            const isVegan = this.state.isVegan;
-            const isVegetarian = this.state.isVegetarian;
-            const isPeanutFree = this.state.isPeanutFree;
-            const isNutFree = this.state.isNutFree;
-            const isSugarConscious = this.state.isSugarConscious;
-            const isAlcoolFree = this.state.isAlcoolFree;
-            
-            if (isVegan) {api=`${api}&health=vegan`}
-            if (isVegetarian) {api=`${api}&health=vegetarian`}
-            if (isPeanutFree) {api=`${api}&health=peanut-free`}
-            if (isNutFree) {api=`${api}&health=tree-nut-free`}
-            if (isSugarConscious) {api=`${api}&health=sugar-conscious`}
-            if (isAlcoolFree) {api=`${api}&health=alcohol-free`}
+      // Maximum number of ingredients.
+      const { ingr } = this.state;
+      if (ingr !== '') {
+        api = `${api}&ingr=${ingr}`;
+      }
 
-            //calories max
-            const caloriesMax = this.state.caloriesMax
-            if (caloriesMax !== ""){
-              api=`${api}&calories=${caloriesMax}`;
-            }
+      // diet
+      const { diet } = this.state;
+      if (diet !== 'no filter') {
+        api = `${api}&diet=${diet}`;
+      }
 
-              // time max in min
-              const timeMax = this.state.timeMax
-            if (timeMax !== ""){
-              api=`${api}&time=${timeMax}`;
-            }
+      // health
+      // Health labels: “vegan”, “vegetarian”, “peanut-free”, “tree-nut-free”, "sugar-conscious" , "alcohol-free" (labels are per serving)
+      const { isVegan } = this.state;
+      const { isVegetarian } = this.state;
+      const { isPeanutFree } = this.state;
+      const { isNutFree } = this.state;
+      const { isSugarConscious } = this.state;
+      const { isAlcoolFree } = this.state;
 
-            console.log(api)
+      if (isVegan) { api = `${api}&health=vegan`; }
+      if (isVegetarian) { api = `${api}&health=vegetarian`; }
+      if (isPeanutFree) { api = `${api}&health=peanut-free`; }
+      if (isNutFree) { api = `${api}&health=tree-nut-free`; }
+      if (isSugarConscious) { api = `${api}&health=sugar-conscious`; }
+      if (isAlcoolFree) { api = `${api}&health=alcohol-free`; }
+
+      // calories max
+      const { caloriesMax } = this.state;
+      if (caloriesMax !== '') {
+        api = `${api}&calories=${caloriesMax}`;
+      }
+
+      // time max in min
+      const { timeMax } = this.state;
+      if (timeMax !== '') {
+        api = `${api}&time=${timeMax}`;
+      }
+
+      console.log(api);
 
 
       axios.get(api)
@@ -130,33 +130,32 @@ class Home extends Component {
           const displayBook = true;
           this.setState({ recipes, displayBook });
         });
-        this.reset()
+      this.reset();
     }
 
-    reset(){
-     const ingredient= ''
-     this.setState({ ingredient})
-      const ingr= ''
-      this.setState({ ingr})
-      const diet='no filter';
-      this.setState({ diet})
-      const isVegan= false
-      this.setState({ isVegan})
-      const isVegetarian= false
-      this.setState({ isVegetarian})
-      const isPeanutFree= false
-      this.setState({ isPeanutFree})
-      const isNutFree= false
-      this.setState({ isNutFree})
-      const isSugarConscious= false
-      this.setState({ isSugarConscious})
-      const isAlcoolFree= false
-      this.setState({ isAlcoolFree})
-      const caloriesMax= ''
-      this.setState({ caloriesMax})
-      const timeMax= ''
-      this.setState({ timeMax})
-
+    reset() {
+      const ingredient = '';
+      this.setState({ ingredient });
+      const ingr = '';
+      this.setState({ ingr });
+      const diet = 'no filter';
+      this.setState({ diet });
+      const isVegan = false;
+      this.setState({ isVegan });
+      const isVegetarian = false;
+      this.setState({ isVegetarian });
+      const isPeanutFree = false;
+      this.setState({ isPeanutFree });
+      const isNutFree = false;
+      this.setState({ isNutFree });
+      const isSugarConscious = false;
+      this.setState({ isSugarConscious });
+      const isAlcoolFree = false;
+      this.setState({ isAlcoolFree });
+      const caloriesMax = '';
+      this.setState({ caloriesMax });
+      const timeMax = '';
+      this.setState({ timeMax });
     }
 
 
@@ -250,107 +249,103 @@ class Home extends Component {
           });
       }
     }
- 
-    //filter ingr
+
+    // filter ingr
     handleInputChangeIngr = (value) => {
       this.setState({
         ingr: value,
       });
     };
-    //end
+    // end
 
-    //filter diet
+    // filter diet
     handleChangeDiet = (event) => {
       event.preventDefault();
       this.setState({ diet: event.target.value });
     };
-    //end
+    // end
 
-    //filter health
+    // filter health
     handleInputVega = (event) => {
-      const target = event.target;
+      const { target } = event;
       const value = target.name === 'isVegan' ? target.checked : target.value;
-      const name = target.name;
+      const { name } = target;
       this.setState({
         [name]: value,
       });
     };
-  
-    handleInputVege = (event) => {
-      const target = event.target;
-      const value =
-        target.name === 'isVegetarian' ? target.checked : target.value;
-      const name = target.name;
-      this.setState({
-        [name]: value,
-      });
-    };
-  
-    handleInputPeanut = (event) => {
-      const target = event.target;
-      const value =
-        target.name === 'isPeanutFree' ? target.checked : target.value;
-      const name = target.name;
-      this.setState({
-        [name]: value,
-      });
-    };
-  
-    handleInputNutFree = (event) => {
-      const target = event.target;
-      const value = target.name === 'isNutFree' ? target.checked : target.value;
-      const name = target.name;
-      this.setState({
-        [name]: value,
-      });
-    };
-  
-    handleInputSugar = (event) => {
-      const target = event.target;
-      const value =
-        target.name === 'isSugarConscious' ? target.checked : target.value;
-      const name = target.name;
-      this.setState({
-        [name]: value,
-      });
-    };
-  
-    handleInputAlcool = (event) => {
-      const target = event.target;
-      const value =
-        target.name === 'isAlcoolFree' ? target.checked : target.value;
-      const name = target.name;
-      this.setState({
-        [name]: value,
-      });
-    };
-    //end
 
-    //filter calories
+    handleInputVege = (event) => {
+      const { target } = event;
+      const value = target.name === 'isVegetarian' ? target.checked : target.value;
+      const { name } = target;
+      this.setState({
+        [name]: value,
+      });
+    };
+
+    handleInputPeanut = (event) => {
+      const { target } = event;
+      const value = target.name === 'isPeanutFree' ? target.checked : target.value;
+      const { name } = target;
+      this.setState({
+        [name]: value,
+      });
+    };
+
+    handleInputNutFree = (event) => {
+      const { target } = event;
+      const value = target.name === 'isNutFree' ? target.checked : target.value;
+      const { name } = target;
+      this.setState({
+        [name]: value,
+      });
+    };
+
+    handleInputSugar = (event) => {
+      const { target } = event;
+      const value = target.name === 'isSugarConscious' ? target.checked : target.value;
+      const { name } = target;
+      this.setState({
+        [name]: value,
+      });
+    };
+
+    handleInputAlcool = (event) => {
+      const { target } = event;
+      const value = target.name === 'isAlcoolFree' ? target.checked : target.value;
+      const { name } = target;
+      this.setState({
+        [name]: value,
+      });
+    };
+    // end
+
+    // filter calories
     handleOnChangeCalories = (value) => {
       this.setState({
         caloriesMax: value,
       });
     };
-    //end
+    // end
 
-    //filter time
+    // filter time
     handleOnChangeTime = (value) => {
       this.setState({
         timeMax: value,
       });
     };
     //
-    
-   
+
+
     render() {
-      //console.log(this.state);
+      // console.log(this.state);
       const {
-        ingredient, recipes, username, displayBook, ingr, diet, isVegan, isVegetarian, isPeanutFree,isNutFree,
-        isSugarConscious, isAlcoolFree, caloriesMax, timeMax
+        ingredient, recipes, username, displayBook, ingr, diet, isVegan, isVegetarian, isPeanutFree, isNutFree,
+        isSugarConscious, isAlcoolFree, caloriesMax, timeMax,
       } = this.state;
-      
-      
+
+
       return (
         <div>
           <Header
