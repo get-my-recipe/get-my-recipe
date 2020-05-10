@@ -70,7 +70,9 @@
 
 .carousel-button-container {
     height: 100%;
-    margin: auto;}
+    margin: auto;
+    padding-right: 70px;
+}
 
 .carousel-button {
     font-family: 'Raleway'; 
