@@ -17,9 +17,8 @@ const NavBarHome = ({ value, handleInputChange, book }) => (
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav>
-        <Nav.Link className="nav-link" to="/contact">Contact</Nav.Link>
-        <Nav.Link className="nav-link" to="/about">About us</Nav.Link>
-        <Nav.Link className="nav-link" to="/test">Test API</Nav.Link>
+        <Link className="nav-link" to="/contact">Contact</Link>
+        <Link className="nav-link" to="/about">About us</Link>
         <Form inline>
           <FormControl
             type="text"
