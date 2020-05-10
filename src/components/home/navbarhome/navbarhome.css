@@ -1,11 +1,39 @@
-
-.color-nav {
+.navbar  {
     background-color: #9EB25D;
+    font-family: 'Raleway'; 
+    color: #F1DB4B;
+    z-index: 10;
+    white-space: nowrap;
 }
 
-a.nav-link {
-    color: #F1DB4B!important
+.logo-nav {
+    height: 3.5em;
 }
+
+.nav-item.container {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+}
+
+.nav-link {
+    font-size: ;
+}
+
+.form-inline {
+}
+
+.bookmark-button {
+    font-family: 'Raleway'; 
+    color: #f1db4b; 
+    background-color: #9EB25D; 
+    border-radius: 5px;  
+    border-color:#f1db4b;
+}
+.bookmark-button:hover {
+    font-weight: 900;
+}
+
 
 
 

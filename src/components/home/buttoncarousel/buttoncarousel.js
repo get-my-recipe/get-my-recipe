@@ -60,10 +60,10 @@ class ButtonCarousel extends React.Component {
   render() {
     const { show, randomRecipes, isShowing } = this.state;
     return (
-      <div>
+      <div className="carousel-button-container">
         <button
           type="button"
-          className="display-carousel-button"
+          className="carousel-button"
           onClick={this.handleClick}
         >
           Random Recipies

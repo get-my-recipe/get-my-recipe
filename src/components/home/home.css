@@ -1,0 +1,92 @@
+.container-home-welcome-section {
+    height: 85vh;
+    width: 100%;
+}
+
+.container-home-welcome-section h1 {
+    font-family: 'Raleway';
+    font-weight: 500;
+    font-size: 4vw;
+    color: #9EB25D;
+    position: absolute;
+    top: 31%;
+    left: 26%;
+    transform: translate(-50%, -50%);
+}
+
+
+.container-home-image {
+    background-image: url('../../assets/images/Image3.jpg');
+    position: absolute;
+    top: 0;
+    height: 65vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: .9;   
+    z-index: -1;
+}
+
+.searchbar-container {
+    background-color: white;
+    position: absolute;
+    height: 40%;
+    width: 75%;
+    top: 36%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    box-shadow: 0 0 10px 1px #9eb25d;
+    opacity: 1;   
+}
+
+.searchbar-form {
+    position: relative;
+    top: 7%;
+    width: 80%;
+    text-align: center;
+    margin: auto;
+}
+
+.searchbar-input {
+    width: 50%;
+    border: 1px solid #9eb25d;;
+    border-radius: 5px;  
+}
+
+.searchbar-button {
+    font-family: 'Raleway'; 
+    background-color: #9EB25D; 
+    color: #f1db4b;
+    border-radius: 5px; 
+    margin-top: 10px; 
+}
+
+.searchbar-button:hover {
+    font-family: 'Raleway'; 
+    color: #9EB25D; 
+    background-color: #f1db4b;
+    border-radius: 5px;  
+}
+
+.carousel-button-container {
+    height: 100%;
+    margin: auto;}
+
+.carousel-button {
+    font-family: 'Raleway'; 
+    color: #f1db4b; 
+    background-color: #eefcce; 
+    border-radius: 5px;  
+    border-color:#f1db4b;
+    display: inline;
+padding: 4px;
+margin: 5px;
+}
+
+.carousel-button:hover {
+    font-weight: 900;
+
+}
+
+
+

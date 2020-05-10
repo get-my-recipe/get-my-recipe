@@ -1,17 +1,18 @@
 import React from 'react';
-import NavBarHome from '../navbarhome/navbarhome';
-import './header.css';
+import NavBar from '../navbarhome/navbarhome';
+import '../home.css';
 
-const Header =({value, handleInputChange, book}) => (
+const Header = ({ value, handleInputChange, book }) => (
   <div className="container-home-welcome-section">
-    <div className="container-home-image">
-      <NavBarHome 
-        value={value} 
-        handleInputChange={handleInputChange}
-        book={book}
-      />
-      <h1 className="home-page-title">Get my recipe</h1>
+    <NavBar
+      value={value}
+      handleInputChange={handleInputChange}
+      book={book}
+    />
+    <div className="home-page-title">
+      <h1>Get my recipe</h1>
     </div>
+    <div className="container-home-image" />
   </div>
 );
 
