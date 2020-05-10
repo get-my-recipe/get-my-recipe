@@ -8,14 +8,12 @@ import './App.css';
 import Home from './components/home/home';
 import Contact from './components/contact/contact';
 import About from './components/about/about';
-import TestAPI from './components/home/testapi';
 import Footer from './components/sharedcomponents/footer/footer';
 
 const App = () => (
   <div>
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route exact path="/test" component={TestAPI} />
       <Route path="/contact" component={Contact} />
       <Route path="/about" component={About} />
     </Switch>
