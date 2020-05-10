@@ -1,0 +1,32 @@
+.navbar  {
+    background-color: #9EB25D;
+    font-family: 'Raleway'; 
+    color: #F1DB4B;
+    z-index: 10;
+    white-space: nowrap;
+}
+
+.logo-nav {
+    height: 3.5em;
+}
+
+
+
+.nav-link {
+    font-size: ;
+}
+
+.bookmark-button {
+    font-family: 'Raleway'; 
+    color: #f1db4b; 
+    background-color: #9EB25D; 
+    border-radius: 5px;  
+    border-color:#f1db4b;
+}
+.bookmark-button:hover {
+    font-weight: 900;
+}
+
+
+
+

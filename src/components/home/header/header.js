@@ -1,19 +1,16 @@
 import React from 'react';
-import Nav from '../../sharedcomponents/nav/nav';
-import ButtonCarousel from '../buttoncarousel/buttoncarousel';
-import './header.css';
+import NavBarHome from '../navbarhome/navbarhome';
+import '../home.css';
 
-const Header =({value, handleInputChange, book}) => (
+const Header = ({ value, handleInputChange, book }) => (
   <div className="container-home-welcome-section">
-    <div className="container-home-image">
-      <Nav 
-        value={value} 
-        handleInputChange={handleInputChange}
-        book={book}
-      />
-      <ButtonCarousel />
-      <h1 className="home-page-title">Get my recipe</h1>
-    </div>
+    <NavBarHome
+      value={value}
+      handleInputChange={handleInputChange}
+      book={book}
+    />
+    <h1>Get my recipe</h1>
+    <div className="container-home-image" />
   </div>
 );
 
