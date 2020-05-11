@@ -101,7 +101,10 @@ class Home extends Component {
               // time max in min
               const timeMax = this.state.timeMax
             if (timeMax !== ""){
-              api=`${api}&time=${timeMax}`;
+              api=`${api}&time=1-${timeMax}`;
+            }
+            else {
+              api=`${api}&time=1%2B`;
             }
 
             console.log(api)
@@ -407,6 +410,7 @@ class Home extends Component {
                       uri={r.uri}
                       ask={r.ask}
                       ingredientLines={r.ingredientLines}
+                      url={r.url}
                     />
                   </ReactCardFlip>
                 </Col>

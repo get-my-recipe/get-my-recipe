@@ -5,7 +5,7 @@ import { ListGroup, ListGroupItem, Badge } from 'react-bootstrap';
 import './singlecard.css';
 
 
-const SingleCardVerso = ({uri, title, flip, ask, ingredientLines }) => (
+const SingleCardVerso = ({uri, title, flip, ask, ingredientLines,url }) => (
         <Card onClick={() => flip(uri)}>
           <Card.Body>
             <Card.Title>{title}</Card.Title>
@@ -34,12 +34,11 @@ const SingleCardVerso = ({uri, title, flip, ask, ingredientLines }) => (
           </Card.Body>
           <ListGroup className="list-group-flush">
             
-            <ListGroupItem><Badge variant="light">{ingredientLines.length} ingredients`</Badge></ListGroupItem>
-            <ListGroupItem><Badge variant="info">Vegan</Badge></ListGroupItem>
-            <ListGroupItem><Badge variant="success">Fast</Badge></ListGroupItem>
+            <ListGroupItem><Badge variant="light">{ingredientLines.length} ingredients</Badge></ListGroupItem>
+            
           </ListGroup>
           <Card.Body>
-            <Card.Link href="#">Recipe Link</Card.Link>
+          <Card.Link href={url} target="_blank">Instructions</Card.Link>
           </Card.Body>
         </Card>
 );

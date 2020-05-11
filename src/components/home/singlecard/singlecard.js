@@ -24,14 +24,14 @@ const SingleCard = ({
     </span>
     )}
     <Card.Body>
-      <Card.Title>{recipes.title}</Card.Title>
+      <Card.Title>{recipes.label}</Card.Title>
       <Card.Text>
-        Recipe description
+        {recipes.healthLabels.join(" ")}
       </Card.Text>
     </Card.Body>
     <ListGroup className="list-group-flush">
       <ListGroupItem><Badge variant="light">{recipes.yield} servings</Badge></ListGroupItem>
-      <ListGroupItem><Badge variant="info">{recipes.healthLabels}</Badge></ListGroupItem>
+      <ListGroupItem><Badge variant="info">Calories: {Math.floor((recipes.calories)/recipes.yield)}</Badge></ListGroupItem>
     <ListGroupItem><Badge variant="success">Time: {recipes.totalTime} minutes</Badge></ListGroupItem>
     </ListGroup>
     <Card.Body>
