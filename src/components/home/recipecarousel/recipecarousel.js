@@ -7,31 +7,25 @@ import './recipecarousel.css';
 
 
 function RecipeCarousel({
-  randomRecipes
+  randomRecipes,
 }) {
-
   return (
     <Container className="container-carousel">
-      <Row>
-        <Col className="title-recipe-of-the-day">
-          <h4>Suggestions of the day</h4>
-        </Col>
-      </Row>
       <Row>
         <Col className="col-carousel">
           <Carousel>
             {randomRecipes.map((randomRecipe) => (
               <Carousel.Item key={randomRecipe.uri}>
-                <img
-                  className="d-block"
-                  src={randomRecipe.image}
-                  alt="Recipe of the day"
-                />
-                <Carousel.Caption>
-                  <h3>First Recipe</h3>
-                  <p>{randomRecipe.label}</p>
-                  <a href={randomRecipe.url}>Instructions</a>
-                </Carousel.Caption>
+                <h4>{randomRecipe.label}</h4>
+                <div className="recipe-instructions-link">
+                  <a title="Click the image for recipe instructions" target="_blank" rel="noopener noreferrer" href={randomRecipe.url}>
+                    <img
+                      className="d-block m-auto"
+                      src={randomRecipe.image}
+                      alt="Recipe of the day"
+                    />
+                  </a>
+                </div>
               </Carousel.Item>
             ))}
           </Carousel>

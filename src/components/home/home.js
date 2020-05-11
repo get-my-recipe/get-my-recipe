@@ -36,8 +36,10 @@ class Home extends Component {
       isNutFree: false,
       isSugarConscious: false,
       isAlcoolFree: false,
-      caloriesMax: '',
-      timeMax: '',
+      caloriesMax:'',
+      timeMax:'',
+      isShowing: true,
+      show: false,
 
     };
   }
@@ -56,10 +58,8 @@ class Home extends Component {
 
     // display recipes
     getAPi = (event) => {
+      this.handleShowStatus()
       event.preventDefault();
-      // const apiID = 'a3b47c77';
-      // const apiKey = '742e6a73e3d13dd35b00ec2852aaf28d';
-      // const nb = 100;
       const { ingredient } = this.state;
       let api = `https://api.edamam.com/search?q=${ingredient}&app_id=${apiID}&app_key=${apiKey}&from=0&to=${nb}`;
 
@@ -71,6 +71,14 @@ class Home extends Component {
         api = `${api}&ingr=${ingr}`;
       }
 
+              // time max in min
+              const timeMax = this.state.timeMax
+            if (timeMax !== ""){
+              api=`${api}&time=1-${timeMax}`;
+            }
+            else {
+              api=`${api}&time=1%2B`;
+            }
       // diet
       const { diet } = this.state;
       if (diet !== 'no filter') {
@@ -99,11 +107,6 @@ class Home extends Component {
         api = `${api}&calories=${caloriesMax}`;
       }
 
-      // time max in min
-      const { timeMax } = this.state;
-      if (timeMax !== '') {
-        api = `${api}&time=${timeMax}`;
-      }
 
       console.log(api);
 
@@ -128,7 +131,7 @@ class Home extends Component {
             ...el, isFlipped: false, bookmarked: false, ask: addask[ind],
           }));
           const displayBook = true;
-          this.setState({ recipes, displayBook });
+          this.setState({ recipes, displayBook ,isShowing: true});
         });
       this.reset();
     }
@@ -335,14 +338,29 @@ class Home extends Component {
         timeMax: value,
       });
     };
-    //
+    //end
 
+    //loading
+    handleShowStatus = () => {
+      const { isShowing } = this.state;
+      this.setState({ isShowing: !isShowing });
+    }
 
+    //modal filter
+  handleShow = () => {
+    const { show } = this.state;
+    this.setState({ show: !show });
+  }
+
+  
+  //end
+    
+   
     render() {
-      // console.log(this.state);
+      console.log(this.state);
       const {
-        ingredient, recipes, username, displayBook, ingr, diet, isVegan, isVegetarian, isPeanutFree, isNutFree,
-        isSugarConscious, isAlcoolFree, caloriesMax, timeMax,
+        ingredient, recipes, username, displayBook,  diet, isVegan, isVegetarian, isPeanutFree,isNutFree,
+        isSugarConscious, isAlcoolFree, isShowing, show
       } = this.state;
 
 
@@ -357,7 +375,6 @@ class Home extends Component {
             value={ingredient}
             handleInputChange={this.handleInputChange}
             updateAPI={this.getAPi}
-            valueIngr={ingr}
             handleInputChangeIngr={this.handleInputChangeIngr}
             diet={diet}
             handleChangeDiet={this.handleChangeDiet}
@@ -373,10 +390,12 @@ class Home extends Component {
             handleInputSugar={this.handleInputSugar}
             handleInputAlcool={this.handleInputAlcool}
             handleInputNutFree={this.handleInputNutFree}
-            caloriesMax={caloriesMax}
             handleOnChangeCalories={this.handleOnChangeCalories}
-            timeMax={timeMax}
             handleOnChangeTime={this.handleOnChangeTime}
+            isShowing={isShowing}
+            handleShow={this.handleShow}
+            handleClose={this.handleShow}
+            show={show}
           />
 
           <Container className="card-template">
@@ -386,14 +405,10 @@ class Home extends Component {
                   <ReactCardFlip isFlipped={r.isFlipped} flipDirection="vertical">
                     <SingleCard
                       key={r.uri}
-                      title={r.label}
-                      image={r.image}
+                      recipes={{...r}}
                       flip={this.handleFlip}
-                      uri={r.uri}
                       display={displayBook}
                       bookmarkF={this.handleStarChange}
-                      bookmarked={r.bookmarked}
-                      url={r.url}
                     />
                     <SingleCardVerso
                       key={r.uri}
@@ -402,6 +417,7 @@ class Home extends Component {
                       uri={r.uri}
                       ask={r.ask}
                       ingredientLines={r.ingredientLines}
+                      url={r.url}
                     />
                   </ReactCardFlip>
                 </Col>

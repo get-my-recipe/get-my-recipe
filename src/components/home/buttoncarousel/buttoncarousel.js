@@ -75,10 +75,11 @@ class ButtonCarousel extends React.Component {
                 <Modal.Title>3 random recipies</Modal.Title>
                 <button
                   type="button"
+                  title="Close the window"
                   className="carousel-closing-button"
                   onClick={this.handleClose}
                 >
-                  X
+                  x
                 </button>
               </Modal.Header>
               <Modal.Body>
@@ -94,6 +95,7 @@ class ButtonCarousel extends React.Component {
               <Modal.Footer>
                 <button
                   type="button"
+                  title="Close the window"
                   className="carousel-closing-button"
                   onClick={this.handleClose}
                 >
