@@ -1,11 +1,10 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import RecipeCarousel from '../recipecarousel/recipecarousel';
 import Loader from '../loader/loader';
 import '../header/header.css';
-
+import './buttoncarousel.css';
 
 class ButtonCarousel extends React.Component {
   constructor(props) {
@@ -74,9 +73,13 @@ class ButtonCarousel extends React.Component {
             <Modal show={show}>
               <Modal.Header>
                 <Modal.Title>3 random recipies</Modal.Title>
-                <Button variant="secondary" onClick={this.handleClose}>
-                  X
-                </Button>
+                <button
+                  type="button"
+                  className="carousel-closing-button"
+                  onClick={this.handleClose}
+                >
+                  x
+                </button>
               </Modal.Header>
               <Modal.Body>
                 {isShowing
@@ -89,9 +92,13 @@ class ButtonCarousel extends React.Component {
                   )}
               </Modal.Body>
               <Modal.Footer>
-                <Button variant="secondary" onClick={this.handleClose}>
+                <button
+                  type="button"
+                  className="carousel-closing-button"
+                  onClick={this.handleClose}
+                >
                   Close
-                </Button>
+                </button>
               </Modal.Footer>
             </Modal>
           )}

@@ -1,6 +1,9 @@
-.carousel h3, p {
+.container-carousel {
     font-family: 'Raleway';
     font-size: 900;
+    color: #9EB25D;
+    width: 50%;
+    margin: auto;
     }
 
 .carousel img {
@@ -8,10 +11,6 @@
     height: auto;
 }
 
-.container-carousel {
-    width: 50%;
-    margin: auto;
-}
 
 .title-recipe-of-the-day {
     font-family: 'Raleway';

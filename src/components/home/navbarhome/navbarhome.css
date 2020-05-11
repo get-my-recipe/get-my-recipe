@@ -1,20 +1,36 @@
-.navbar  {
+.navbar {
     background-color: #9EB25D;
     font-family: 'Raleway'; 
     color: #F1DB4B;
     z-index: 10;
     white-space: nowrap;
+    position: flex;
+    justify-content: space-around;
 }
 
+.navbar-brand {
+    margin-right: 0;
+}
+
+nav.navbar.navbar-expand-lg.navbar-light {
+    justify-content: space-around;
+} 
+
+div#responsive-navbar-nav {
+    text-align: center;
+}
+form.form-inline {
+    display: inline-block;
+}
+
+input.form-control{
+    width: 120px;
+}
+    
 .logo-nav {
     height: 3.5em;
 }
 
-
-
-.nav-link {
-    font-size: ;
-}
 
 .bookmark-button {
     font-family: 'Raleway'; 
