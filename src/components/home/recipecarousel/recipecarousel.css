@@ -6,12 +6,6 @@
     margin: auto;
     }
 
-.carousel img {
-    width: 100%;
-    height: auto;
-}
-
-
 .title-recipe-of-the-day {
     font-family: 'Raleway';
     font-weight: 950;
@@ -31,4 +25,39 @@
 
 .d-block {
     border-radius: 5%;
+    height: 100%;
 }
+
+.carousel-item h4 {
+    margin-bottom: 0;
+}
+
+.carousel-control-prev,
+.carousel-control-next{
+    height: 30px;
+    width: 30px;
+    background-size: 100%, 100%;
+    border-radius: 50%;
+    background-color: #9EB25D;
+    width: 30px;
+    position: absolute;
+    top: 50%;
+}
+
+a.carousel-control-prev,
+a.carousel-control-next{
+    width: 30px;
+    position: absolute;
+    top: 50%;
+}
+
+.carousel-indicators .active {
+    background-color: #9EB25D;
+    margin-bottom: 0;
+}
+
+.recipe-instructions-link a:link {
+    font-weight: bolder;
+    color: #A7C6DA;
+}
+
