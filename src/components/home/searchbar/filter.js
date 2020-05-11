@@ -48,6 +48,7 @@ handleOnChangeCalories,handleOnChangeTime,show,handleClose}) {
           
                 <Filteringredient 
                         handleInputChangeIngr={handleInputChangeIngr}
+
                       />
                 <FilterCalories
                        handleOnChangeCalories={handleOnChangeCalories}
