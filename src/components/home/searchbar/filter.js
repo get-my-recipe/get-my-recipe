@@ -1,41 +1,36 @@
 
-import React, { useState  } from "react";
-import Collapse from 'react-bootstrap/Collapse';
-import Button from 'react-bootstrap/Button'
+import React from "react";
 import Filteringredient from '../filter/filteringredient';
 import FilterDiet from '../filter/filterdiet';
 import FilterHealth from '../filter/filterhealth';
 import FilterCalories from '../filter/filtercalories';
 import FilterTime from '../filter/filtertime';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 import '../filter/filterdiet.css'
 
 
 function Filter({handleInputChangeIngr,diet,handleChangeDiet,
 vega,vege,peanut,treenutfree,sugar,alcool,handleInputVega,handleInputVege,handleInputPeanut,handleInputNutFree,handleInputSugar,handleInputAlcool,
-handleOnChangeCalories,handleOnChangeTime}) {
-    const [open, setOpen] = useState(false);
-  
+handleOnChangeCalories,handleOnChangeTime,show,handleClose}) {
+   
     return (
       <>
-        <Button 
-          onClick={() => setOpen(!open)}
-          aria-controls="example-collapse-text"
-          aria-expanded={open}
-        >
-          Filter
-        </Button>
-
-        
-        <Collapse in={open}>
-          <div id="example-collapse-text">
-         
-          
-
-           <FilterDiet
+        {show
+          && (
+            <Modal show={show}>
+              <Modal.Header>
+                <Modal.Title>Choose yours filters</Modal.Title>
+                <Button variant="secondary" onClick={handleClose}>
+                  X
+                </Button>
+              </Modal.Header>
+              <Modal.Body>
+                <FilterDiet
                         diet={diet}
                         handleChangeDiet={handleChangeDiet}
                       />
-          <FilterHealth
+                <FilterHealth
                         vega={vega}
                         vege={vege}
                         peanut={peanut}
@@ -51,19 +46,29 @@ handleOnChangeCalories,handleOnChangeTime}) {
                         /> 
            
           
-          <Filteringredient 
+                <Filteringredient 
                         handleInputChangeIngr={handleInputChangeIngr}
                       />
-          <FilterCalories
+                <FilterCalories
                        handleOnChangeCalories={handleOnChangeCalories}
                        /> 
 
-          <FilterTime
+                <FilterTime
                        handleOnChangeTime={handleOnChangeTime}
                        />                           
 
-          </div>
-        </Collapse>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Close
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          )}
+          
+
+          
+    
       </>
     );
   }

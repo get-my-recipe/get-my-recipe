@@ -2,6 +2,7 @@ import React from 'react';
 import '../home.css';
 import '../header/header.css';
 import Filter from './filter';
+import Loader from '../loader/loader';
 
 
 const SearchBar = ({
@@ -10,7 +11,7 @@ const SearchBar = ({
   vega, vege, peanut, treenutfree, sugar, alcool, handleInputVega,
   handleInputVege, handleInputPeanut, handleInputSugar, handleInputAlcool, handleInputNutFree,
   handleOnChangeCalories,
-  handleOnChangeTime,
+  handleOnChangeTime,isShowing,handleShow,show,handleClose
 
 }) => (
 
@@ -20,11 +21,14 @@ const SearchBar = ({
       <button
         type="button"
         className="filter-button-test"
+        onClick={handleShow}
       >
         Filters
       </button>
 
       <Filter
+        show={show}
+        handleClose={handleClose}
         handleInputChangeIngr={handleInputChangeIngr}
         diet={diet}
         handleChangeDiet={handleChangeDiet}
@@ -48,6 +52,7 @@ const SearchBar = ({
         type="text"
         value={value}
         onChange={handleInputChange}
+        placeholder="Enter one or more ingredients"
       />
       <button
         type="button"
@@ -56,6 +61,10 @@ const SearchBar = ({
       >
         Search
       </button>
+      {!isShowing && 
+                  (
+                    <Loader />
+                  )}
     </form>
 
   </div>
