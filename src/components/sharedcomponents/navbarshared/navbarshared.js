@@ -3,26 +3,25 @@ import { Link } from 'react-router-dom';
 import {
   Navbar, Form, FormControl, Nav,
 } from 'react-bootstrap';
-import ButtonCarousel from '../../../components/home/buttoncarousel/buttoncarousel';
 import logo from '../../../assets/images/logo.png';
 import './navbarshared.css';
 
 const NavBarHome = ({ value, handleInputChange, book }) => (
 
-  <Navbar expand="lg">
+  <Navbar expand="md">
     <Navbar.Brand>
       <Link className="nav-link" to="/">
         <div>
           <img
             src={logo}
-            alt="button to go back to the homepage"
+            alt="Logo to go to home"
+            title="Click to go to homepage"
             className="logo-home"
           />
         </div>
       </Link>
     </Navbar.Brand>
-    <ButtonCarousel />
-    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+    <Navbar.Toggle title="Menu" aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse className="flex-grow-0" id="responsive-navbar-nav">
       <Nav className="mr-auto">
         <Link className="nav-link" to="/contact">Contact</Link>
@@ -37,6 +36,7 @@ const NavBarHome = ({ value, handleInputChange, book }) => (
         />
         <button
           type="button"
+          title="Add to your favorites"
           className="bookmark-button"
           onClick={book}
         >

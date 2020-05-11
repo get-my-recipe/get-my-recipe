@@ -18,7 +18,7 @@ function RecipeCarousel({
               <Carousel.Item key={randomRecipe.uri}>
                 <h4>{randomRecipe.label}</h4>
                 <div className="recipe-instructions-link">
-                  <a target="_blank" rel="noopener noreferrer" href={randomRecipe.url}>
+                  <a title="Click the image for recipe instructions" target="_blank" rel="noopener noreferrer" href={randomRecipe.url}>
                     <img
                       className="d-block m-auto"
                       src={randomRecipe.image}
