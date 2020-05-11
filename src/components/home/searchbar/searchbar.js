@@ -11,7 +11,8 @@ const SearchBar = ({
   vega, vege, peanut, treenutfree, sugar, alcool, handleInputVega,
   handleInputVege, handleInputPeanut, handleInputSugar, handleInputAlcool, handleInputNutFree,
   handleOnChangeCalories,
-  handleOnChangeTime,isShowing,handleShow,show,handleClose
+  handleOnChangeTime,isShowing,handleShow,show,handleClose,ingrText, dietText, veganText, vegeText,peanutText,
+  treenutfreeText, sugarText, alcoolText, calText, timeText
 
 }) => (
 
@@ -61,6 +62,26 @@ const SearchBar = ({
       >
         Search
       </button>
+
+      {/* filter text */}
+      <div>
+        {(dietText!=='no filter') && <p>Diet ={dietText}</p>} 
+    
+        {(veganText) && <p>vegan </p>}
+        {(vegeText) && <p>vegetarian</p>}
+        {(peanutText) && <p>peanut-free</p>}
+        {(treenutfreeText) && <p>tree-nut-free</p>}
+        {(sugarText) && <p>sugar-conscious</p>}
+        {(alcoolText) && <p>alcohol-free</p>}
+
+        {(ingrText<20) && <p>Number max ingredients ={ingrText}</p>}
+        {(calText<3000) && <p>Number max calories ={calText}</p>}
+        {(timeText<200) && <p>Number max time ={timeText}</p>}
+
+       
+      </div>
+
+
       {!isShowing && 
                   (
                     <Loader />

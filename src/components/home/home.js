@@ -28,7 +28,7 @@ class Home extends Component {
         comment: '',
       },
 
-      ingr: '',
+      ingr: 20,
       diet: 'no filter',
       isVegan: false,
       isVegetarian: false,
@@ -36,14 +36,15 @@ class Home extends Component {
       isNutFree: false,
       isSugarConscious: false,
       isAlcoolFree: false,
-      caloriesMax:'',
-      timeMax:'',
+      caloriesMax:3000,
+      timeMax:200,
       isShowing: true,
       show: false,
 
     };
   }
 
+  
     // flip the card
     handleFlip = (uri) => {
       const { recipes } = this.state;
@@ -67,18 +68,13 @@ class Home extends Component {
 
       // Maximum number of ingredients.
       const { ingr } = this.state;
-      if (ingr !== '') {
-        api = `${api}&ingr=${ingr}`;
-      }
+      api = `${api}&ingr=${ingr}`;
+      
 
               // time max in min
               const timeMax = this.state.timeMax
-            if (timeMax !== ""){
               api=`${api}&time=1-${timeMax}`;
-            }
-            else {
-              api=`${api}&time=1%2B`;
-            }
+           
       // diet
       const { diet } = this.state;
       if (diet !== 'no filter') {
@@ -103,9 +99,8 @@ class Home extends Component {
 
       // calories max
       const { caloriesMax } = this.state;
-      if (caloriesMax !== '') {
-        api = `${api}&calories=${caloriesMax}`;
-      }
+      api = `${api}&calories=${caloriesMax}`;
+      
 
 
       console.log(api);
@@ -139,26 +134,6 @@ class Home extends Component {
     reset() {
       const ingredient = '';
       this.setState({ ingredient });
-      const ingr = '';
-      this.setState({ ingr });
-      const diet = 'no filter';
-      this.setState({ diet });
-      const isVegan = false;
-      this.setState({ isVegan });
-      const isVegetarian = false;
-      this.setState({ isVegetarian });
-      const isPeanutFree = false;
-      this.setState({ isPeanutFree });
-      const isNutFree = false;
-      this.setState({ isNutFree });
-      const isSugarConscious = false;
-      this.setState({ isSugarConscious });
-      const isAlcoolFree = false;
-      this.setState({ isAlcoolFree });
-      const caloriesMax = '';
-      this.setState({ caloriesMax });
-      const timeMax = '';
-      this.setState({ timeMax });
     }
 
 
@@ -350,6 +325,19 @@ class Home extends Component {
   handleShow = () => {
     const { show } = this.state;
     this.setState({ show: !show });
+    const diet='no filter';
+    const isVegan= false;
+    const isVegetarian= false;
+    const isPeanutFree= false;
+    const isNutFree= false;
+    const isSugarConscious= false;
+    const isAlcoolFree= false;
+    this.setState({diet, isVegan, isVegetarian, isPeanutFree, isNutFree, isSugarConscious, isAlcoolFree });
+  }
+
+  handleShowClose = () => {
+    const { show } = this.state;
+    this.setState({ show: !show });
   }
 
   
@@ -360,7 +348,7 @@ class Home extends Component {
       console.log(this.state);
       const {
         ingredient, recipes, username, displayBook,  diet, isVegan, isVegetarian, isPeanutFree,isNutFree,
-        isSugarConscious, isAlcoolFree, isShowing, show
+        isSugarConscious, isAlcoolFree, isShowing, show, ingr,caloriesMax,timeMax
       } = this.state;
 
 
@@ -394,10 +382,21 @@ class Home extends Component {
             handleOnChangeTime={this.handleOnChangeTime}
             isShowing={isShowing}
             handleShow={this.handleShow}
-            handleClose={this.handleShow}
+            handleClose={this.handleShowClose}
             show={show}
+            ingrText={ingr}
+            dietText={diet}
+            veganText={isVegan}
+            vegeText={isVegetarian}
+            peanutText={isPeanutFree}
+            treenutfreeText={isNutFree}
+            sugarText={isSugarConscious}
+            alcoolText={isAlcoolFree}
+            calText={caloriesMax}
+            timeText={timeMax}
+          
           />
-
+ 
           <Container className="card-template">
             <Row>
               {recipes.map((r) => (
