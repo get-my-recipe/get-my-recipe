@@ -34,7 +34,7 @@ const SingleCardVerso = ({uri, title, flip, ask, ingredientLines }) => (
           </Card.Body>
           <ListGroup className="list-group-flush">
             
-            <ListGroupItem><Badge variant="light">Light</Badge></ListGroupItem>
+            <ListGroupItem><Badge variant="light">{ingredientLines.length} ingredients`</Badge></ListGroupItem>
             <ListGroupItem><Badge variant="info">Vegan</Badge></ListGroupItem>
             <ListGroupItem><Badge variant="success">Fast</Badge></ListGroupItem>
           </ListGroup>

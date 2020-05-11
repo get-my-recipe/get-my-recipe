@@ -38,6 +38,7 @@ class Home extends Component {
       isAlcoolFree: false,
       caloriesMax:'',
       timeMax:'',
+      isShowing: true,
 
     };
   }
@@ -56,10 +57,8 @@ class Home extends Component {
 
     // display recipes
     getAPi = (event) => {
+      this.handleShowStatus()
       event.preventDefault();
-      //const apiID = 'a3b47c77';
-      //const apiKey = '742e6a73e3d13dd35b00ec2852aaf28d';
-      //const nb = 100;
       const { ingredient } = this.state;
       let api = `https://api.edamam.com/search?q=${ingredient}&app_id=${apiID}&app_key=${apiKey}&from=0&to=${nb}`;
 
@@ -128,9 +127,10 @@ class Home extends Component {
             ...el, isFlipped: false, bookmarked: false, ask: addask[ind],
           }));
           const displayBook = true;
-          this.setState({ recipes, displayBook });
+          this.setState({ recipes, displayBook ,isShowing: true});
         });
         this.reset()
+        
     }
 
     reset(){
@@ -341,13 +341,19 @@ class Home extends Component {
       });
     };
     //
+
+    //loading
+    handleShowStatus = () => {
+      const { isShowing } = this.state;
+      this.setState({ isShowing: !isShowing });
+    }
     
    
     render() {
-      //console.log(this.state);
+      console.log(this.state);
       const {
-        ingredient, recipes, username, displayBook, ingr, diet, isVegan, isVegetarian, isPeanutFree,isNutFree,
-        isSugarConscious, isAlcoolFree, caloriesMax, timeMax
+        ingredient, recipes, username, displayBook,  diet, isVegan, isVegetarian, isPeanutFree,isNutFree,
+        isSugarConscious, isAlcoolFree, isShowing
       } = this.state;
       
       
@@ -362,7 +368,6 @@ class Home extends Component {
             value={ingredient}
             handleInputChange={this.handleInputChange}
             updateAPI={this.getAPi}
-            valueIngr={ingr}
             handleInputChangeIngr={this.handleInputChangeIngr}
             diet={diet}
             handleChangeDiet={this.handleChangeDiet}
@@ -378,10 +383,9 @@ class Home extends Component {
             handleInputSugar={this.handleInputSugar}
             handleInputAlcool={this.handleInputAlcool}
             handleInputNutFree={this.handleInputNutFree}
-            caloriesMax={caloriesMax}
             handleOnChangeCalories={this.handleOnChangeCalories}
-            timeMax={timeMax}
             handleOnChangeTime={this.handleOnChangeTime}
+            isShowing={isShowing}
           />
 
           <Container className="card-template">
@@ -391,14 +395,10 @@ class Home extends Component {
                   <ReactCardFlip isFlipped={r.isFlipped} flipDirection="vertical">
                     <SingleCard
                       key={r.uri}
-                      title={r.label}
-                      image={r.image}
+                      recipes={{...r}}
                       flip={this.handleFlip}
-                      uri={r.uri}
                       display={displayBook}
                       bookmarkF={this.handleStarChange}
-                      bookmarked={r.bookmarked}
-                      url={r.url}
                     />
                     <SingleCardVerso
                       key={r.uri}

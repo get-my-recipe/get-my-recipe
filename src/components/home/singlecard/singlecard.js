@@ -6,36 +6,37 @@ import './singlecard.css';
 
 
 const SingleCard = ({
-  display, uri, title, image, bookmarkF, flip, bookmarked, url,
+  display, recipes, bookmarkF, flip,  
 }) => (
   <Card>
     <Card.Img
       variant="top"
-      src={image}
-      alt={title}
-      onClick={() => flip(uri)}
+      src={recipes.image}
+      alt={recipes.title}
+      onClick={() => flip(recipes.uri)}
     />
     {(display) && (
     <span
-      className={(bookmarked) ? 'is-bookmarked' : ''}
-      onClick={() => bookmarkF(uri)}
+      className={(recipes.bookmarked) ? 'is-bookmarked' : ''}
+      onClick={() => bookmarkF(recipes.uri)}
     >
       &#9733;
     </span>
     )}
     <Card.Body>
-      <Card.Title>{title}</Card.Title>
+      <Card.Title>{recipes.title}</Card.Title>
       <Card.Text>
         Recipe description
       </Card.Text>
     </Card.Body>
     <ListGroup className="list-group-flush">
-      <ListGroupItem><Badge variant="light">Light</Badge></ListGroupItem>
-      <ListGroupItem><Badge variant="info">Vegan</Badge></ListGroupItem>
-      <ListGroupItem><Badge variant="success">Fast</Badge></ListGroupItem>
+      <ListGroupItem><Badge variant="light">{recipes.yield} servings</Badge></ListGroupItem>
+      <ListGroupItem><Badge variant="info">{recipes.healthLabels}</Badge></ListGroupItem>
+    <ListGroupItem><Badge variant="success">Time: {recipes.totalTime} minutes</Badge></ListGroupItem>
     </ListGroup>
     <Card.Body>
-      <Card.Link href={url} target="_blank">Recipe</Card.Link>
+      <Card.Link href={recipes.url} target="_blank">Instructions</Card.Link>
+      <Card.Link href={recipes.shareAs} target="_blank">See more</Card.Link>
     </Card.Body>
   </Card>
 );
