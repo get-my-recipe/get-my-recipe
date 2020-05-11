@@ -8,12 +8,25 @@
     justify-content: space-around;
 }
 
+.modal-header {
+    width: 100%;
+}
+
+.modal-title.h4{
+    position: relative;
+    left: 25%;
+}
+
+.modal-body{
+    padding: 0;
+}
+
 .carousel-closing-button {
     font-family: 'Raleway'; 
     background-color: #9EB25D; 
     color: #f1db4b;
     border-radius: 5px; 
-    margin-top: 10px; 
+
 }
 
 .carousel-closing-button:hover {

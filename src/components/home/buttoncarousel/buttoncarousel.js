@@ -78,7 +78,7 @@ class ButtonCarousel extends React.Component {
                   className="carousel-closing-button"
                   onClick={this.handleClose}
                 >
-                  X
+                  x
                 </button>
               </Modal.Header>
               <Modal.Body>

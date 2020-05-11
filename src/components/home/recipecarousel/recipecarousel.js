@@ -14,7 +14,7 @@ function RecipeCarousel({
     <Container className="container-carousel">
       <Row>
         <Col className="title-recipe-of-the-day">
-          <h4>Suggestions of the day</h4>
+          <h4></h4>
         </Col>
       </Row>
       <Row>
@@ -28,7 +28,6 @@ function RecipeCarousel({
                   alt="Recipe of the day"
                 />
                 <Carousel.Caption>
-                  <h3>First Recipe</h3>
                   <p>{randomRecipe.label}</p>
                   <a href={randomRecipe.url}>Instructions</a>
                 </Carousel.Caption>
