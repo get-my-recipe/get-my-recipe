@@ -1,0 +1,26 @@
+.modal-content {
+    font-family: 'Raleway';
+    font-size: 900;
+    background-color: #9EB25D;
+    font-family: 'Raleway'; 
+    color: #F1DB4B;    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.carousel-closing-button {
+    font-family: 'Raleway'; 
+    background-color: #9EB25D; 
+    color: #f1db4b;
+    border-radius: 5px; 
+    margin-top: 10px; 
+}
+
+.carousel-closing-button:hover {
+    font-family: 'Raleway'; 
+    color: #9EB25D; 
+    background-color: #f1db4b;
+    border-radius: 5px;  
+}
+
+

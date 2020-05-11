@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Navbar, Form, FormControl, Button,
+  Navbar, Form, FormControl, Nav,
 } from 'react-bootstrap';
+import ButtonCarousel from '../../../components/home/buttoncarousel/buttoncarousel';
 import logo from '../../../assets/images/logo.png';
 import './navbarshared.css';
 
-const NavBarShared = ({ value, handleInputChange, book }) => (
+const NavBarHome = ({ value, handleInputChange, book }) => (
 
-  <Navbar collapseOnSelect expand="md" className="color-nav">
+  <Navbar expand="lg">
     <Navbar.Brand>
       <Link className="nav-link" to="/">
         <div>
@@ -20,37 +21,33 @@ const NavBarShared = ({ value, handleInputChange, book }) => (
         </div>
       </Link>
     </Navbar.Brand>
+    <ButtonCarousel />
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-    <Navbar.Collapse id="responsive-navbar-nav">
-      <ul className="navbar-nav ml-auto">
-
-        <li className="nav-item">
-          <Link className="nav-link" to="/contact">Contact</Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/about">About us</Link>
-        </li>
-      </ul>
+    <Navbar.Collapse className="flex-grow-0" id="responsive-navbar-nav">
+      <Nav className="mr-auto">
+        <Link className="nav-link" to="/contact">Contact</Link>
+        <Link className="nav-link" to="/about">About us</Link>
+      </Nav>
+      <Form inline>
+        <FormControl
+          type="text"
+          placeholder="UserName"
+          value={value}
+          onChange={handleInputChange}
+        />
+        <button
+          type="button"
+          className="bookmark-button"
+          onClick={book}
+        >
+          Bookmark
+        </button>
+      </Form>
     </Navbar.Collapse>
-    <Form inline>
-      <FormControl
-        type="text"
-        placeholder="UserName"
-        className="mr-sm-2"
-        value={value}
-        onChange={handleInputChange}
-      />
-      <Button
-        variant="outline-success"
-        onClick={book}
-      >
-        Bookmark
-      </Button>
-    </Form>
   </Navbar>
 
 
 );
 
 
-export default NavBarShared;
+export default NavBarHome;
