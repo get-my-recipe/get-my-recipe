@@ -36,15 +36,10 @@ class Home extends Component {
       isNutFree: false,
       isSugarConscious: false,
       isAlcoolFree: false,
-<<<<<<< HEAD
       caloriesMax:'',
       timeMax:'',
       isShowing: true,
       show: false,
-=======
-      caloriesMax: '',
-      timeMax: '',
->>>>>>> d8c557d0ccfe7c3190a1c45ba8bd63a04ef35f28
 
     };
   }
@@ -65,12 +60,6 @@ class Home extends Component {
     getAPi = (event) => {
       this.handleShowStatus()
       event.preventDefault();
-<<<<<<< HEAD
-=======
-      // const apiID = 'a3b47c77';
-      // const apiKey = '742e6a73e3d13dd35b00ec2852aaf28d';
-      // const nb = 100;
->>>>>>> d8c557d0ccfe7c3190a1c45ba8bd63a04ef35f28
       const { ingredient } = this.state;
       let api = `https://api.edamam.com/search?q=${ingredient}&app_id=${apiID}&app_key=${apiKey}&from=0&to=${nb}`;
 
@@ -82,7 +71,6 @@ class Home extends Component {
         api = `${api}&ingr=${ingr}`;
       }
 
-<<<<<<< HEAD
               // time max in min
               const timeMax = this.state.timeMax
             if (timeMax !== ""){
@@ -91,13 +79,11 @@ class Home extends Component {
             else {
               api=`${api}&time=1%2B`;
             }
-=======
       // diet
       const { diet } = this.state;
       if (diet !== 'no filter') {
         api = `${api}&diet=${diet}`;
       }
->>>>>>> d8c557d0ccfe7c3190a1c45ba8bd63a04ef35f28
 
       // health
       // Health labels: “vegan”, “vegetarian”, “peanut-free”, “tree-nut-free”, "sugar-conscious" , "alcohol-free" (labels are per serving)
@@ -121,11 +107,6 @@ class Home extends Component {
         api = `${api}&calories=${caloriesMax}`;
       }
 
-      // time max in min
-      const { timeMax } = this.state;
-      if (timeMax !== '') {
-        api = `${api}&time=${timeMax}`;
-      }
 
       console.log(api);
 
