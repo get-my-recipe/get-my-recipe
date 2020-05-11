@@ -152,12 +152,7 @@ class Home extends Component {
           const displayBook = true;
           this.setState({ recipes, displayBook ,isShowing: true});
         });
-<<<<<<< HEAD
-        this.reset()
-        
-=======
       this.reset();
->>>>>>> d8c557d0ccfe7c3190a1c45ba8bd63a04ef35f28
     }
 
     reset() {
