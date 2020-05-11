@@ -14,11 +14,12 @@
 
 .modal-title.h4{
     position: relative;
-    left: 25%;
+    left: 30%;
 }
 
 .modal-body{
     padding: 0;
+    width: 100%;
 }
 
 .carousel-closing-button {
