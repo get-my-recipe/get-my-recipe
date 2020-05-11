@@ -13,4 +13,13 @@ margin: auto;
 
   .ask {
     color: #9EB25D;
-  }  
+  } 
+  
+ img.card-img {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
+
+
+
