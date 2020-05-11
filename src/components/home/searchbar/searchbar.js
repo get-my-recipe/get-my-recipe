@@ -11,7 +11,7 @@ const SearchBar = ({
   vega, vege, peanut, treenutfree, sugar, alcool, handleInputVega,
   handleInputVege, handleInputPeanut, handleInputSugar, handleInputAlcool, handleInputNutFree,
   handleOnChangeCalories,
-  handleOnChangeTime,isShowing
+  handleOnChangeTime,isShowing,handleShow,show,handleClose
 
 }) => (
 
@@ -21,11 +21,14 @@ const SearchBar = ({
       <button
         type="button"
         className="filter-button-test"
+        onClick={handleShow}
       >
         Filters
       </button>
 
       <Filter
+        show={show}
+        handleClose={handleClose}
         handleInputChangeIngr={handleInputChangeIngr}
         diet={diet}
         handleChangeDiet={handleChangeDiet}

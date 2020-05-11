@@ -39,6 +39,7 @@ class Home extends Component {
       caloriesMax:'',
       timeMax:'',
       isShowing: true,
+      show: false,
 
     };
   }
@@ -343,20 +344,29 @@ class Home extends Component {
         timeMax: value,
       });
     };
-    //
+    //end
 
     //loading
     handleShowStatus = () => {
       const { isShowing } = this.state;
       this.setState({ isShowing: !isShowing });
     }
+
+    //modal filter
+  handleShow = () => {
+    const { show } = this.state;
+    this.setState({ show: !show });
+  }
+
+  
+  //end
     
    
     render() {
       console.log(this.state);
       const {
         ingredient, recipes, username, displayBook,  diet, isVegan, isVegetarian, isPeanutFree,isNutFree,
-        isSugarConscious, isAlcoolFree, isShowing
+        isSugarConscious, isAlcoolFree, isShowing, show
       } = this.state;
       
       
@@ -389,6 +399,9 @@ class Home extends Component {
             handleOnChangeCalories={this.handleOnChangeCalories}
             handleOnChangeTime={this.handleOnChangeTime}
             isShowing={isShowing}
+            handleShow={this.handleShow}
+            handleClose={this.handleShow}
+            show={show}
           />
 
           <Container className="card-template">
