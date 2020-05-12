@@ -3,7 +3,6 @@ import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
 import RecipeCarousel from '../recipecarousel/recipecarousel';
 import Loader from '../loader/loader';
-import '../header/header.css';
 import './buttoncarousel.css';
 
 class ButtonCarousel extends React.Component {
@@ -70,39 +69,39 @@ class ButtonCarousel extends React.Component {
 
         {show
           && (
-            <Modal show={show}>
-              <Modal.Header>
-                <Modal.Title>3 random recipies</Modal.Title>
-                <button
-                  type="button"
-                  title="Close the window"
-                  className="carousel-closing-button"
-                  onClick={this.handleClose}
-                >
-                  x
-                </button>
-              </Modal.Header>
-              <Modal.Body>
-                {isShowing
-                  ? (
-                    <RecipeCarousel
-                      randomRecipes={randomRecipes}
-                    />
-                  ) : (
-                    <Loader />
-                  )}
-              </Modal.Body>
-              <Modal.Footer>
-                <button
-                  type="button"
-                  title="Close the window"
-                  className="carousel-closing-button"
-                  onClick={this.handleClose}
-                >
-                  Close
-                </button>
-              </Modal.Footer>
-            </Modal>
+              <Modal show={show} className="modal-carousel">
+                <Modal.Header>
+                  <Modal.Title>3 random recipies</Modal.Title>
+                  <button
+                    type="button"
+                    title="Close the window"
+                    className="carousel-closing-button"
+                    onClick={this.handleClose}
+                  >
+                    x
+                  </button>
+                </Modal.Header>
+                <Modal.Body>
+                  {isShowing
+                    ? (
+                      <RecipeCarousel
+                        randomRecipes={randomRecipes}
+                      />
+                    ) : (
+                      <Loader />
+                    )}
+                </Modal.Body>
+                <Modal.Footer>
+                  <button
+                    type="button"
+                    title="Close the window"
+                    className="carousel-closing-button"
+                    onClick={this.handleClose}
+                  >
+                    Close
+                  </button>
+                </Modal.Footer>
+              </Modal>
           )}
       </div>
     );

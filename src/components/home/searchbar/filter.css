@@ -1,0 +1,80 @@
+.diet-selection {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+.diet-selection h5{
+    color: #9EB25D;
+    margin: auto 15px;
+}
+
+.diet-selection select{
+    color: #f1db4b;
+}
+
+.diet-selection option{
+    font-family: 'Raleway';
+    color: #7e7b6a;
+}
+
+.diet-selection select:focus {
+    outline:0;
+}
+
+.filter-input {
+    margin: 10px;
+}
+
+.fieldset-filter{
+    border: 1px dotted #9EB25D;
+    border-radius: 15px;
+    box-shadow: 0 1px 0 #9EB25D;
+    justify-content: space-around;
+}
+
+.fieldset-filter label {
+    margin-bottom: 0;
+}
+
+.fieldset-filter legend {
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    max-width: 50%;
+}
+
+.fieldset-filter img{
+    height: 25px;
+    z-index: 10;
+    border: 10px;
+}
+
+legend {
+    max-width: 30%;
+    background-color: #f1db4b;
+    border-radius: 15px;
+    opacity: .7;
+}
+
+
+.confirm-button {
+    font-family: 'Raleway'; 
+    color: #9EB25D; 
+    background-color: #f1db4b; 
+    border-radius: 5px;  
+    border-color:#9EB25D;
+    display: inline;
+    padding: 4px;
+    margin: 5px;
+}
+
+.confirm-button:hover {
+    font-weight: 900;
+}
+
+.confirm-button:focus {
+    outline:0;
+}
+

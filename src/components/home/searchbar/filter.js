@@ -1,13 +1,12 @@
 
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
 import Filteringredient from '../filter/filteringredient';
 import FilterDiet from '../filter/filterdiet';
 import FilterHealth from '../filter/filterhealth';
 import FilterCalories from '../filter/filtercalories';
 import FilterTime from '../filter/filtertime';
-import '../filter/filterdiet.css';
+import './filter.css';
 
 
 function Filter({
@@ -21,31 +20,32 @@ function Filter({
           && (
             <Modal show={show}>
               <Modal.Header>
-                <Modal.Title>Filter selection</Modal.Title>
+                <Modal.Title><strong>Filter selection</strong></Modal.Title>
               </Modal.Header>
               <Modal.Body>
                 <FilterDiet
                   diet={diet}
                   handleChangeDiet={handleChangeDiet}
                 />
+                <hr />
                 <FilterHealth
-                        vega={vega}
-                        vege={vege}
-                        peanut={peanut}
-                        treenutfree={treenutfree}
-                        sugar={sugar}
-                        alcool={alcool}
-                        handleInputVega={handleInputVega}
-                        handleInputVege={handleInputVege}
-                        handleInputPeanut={handleInputPeanut}
-                        handleInputSugar={handleInputSugar}
-                        handleInputAlcool={handleInputAlcool}
-                        handleInputNutFree={handleInputNutFree}
-                        /> 
-                <Filteringredient 
-                        handleInputChangeIngr={handleInputChangeIngr}
-
-                      />
+                  vega={vega}
+                  vege={vege}
+                  peanut={peanut}
+                  treenutfree={treenutfree}
+                  sugar={sugar}
+                  alcool={alcool}
+                  handleInputVega={handleInputVega}
+                  handleInputVege={handleInputVege}
+                  handleInputPeanut={handleInputPeanut}
+                  handleInputSugar={handleInputSugar}
+                  handleInputAlcool={handleInputAlcool}
+                  handleInputNutFree={handleInputNutFree}
+                />
+                <hr />
+                <Filteringredient
+                  handleInputChangeIngr={handleInputChangeIngr}
+                />
                 <FilterCalories
                   handleOnChangeCalories={handleOnChangeCalories}
                 />
@@ -56,14 +56,17 @@ function Filter({
 
               </Modal.Body>
               <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
+                <button
+                  type="button"
+                  className="confirm-button"
+                  variant="secondary"
+                  onClick={handleClose}
+                >
                   Confirm filters
-                </Button>
+                </button>
               </Modal.Footer>
             </Modal>
           )}
-
-
     </>
   );
 }

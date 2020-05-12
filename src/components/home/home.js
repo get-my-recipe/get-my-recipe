@@ -36,15 +36,15 @@ class Home extends Component {
       isNutFree: false,
       isSugarConscious: false,
       isAlcoolFree: false,
-      caloriesMax:3000,
-      timeMax:200,
+      caloriesMax: 3000,
+      timeMax: 200,
       isShowing: true,
       show: false,
 
     };
   }
 
-  
+
     // flip the card
     handleFlip = (uri) => {
       const { recipes } = this.state;
@@ -59,7 +59,7 @@ class Home extends Component {
 
     // display recipes
     getAPi = (event) => {
-      this.handleShowStatus()
+      this.handleShowStatus();
       event.preventDefault();
       const { ingredient } = this.state;
       let api = `https://api.edamam.com/search?q=${ingredient}&app_id=${apiID}&app_key=${apiKey}&from=0&to=${nb}`;
@@ -69,12 +69,12 @@ class Home extends Component {
       // Maximum number of ingredients.
       const { ingr } = this.state;
       api = `${api}&ingr=${ingr}`;
-      
 
-              // time max in min
-              const timeMax = this.state.timeMax
-              api=`${api}&time=1-${timeMax}`;
-           
+
+      // time max in min
+      const { timeMax } = this.state;
+      api = `${api}&time=1-${timeMax}`;
+
       // diet
       const { diet } = this.state;
       if (diet !== 'no filter') {
@@ -100,7 +100,6 @@ class Home extends Component {
       // calories max
       const { caloriesMax } = this.state;
       api = `${api}&calories=${caloriesMax}`;
-      
 
 
       console.log(api);
@@ -126,7 +125,7 @@ class Home extends Component {
             ...el, isFlipped: false, bookmarked: false, ask: addask[ind],
           }));
           const displayBook = true;
-          this.setState({ recipes, displayBook ,isShowing: true});
+          this.setState({ recipes, displayBook, isShowing: true });
         });
       this.reset();
     }
@@ -313,26 +312,28 @@ class Home extends Component {
         timeMax: value,
       });
     };
-    //end
+    // end
 
-    //loading
+    // loading
     handleShowStatus = () => {
       const { isShowing } = this.state;
       this.setState({ isShowing: !isShowing });
     }
 
-    //modal filter
+    // modal filter
   handleShow = () => {
     const { show } = this.state;
     this.setState({ show: !show });
-    const diet='no filter';
-    const isVegan= false;
-    const isVegetarian= false;
-    const isPeanutFree= false;
-    const isNutFree= false;
-    const isSugarConscious= false;
-    const isAlcoolFree= false;
-    this.setState({diet, isVegan, isVegetarian, isPeanutFree, isNutFree, isSugarConscious, isAlcoolFree });
+    const diet = 'no filter';
+    const isVegan = false;
+    const isVegetarian = false;
+    const isPeanutFree = false;
+    const isNutFree = false;
+    const isSugarConscious = false;
+    const isAlcoolFree = false;
+    this.setState({
+      diet, isVegan, isVegetarian, isPeanutFree, isNutFree, isSugarConscious, isAlcoolFree,
+    });
   }
 
   handleShowClose = () => {
@@ -340,91 +341,89 @@ class Home extends Component {
     this.setState({ show: !show });
   }
 
-  
-  //end
-    
-   
-    render() {
-      console.log(this.state);
-      const {
-        ingredient, recipes, username, displayBook,  diet, isVegan, isVegetarian, isPeanutFree,isNutFree,
-        isSugarConscious, isAlcoolFree, isShowing, show, ingr,caloriesMax,timeMax
-      } = this.state;
+
+  // end
 
 
-      return (
-        <div>
-          <Header
-            value={username}
-            handleInputChange={this.handleInputChangeUsername}
-            book={this.getBook}
-          />
-          <Searchbar
-            value={ingredient}
-            handleInputChange={this.handleInputChange}
-            updateAPI={this.getAPi}
-            handleInputChangeIngr={this.handleInputChangeIngr}
-            diet={diet}
-            handleChangeDiet={this.handleChangeDiet}
-            vega={isVegan}
-            vege={isVegetarian}
-            peanut={isPeanutFree}
-            treenutfree={isNutFree}
-            sugar={isSugarConscious}
-            alcool={isAlcoolFree}
-            handleInputVega={this.handleInputVega}
-            handleInputVege={this.handleInputVege}
-            handleInputPeanut={this.handleInputPeanut}
-            handleInputSugar={this.handleInputSugar}
-            handleInputAlcool={this.handleInputAlcool}
-            handleInputNutFree={this.handleInputNutFree}
-            handleOnChangeCalories={this.handleOnChangeCalories}
-            handleOnChangeTime={this.handleOnChangeTime}
-            isShowing={isShowing}
-            handleShow={this.handleShow}
-            handleClose={this.handleShowClose}
-            show={show}
-            ingrText={ingr}
-            dietText={diet}
-            veganText={isVegan}
-            vegeText={isVegetarian}
-            peanutText={isPeanutFree}
-            treenutfreeText={isNutFree}
-            sugarText={isSugarConscious}
-            alcoolText={isAlcoolFree}
-            calText={caloriesMax}
-            timeText={timeMax}
-          
-          />
- 
-          <Container className="card-template">
-            <Row>
-              {recipes.map((r) => (
-                <Col sm={6} lg={4}>
-                  <ReactCardFlip isFlipped={r.isFlipped} flipDirection="vertical">
-                    <SingleCard
-                      key={r.uri}
-                      recipes={{...r}}
-                      flip={this.handleFlip}
-                      display={displayBook}
-                      bookmarkF={this.handleStarChange}
-                    />
-                    <SingleCardVerso
-                      key={r.uri}
-                      title={r.label}
-                      flip={this.handleFlip}
-                      uri={r.uri}
-                      ask={r.ask}
-                      ingredientLines={r.ingredientLines}
-                      url={r.url}
-                    />
-                  </ReactCardFlip>
-                </Col>
-              ))}
-            </Row>
-          </Container>
-        </div>
-      );
-    }
+  render() {
+    console.log(this.state);
+    const {
+      ingredient, recipes, username, displayBook, diet, isVegan, isVegetarian, isPeanutFree, isNutFree,
+      isSugarConscious, isAlcoolFree, isShowing, show, ingr, caloriesMax, timeMax,
+    } = this.state;
+
+
+    return (
+      <div>
+        <Header
+          value={username}
+          handleInputChange={this.handleInputChangeUsername}
+          book={this.getBook}
+        />
+        <Searchbar
+          value={ingredient}
+          handleInputChange={this.handleInputChange}
+          updateAPI={this.getAPi}
+          handleInputChangeIngr={this.handleInputChangeIngr}
+          diet={diet}
+          handleChangeDiet={this.handleChangeDiet}
+          vega={isVegan}
+          vege={isVegetarian}
+          peanut={isPeanutFree}
+          treenutfree={isNutFree}
+          sugar={isSugarConscious}
+          alcool={isAlcoolFree}
+          handleInputVega={this.handleInputVega}
+          handleInputVege={this.handleInputVege}
+          handleInputPeanut={this.handleInputPeanut}
+          handleInputSugar={this.handleInputSugar}
+          handleInputAlcool={this.handleInputAlcool}
+          handleInputNutFree={this.handleInputNutFree}
+          handleOnChangeCalories={this.handleOnChangeCalories}
+          handleOnChangeTime={this.handleOnChangeTime}
+          isShowing={isShowing}
+          handleShow={this.handleShow}
+          handleClose={this.handleShowClose}
+          show={show}
+          ingrText={ingr}
+          dietText={diet}
+          veganText={isVegan}
+          vegeText={isVegetarian}
+          peanutText={isPeanutFree}
+          treenutfreeText={isNutFree}
+          sugarText={isSugarConscious}
+          alcoolText={isAlcoolFree}
+          calText={caloriesMax}
+          timeText={timeMax}
+        />
+        <Container className="card-template">
+          <Row>
+            {recipes.map((r) => (
+              <Col sm={6} lg={4}>
+                <ReactCardFlip isFlipped={r.isFlipped} flipDirection="vertical">
+                  <SingleCard
+                    key={r.uri}
+                    recipes={{ ...r }}
+                    flip={this.handleFlip}
+                    display={displayBook}
+                    bookmarkF={this.handleStarChange}
+                  />
+                  <SingleCardVerso
+                    key={r.uri}
+                    title={r.label}
+                    flip={this.handleFlip}
+                    uri={r.uri}
+                    ask={r.ask}
+                    ingredientLines={r.ingredientLines}
+                    url={r.url}
+                  />
+                </ReactCardFlip>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </div>
+    );
+  }
 }
 export default Home;
