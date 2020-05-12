@@ -1,3 +1,7 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+
+
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import { ListGroup, ListGroupItem, Badge } from 'react-bootstrap';
@@ -11,7 +15,7 @@ import './singlecard.css';
 
 
 const SingleCard = ({
-  display, recipes, bookmarkF, flip,  
+  display, recipes, bookmarkF, flip,
 }) => (
   <Card>
     <Card.Img
@@ -31,57 +35,81 @@ const SingleCard = ({
     <Card.Body>
       <Card.Title>{recipes.label}</Card.Title>
       <Card.Text>
-     
-     {(recipes.healthLabels.includes('Alcohol-Free')) && 
+
+        {(recipes.healthLabels.includes('Alcohol-Free'))
+        && (
         <Card.Img
-        src={alcool}
-        alt="Alcohol-Free"
-        title="Alcohol-Free"
-      />
-        }
-     {(recipes.healthLabels.includes('Tree-Nut-Free')) && 
+          src={alcool}
+          alt="Alcohol-Free"
+          title="Alcohol-Free"
+        />
+        )}
+        {(recipes.healthLabels.includes('Tree-Nut-Free'))
+        && (
         <Card.Img
-        src={nut}
-        alt="Tree-Nut-Free"
-        title="Tree-Nut-Free"
-      />
-        }
-      {(recipes.healthLabels.includes('Peanut-Free')) && 
+          src={nut}
+          alt="Tree-Nut-Free"
+          title="Tree-Nut-Free"
+        />
+        )}
+        {(recipes.healthLabels.includes('Peanut-Free'))
+        && (
         <Card.Img
-        src={peanut}
-        alt="Peanut-Free"
-        title="Peanut-Free"
-      />
-        } 
-     {(recipes.healthLabels.includes('Vegetarian')) && 
+          src={peanut}
+          alt="Peanut-Free"
+          title="Peanut-Free"
+        />
+        )}
+        {(recipes.healthLabels.includes('Vegetarian'))
+        && (
         <Card.Img
-        src={vegeterian}
-        alt="vegeterian"
-        title="vegeterian"
-      />
-        } 
-        {(recipes.healthLabels.includes('Vegan')) && 
+          src={vegeterian}
+          alt="vegeterian"
+          title="vegeterian"
+        />
+        )}
+        {(recipes.healthLabels.includes('Vegan'))
+        && (
         <Card.Img
-        src={vegan}
-        alt="vegan"
-        title="vegan"
-      />
-        } 
-         {(recipes.healthLabels.includes('Sugar-Conscious')) && 
+          src={vegan}
+          alt="vegan"
+          title="vegan"
+        />
+        )}
+        {(recipes.healthLabels.includes('Sugar-Conscious'))
+        && (
         <Card.Img
-        src={sugar}
-        alt="Sugar-Conscious"
-        title="Sugar-Conscious"
-      />
-        }
-          
+          src={sugar}
+          alt="Sugar-Conscious"
+          title="Sugar-Conscious"
+        />
+        )}
+
 
       </Card.Text>
     </Card.Body>
     <ListGroup className="list-group-flush">
-      <ListGroupItem><Badge variant="light">{recipes.yield} servings</Badge></ListGroupItem>
-      <ListGroupItem><Badge variant="info">Calories: {Math.floor((recipes.calories)/recipes.yield)}</Badge></ListGroupItem>
-    <ListGroupItem><Badge variant="success">Time: {recipes.totalTime} minutes</Badge></ListGroupItem>
+      <ListGroupItem>
+        <Badge variant="light">
+          {recipes.yield}
+          {' '}
+          servings
+        </Badge>
+      </ListGroupItem>
+      <ListGroupItem>
+        <Badge variant="info">
+          Calories:
+          {Math.floor((recipes.calories) / recipes.yield)}
+        </Badge>
+      </ListGroupItem>
+      <ListGroupItem>
+        <Badge variant="success">
+          Time:
+          {recipes.totalTime}
+          {' '}
+          minutes
+        </Badge>
+      </ListGroupItem>
     </ListGroup>
     <Card.Body>
       <Card.Link href={recipes.url} target="_blank">Instructions</Card.Link>

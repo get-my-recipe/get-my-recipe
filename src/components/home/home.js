@@ -1,3 +1,9 @@
+/* eslint-disable react/no-access-state-in-setstate */
+/* eslint-disable no-shadow */
+/* eslint-disable max-len */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable no-console */
+
 import React, { Component } from 'react';
 import axios from 'axios';
 import Container from 'react-bootstrap/Container';
@@ -36,19 +42,36 @@ class Home extends Component {
       isNutFree: false,
       isSugarConscious: false,
       isAlcoolFree: false,
-      caloriesMax:3000,
-      timeMax:200,
+      caloriesMax: 3000,
+      timeMax: 200,
       isShowing: true,
       show: false,
 
     };
   }
 
-  
+  // mark a recipe api post
+  componentDidUpdate(_prevProps, prevState) {
+    const { postBook } = this.state;
+    if (prevState.postBook !== postBook) {
+      const url = 'https://post-a-form.herokuapp.com/api/movies/';
+      axios.post(url, postBook)
+        .then((res) => res.data)
+        .then((res) => {
+          alert(`BookmarK added ID: ${res.id} !`);
+        })
+        .catch((e) => {
+          console.error(e);
+          alert(`Error Bookmark no added : ${e.message}`);
+        });
+    }
+  }
+
+
     // flip the card
     handleFlip = (uri) => {
       const { recipes } = this.state;
-      const select = this.state.recipes.findIndex((el) => el.uri === uri);
+      const select = recipes.findIndex((el) => el.uri === uri);
       if (recipes[select].isFlipped === true) {
         recipes[select].isFlipped = false;
       } else {
@@ -59,7 +82,7 @@ class Home extends Component {
 
     // display recipes
     getAPi = (event) => {
-      this.handleShowStatus()
+      this.handleShowStatus();
       event.preventDefault();
       const { ingredient } = this.state;
       let api = `https://api.edamam.com/search?q=${ingredient}&app_id=${apiID}&app_key=${apiKey}&from=0&to=${nb}`;
@@ -69,12 +92,12 @@ class Home extends Component {
       // Maximum number of ingredients.
       const { ingr } = this.state;
       api = `${api}&ingr=${ingr}`;
-      
 
-              // time max in min
-              const timeMax = this.state.timeMax
-              api=`${api}&time=1-${timeMax}`;
-           
+
+      // time max in min
+      const { timeMax } = this.state;
+      api = `${api}&time=1-${timeMax}`;
+
       // diet
       const { diet } = this.state;
       if (diet !== 'no filter') {
@@ -82,7 +105,6 @@ class Home extends Component {
       }
 
       // health
-      // Health labels: “vegan”, “vegetarian”, “peanut-free”, “tree-nut-free”, "sugar-conscious" , "alcohol-free" (labels are per serving)
       const { isVegan } = this.state;
       const { isVegetarian } = this.state;
       const { isPeanutFree } = this.state;
@@ -100,10 +122,6 @@ class Home extends Component {
       // calories max
       const { caloriesMax } = this.state;
       api = `${api}&calories=${caloriesMax}`;
-      
-
-
-      console.log(api);
 
 
       axios.get(api)
@@ -114,7 +132,7 @@ class Home extends Component {
             let result = false;
             if (ingredientArray.length > 0) {
               let val = false;
-              for (let i = 0; i < ingredientArray.length; i++) {
+              for (let i = 0; i < ingredientArray.length; i += 1) {
                 val = el.toLowerCase().includes(ingredientArray[i].toLowerCase());
                 if (val === true) { result = true; }
               }
@@ -126,14 +144,9 @@ class Home extends Component {
             ...el, isFlipped: false, bookmarked: false, ask: addask[ind],
           }));
           const displayBook = true;
-          this.setState({ recipes, displayBook ,isShowing: true});
+          this.setState({ recipes, displayBook, isShowing: true });
         });
       this.reset();
-    }
-
-    reset() {
-      const ingredient = '';
-      this.setState({ ingredient });
     }
 
 
@@ -171,7 +184,7 @@ class Home extends Component {
             const books = [...uniqueSet];
             if (books.length > 0) {
               let r = '';
-              for (let i = 0; i < books.length; i++) {
+              for (let i = 0; i < books.length; i += 1) {
                 r += `r=http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23${books[i]}&`;
               }
               const url = `https://api.edamam.com/search?${r}app_id=${apiID}&app_key=${apiKey}&from=0&to=${nb}`;
@@ -212,21 +225,6 @@ class Home extends Component {
       }
     }
 
-    // mark a recipe api post
-    componentDidUpdate(prevProps, prevState) {
-      if (prevState.postBook !== this.state.postBook) {
-        const url = 'https://post-a-form.herokuapp.com/api/movies/';
-        axios.post(url, this.state.postBook)
-          .then((res) => res.data)
-          .then((res) => {
-            alert(`BookmarK added ID: ${res.id} !`);
-          })
-          .catch((e) => {
-            console.error(e);
-            alert(`Error Bookmark no added : ${e.message}`);
-          });
-      }
-    }
 
     // filter ingr
     handleInputChangeIngr = (value) => {
@@ -313,26 +311,28 @@ class Home extends Component {
         timeMax: value,
       });
     };
-    //end
+    // end
 
-    //loading
+    // loading
     handleShowStatus = () => {
       const { isShowing } = this.state;
       this.setState({ isShowing: !isShowing });
     }
 
-    //modal filter
+    // modal filter
   handleShow = () => {
     const { show } = this.state;
     this.setState({ show: !show });
-    const diet='no filter';
-    const isVegan= false;
-    const isVegetarian= false;
-    const isPeanutFree= false;
-    const isNutFree= false;
-    const isSugarConscious= false;
-    const isAlcoolFree= false;
-    this.setState({diet, isVegan, isVegetarian, isPeanutFree, isNutFree, isSugarConscious, isAlcoolFree });
+    const diet = 'no filter';
+    const isVegan = false;
+    const isVegetarian = false;
+    const isPeanutFree = false;
+    const isNutFree = false;
+    const isSugarConscious = false;
+    const isAlcoolFree = false;
+    this.setState({
+      diet, isVegan, isVegetarian, isPeanutFree, isNutFree, isSugarConscious, isAlcoolFree,
+    });
   }
 
   handleShowClose = () => {
@@ -340,91 +340,94 @@ class Home extends Component {
     this.setState({ show: !show });
   }
 
-  
-  //end
-    
-   
-    render() {
-      console.log(this.state);
-      const {
-        ingredient, recipes, username, displayBook,  diet, isVegan, isVegetarian, isPeanutFree,isNutFree,
-        isSugarConscious, isAlcoolFree, isShowing, show, ingr,caloriesMax,timeMax
-      } = this.state;
+
+  reset() {
+    const ingredient = '';
+    this.setState({ ingredient });
+  }
+  // end
 
 
-      return (
-        <div>
-          <Header
-            value={username}
-            handleInputChange={this.handleInputChangeUsername}
-            book={this.getBook}
-          />
-          <Searchbar
-            value={ingredient}
-            handleInputChange={this.handleInputChange}
-            updateAPI={this.getAPi}
-            handleInputChangeIngr={this.handleInputChangeIngr}
-            diet={diet}
-            handleChangeDiet={this.handleChangeDiet}
-            vega={isVegan}
-            vege={isVegetarian}
-            peanut={isPeanutFree}
-            treenutfree={isNutFree}
-            sugar={isSugarConscious}
-            alcool={isAlcoolFree}
-            handleInputVega={this.handleInputVega}
-            handleInputVege={this.handleInputVege}
-            handleInputPeanut={this.handleInputPeanut}
-            handleInputSugar={this.handleInputSugar}
-            handleInputAlcool={this.handleInputAlcool}
-            handleInputNutFree={this.handleInputNutFree}
-            handleOnChangeCalories={this.handleOnChangeCalories}
-            handleOnChangeTime={this.handleOnChangeTime}
-            isShowing={isShowing}
-            handleShow={this.handleShow}
-            handleClose={this.handleShowClose}
-            show={show}
-            ingrText={ingr}
-            dietText={diet}
-            veganText={isVegan}
-            vegeText={isVegetarian}
-            peanutText={isPeanutFree}
-            treenutfreeText={isNutFree}
-            sugarText={isSugarConscious}
-            alcoolText={isAlcoolFree}
-            calText={caloriesMax}
-            timeText={timeMax}
-          
-          />
- 
-          <Container className="card-template">
-            <Row>
-              {recipes.map((r) => (
-                <Col sm={6} lg={4}>
-                  <ReactCardFlip isFlipped={r.isFlipped} flipDirection="vertical">
-                    <SingleCard
-                      key={r.uri}
-                      recipes={{...r}}
-                      flip={this.handleFlip}
-                      display={displayBook}
-                      bookmarkF={this.handleStarChange}
-                    />
-                    <SingleCardVerso
-                      key={r.uri}
-                      title={r.label}
-                      flip={this.handleFlip}
-                      uri={r.uri}
-                      ask={r.ask}
-                      ingredientLines={r.ingredientLines}
-                      url={r.url}
-                    />
-                  </ReactCardFlip>
-                </Col>
-              ))}
-            </Row>
-          </Container>
-        </div>
-      );
-    }
+  render() {
+    console.log(this.state);
+    const {
+      ingredient, recipes, username, displayBook, diet, isVegan, isVegetarian, isPeanutFree,
+      isNutFree, isSugarConscious, isAlcoolFree, isShowing, show, ingr, caloriesMax, timeMax,
+    } = this.state;
+
+
+    return (
+      <div>
+        <Header
+          value={username}
+          handleInputChange={this.handleInputChangeUsername}
+          book={this.getBook}
+        />
+        <Searchbar
+          value={ingredient}
+          handleInputChange={this.handleInputChange}
+          updateAPI={this.getAPi}
+          handleInputChangeIngr={this.handleInputChangeIngr}
+          diet={diet}
+          handleChangeDiet={this.handleChangeDiet}
+          vega={isVegan}
+          vege={isVegetarian}
+          peanut={isPeanutFree}
+          treenutfree={isNutFree}
+          sugar={isSugarConscious}
+          alcool={isAlcoolFree}
+          handleInputVega={this.handleInputVega}
+          handleInputVege={this.handleInputVege}
+          handleInputPeanut={this.handleInputPeanut}
+          handleInputSugar={this.handleInputSugar}
+          handleInputAlcool={this.handleInputAlcool}
+          handleInputNutFree={this.handleInputNutFree}
+          handleOnChangeCalories={this.handleOnChangeCalories}
+          handleOnChangeTime={this.handleOnChangeTime}
+          isShowing={isShowing}
+          handleShow={this.handleShow}
+          handleClose={this.handleShowClose}
+          show={show}
+          ingrText={ingr}
+          dietText={diet}
+          veganText={isVegan}
+          vegeText={isVegetarian}
+          peanutText={isPeanutFree}
+          treenutfreeText={isNutFree}
+          sugarText={isSugarConscious}
+          alcoolText={isAlcoolFree}
+          calText={caloriesMax}
+          timeText={timeMax}
+        />
+
+        <Container className="card-template">
+          <Row>
+            {recipes.map((r) => (
+              <Col key={r.uri} sm={6} lg={4}>
+                <ReactCardFlip isFlipped={r.isFlipped} flipDirection="vertical">
+                  <SingleCard
+
+                    recipes={{ ...r }}
+                    flip={this.handleFlip}
+                    display={displayBook}
+                    bookmarkF={this.handleStarChange}
+                  />
+                  <SingleCardVerso
+
+                    title={r.label}
+                    flip={this.handleFlip}
+                    uri={r.uri}
+                    ask={r.ask}
+                    ingredientLines={r.ingredientLines}
+                    url={r.url}
+                  />
+                </ReactCardFlip>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </div>
+    );
+  }
 }
 export default Home;
