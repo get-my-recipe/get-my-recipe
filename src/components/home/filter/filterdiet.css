@@ -1,22 +1,16 @@
 .diet-title h5{
     font-family: 'Raleway';
     color: #9EB25D;
-
- 
 }
 
 .diet-title option{
     font-family: 'Raleway';
     color: #9EB25D;
-
- 
 }
 
 .diet-title select{
     font-family: 'Raleway';
     color: #9EB25D;
-
- 
 }
 
 .btn-primary {
@@ -24,4 +18,5 @@
     background-color: #9EB25D!important; 
     color: #f1db4b!important;
     border-radius: 5px!important; 
-    margin-top: 10px!important; }
+    margin-top: 10px!important; 
+}
