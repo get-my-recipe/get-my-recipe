@@ -33,11 +33,11 @@ const About = () => (
         </a>
       </div>
       <div className="cards">
-        <img className="card-image" src={Catherine} alt="" />
+        <img className="card-image" src={Catherine} alt="Catherine" />
         <a href="https://github.com/cath974">Catherine Blecon</a>
       </div>
       <div className="cards">
-        <img className="card-image" src={Arnaud} alt="" />
+        <img className="card-image" src={Arnaud} alt="Arnaud" />
         <a href="https://www.linkedin.com/in/arnaud-duh%C3%A9-05a00b41/">
           Arnaud Duhé
         </a>

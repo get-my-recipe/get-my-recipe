@@ -45,7 +45,7 @@ class ContactForm extends Component {
                 We&apos;ll never share your email with anyone else.
               </Form.Text>
             </Form.Group>
-            <h2>Tell us your inspiration of the day:</h2>
+            <h5>Tell us your inspiration of the day:</h5>
             <textarea
               style={{ paddingLeft: '11px' }}
               placeholder="Write something here..."
