@@ -124,7 +124,6 @@ const SearchBar = ({
                     <div className="container-loader-search">
                       <Loader />
                     </div>
-                    <Loader />
                   )}
     </form>
 
