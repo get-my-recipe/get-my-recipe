@@ -1,12 +1,9 @@
-
 import React from 'react';
 import CircularSlider from '@fseehawer/react-circular-slider';
 import './circular.css';
 
-
 const Filteringredient = ({ handleInputChangeIngr }) => (
-
-
+  
   <CircularSlider
     className="circuSlider"
     width={120}
@@ -27,6 +24,5 @@ const Filteringredient = ({ handleInputChangeIngr }) => (
     onChange={(value) => { handleInputChangeIngr(value); }}
   />
 );
-
 
 export default Filteringredient;

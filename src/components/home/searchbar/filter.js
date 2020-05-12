@@ -1,14 +1,11 @@
-
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
 import Filteringredient from '../filter/filteringredient';
 import FilterDiet from '../filter/filterdiet';
 import FilterHealth from '../filter/filterhealth';
 import FilterCalories from '../filter/filtercalories';
 import FilterTime from '../filter/filtertime';
-import '../filter/filterdiet.css';
-
+import './filter.css';
 
 function Filter({
   handleInputChangeIngr, diet, handleChangeDiet,
@@ -21,17 +18,15 @@ function Filter({
       {show
           && (
             <Modal show={show}>
-              <Modal.Header>
-                <Modal.Title>Choose yours filters</Modal.Title>
-                <Button variant="secondary" onClick={handleClose}>
-                  X
-                </Button>
+              <Modal.Header className="filter-modal-header">
+                <Modal.Title><strong>Filter selection</strong></Modal.Title>
               </Modal.Header>
               <Modal.Body>
                 <FilterDiet
                   diet={diet}
                   handleChangeDiet={handleChangeDiet}
                 />
+                <hr />
                 <FilterHealth
                   vega={vega}
                   vege={vege}
@@ -46,8 +41,7 @@ function Filter({
                   handleInputAlcool={handleInputAlcool}
                   handleInputNutFree={handleInputNutFree}
                 />
-
-
+                <hr />
                 <Filteringredient
                   handleInputChangeIngr={handleInputChangeIngr}
                 />
@@ -61,14 +55,17 @@ function Filter({
 
               </Modal.Body>
               <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                  Close
-                </Button>
+                <button
+                  type="button"
+                  className="confirm-button"
+                  variant="secondary"
+                  onClick={handleClose}
+                >
+                  Confirm filters
+                </button>
               </Modal.Footer>
             </Modal>
           )}
-
-
     </>
   );
 }

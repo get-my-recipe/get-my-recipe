@@ -1,4 +1,3 @@
-
 import React from 'react';
 import CircularSlider from '@fseehawer/react-circular-slider';
 import './circular.css';
@@ -26,6 +25,5 @@ const FilterCalories = ({ handleOnChangeCalories }) => (
     onChange={(value) => { handleOnChangeCalories(value); }}
   />
 );
-
 
 export default FilterCalories;

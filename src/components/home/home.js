@@ -67,7 +67,6 @@ class Home extends Component {
     }
   }
 
-
     // flip the card
     handleFlip = (uri) => {
       const { recipes } = this.state;
@@ -122,7 +121,6 @@ class Home extends Component {
       // calories max
       const { caloriesMax } = this.state;
       api = `${api}&calories=${caloriesMax}`;
-
 
       axios.get(api)
         .then((res) => {
@@ -355,7 +353,6 @@ class Home extends Component {
       isNutFree, isSugarConscious, isAlcoolFree, isShowing, show, ingr, caloriesMax, timeMax,
     } = this.state;
 
-
     return (
       <div>
         <Header
@@ -399,21 +396,18 @@ class Home extends Component {
           calText={caloriesMax}
           timeText={timeMax}
         />
-
         <Container className="card-template">
           <Row>
             {recipes.map((r) => (
               <Col key={r.uri} sm={6} lg={4}>
                 <ReactCardFlip isFlipped={r.isFlipped} flipDirection="vertical">
                   <SingleCard
-
                     recipes={{ ...r }}
                     flip={this.handleFlip}
                     display={displayBook}
                     bookmarkF={this.handleStarChange}
                   />
                   <SingleCardVerso
-
                     title={r.label}
                     flip={this.handleFlip}
                     uri={r.uri}

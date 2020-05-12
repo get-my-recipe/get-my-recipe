@@ -19,8 +19,13 @@ nav.navbar.navbar-expand-md.navbar-light {
 div#responsive-navbar-nav {
     text-align: center;
 }
-form.form-inline {
+.navbar form.form-inline {
     display: inline-block;
+    padding: 5px;
+}
+
+a.nav-link:hover{
+    font-weight: 900;
 }
 
 .navbar input.form-control{
@@ -31,7 +36,6 @@ form.form-inline {
 .logo-nav {
     height: 3.5em;
 }
-
 
 .bookmark-button {
     font-family: 'Raleway'; 

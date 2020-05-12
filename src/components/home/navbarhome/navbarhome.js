@@ -31,12 +31,12 @@ const NavBarHome = ({ value, handleInputChange, book }) => (
       </button>
     </Form>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-    <ButtonCarousel />
     <Navbar.Collapse className="flex-grow-0" id="responsive-navbar-nav">
       <Nav className="mr-auto">
         <Link className="nav-link" to="/contact">Contact</Link>
         <Link className="nav-link" to="/about">About us</Link>
       </Nav>
+      <ButtonCarousel />
     </Navbar.Collapse>
   </Navbar>
 
