@@ -23,7 +23,7 @@ form.form-inline {
     display: inline-block;
 }
 
-input.form-control{
+.navbar input.form-control{
     width: 150px!important;
     height: 28px;
 }
