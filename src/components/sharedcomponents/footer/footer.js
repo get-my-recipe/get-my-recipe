@@ -1,10 +1,10 @@
-import React from "react";
-import "./footer.css";
-import { Row } from 'react-bootstrap';
-import { Col } from "react-bootstrap";
-import twitter from "../../../assets/logos/twitter.png";
-import facebook from "../../../assets/logos/facebook.png";
-import insta from "../../../assets/logos/insta.png";
+import React from 'react';
+import './footer.css';
+import { Row, Col } from 'react-bootstrap';
+
+import twitter from '../../../assets/logos/twitter.png';
+import facebook from '../../../assets/logos/facebook.png';
+import insta from '../../../assets/logos/insta.png';
 
 
 const Footer = () => (
@@ -23,7 +23,7 @@ const Footer = () => (
 
 
         <ul className="footerList3">
-          <img className="tw" src={twitter} alt="twitter logo"/>
+          <img className="tw" src={twitter} alt="twitter logo" />
           <img className="fb" src={facebook} alt="facebook logo" />
           <img className="fb" src={insta} alt="facebook instagramme" />
         </ul>

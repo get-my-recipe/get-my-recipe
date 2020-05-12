@@ -1,19 +1,20 @@
-import React, { Component } from "react";
-import Form from "react-bootstrap/Form";
-import NavBarShared from "../sharedcomponents/navbarshared/navbarshared";
-import "./contact.css";
+
+import React, { Component } from 'react';
+import Form from 'react-bootstrap/Form';
+import NavBarShared from '../sharedcomponents/navbarshared/navbarshared';
+import './contact.css';
 
 class ContactForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: "",
+      message: '',
     };
   }
 
   onSubmit = (event) => {
     event.preventDefault();
-    alert(`${"Your message was sent successfully!"}`);
+    alert(`${'Your message was sent successfully!'}`);
   };
 
   handleChange = (event) => {
@@ -23,6 +24,7 @@ class ContactForm extends Component {
   };
 
   render() {
+    const { message } = this.state;
     return (
       <div className="containerForm">
         <div>
@@ -45,12 +47,12 @@ class ContactForm extends Component {
             </Form.Group>
             <h2>Tell us your inspiration of the day:</h2>
             <textarea
-              style={{ paddingLeft:"11px" }}
+              style={{ paddingLeft: '11px' }}
               placeholder="Write something here..."
               id="message-id"
               name="message"
               type="text"
-              value={this.state.message}
+              value={message}
               onChange={(event) => this.handleChange(event)}
               rows={8}
             />

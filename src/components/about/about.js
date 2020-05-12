@@ -1,6 +1,6 @@
-import React from "react";
-import "./about.css";
-import NavBarShared from "../sharedcomponents/navbarshared/navbarshared";
+import React from 'react';
+import './about.css';
+import NavBarShared from '../sharedcomponents/navbarshared/navbarshared';
 import Aline from '../../assets/images/Aline.jpg';
 import Arnaud from '../../assets/images/Arnaud.jpg';
 import Catherine from '../../assets/images/Catherine.jpg';
