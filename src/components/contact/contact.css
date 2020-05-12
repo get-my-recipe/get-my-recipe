@@ -4,8 +4,6 @@
     background-color: rgb(237, 248, 233);
     }
 
-
-
 .contactUsForm {
     background-color: #eefcce;
     width: 45%;
@@ -16,19 +14,24 @@
     flex-direction: column;
     margin-top: 120px;
     margin-bottom: 120px;
-    padding : 60px 50px 50px 50px;
     border-style: solid;
     border-color: #9eb25d;
     border-width: 10px;
 }
-input.form-control {
+.form-group input.form-control {
     width: 100%;
     }
 
 .label2 {
     font-weight: bold;
     }
+.contactUsForm h5 {
+   margin: 0px;
+}
 
+.contactUsForm .form-group{
+    margin: 0px;
+}
    footer.containerFooter {
     margin: 0px;
    }
@@ -38,7 +41,7 @@ input.form-control {
     width: 90%;
 };
 }
-@media screen and (max-width: 1290px) {
+@media screen and (max-width: 1000px) {
     .contactUsForm {
     padding : 6px; 
     };

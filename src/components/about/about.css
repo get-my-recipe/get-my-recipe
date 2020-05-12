@@ -27,6 +27,15 @@ body{
     color: rgb(122, 114, 114);
 }
 
+.cards a:link {
+    color: whitesmoke;
+    font-size: 30px;
+}
+
+ .cards a:visited {
+        color: whitesmoke;
+      }
+      
 .cards-container{
     display: flex;
     flex-wrap: wrap;

@@ -7,10 +7,10 @@ import FilterCalories from '../filter/filtercalories';
 import FilterTime from '../filter/filtertime';
 import './filter.css';
 
-
 function Filter({
   handleInputChangeIngr, diet, handleChangeDiet,
-  vega, vege, peanut, treenutfree, sugar, alcool, handleInputVega, handleInputVege, handleInputPeanut, handleInputNutFree, handleInputSugar, handleInputAlcool,
+  vega, vege, peanut, treenutfree, sugar, alcool, handleInputVega, handleInputVege,
+  handleInputPeanut, handleInputNutFree, handleInputSugar, handleInputAlcool,
   handleOnChangeCalories, handleOnChangeTime, show, handleClose,
 }) {
   return (

@@ -17,11 +17,10 @@ const SearchBar = ({
   vega, vege, peanut, treenutfree, sugar, alcool, handleInputVega,
   handleInputVege, handleInputPeanut, handleInputSugar, handleInputAlcool, handleInputNutFree,
   handleOnChangeCalories,
-  handleOnChangeTime, isShowing, handleShow, show, handleClose, ingrText, dietText, veganText, vegeText, peanutText,
+  handleOnChangeTime, isShowing, handleShow, show, handleClose, ingrText, dietText, veganText,
+  vegeText, peanutText,
   treenutfreeText, sugarText, alcoolText, calText, timeText,
-
 }) => (
-
 
   <div className="searchbar-container">
     <form className="searchbar-form">
@@ -125,6 +124,7 @@ const SearchBar = ({
                     <div className="container-loader-search">
                       <Loader />
                     </div>
+                    <Loader />
                   )}
     </form>
 

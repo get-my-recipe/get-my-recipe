@@ -13,8 +13,6 @@ const FilterDiet = ({ diet, handleChangeDiet }) => (
       <option value="low-carbs">Low-carbs</option>
     </select>
   </div>
-
-
 );
 
 export default FilterDiet;

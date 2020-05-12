@@ -1,3 +1,9 @@
+/* eslint-disable react/no-access-state-in-setstate */
+/* eslint-disable no-shadow */
+/* eslint-disable max-len */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable no-console */
+
 import React, { Component } from 'react';
 import axios from 'axios';
 import Container from 'react-bootstrap/Container';
@@ -44,11 +50,27 @@ class Home extends Component {
     };
   }
 
+  // mark a recipe api post
+  componentDidUpdate(_prevProps, prevState) {
+    const { postBook } = this.state;
+    if (prevState.postBook !== postBook) {
+      const url = 'https://post-a-form.herokuapp.com/api/movies/';
+      axios.post(url, postBook)
+        .then((res) => res.data)
+        .then((res) => {
+          alert(`BookmarK added ID: ${res.id} !`);
+        })
+        .catch((e) => {
+          console.error(e);
+          alert(`Error Bookmark no added : ${e.message}`);
+        });
+    }
+  }
 
     // flip the card
     handleFlip = (uri) => {
       const { recipes } = this.state;
-      const select = this.state.recipes.findIndex((el) => el.uri === uri);
+      const select = recipes.findIndex((el) => el.uri === uri);
       if (recipes[select].isFlipped === true) {
         recipes[select].isFlipped = false;
       } else {
@@ -82,7 +104,6 @@ class Home extends Component {
       }
 
       // health
-      // Health labels: “vegan”, “vegetarian”, “peanut-free”, “tree-nut-free”, "sugar-conscious" , "alcohol-free" (labels are per serving)
       const { isVegan } = this.state;
       const { isVegetarian } = this.state;
       const { isPeanutFree } = this.state;
@@ -101,10 +122,6 @@ class Home extends Component {
       const { caloriesMax } = this.state;
       api = `${api}&calories=${caloriesMax}`;
 
-
-      console.log(api);
-
-
       axios.get(api)
         .then((res) => {
           // function ingredients in the search bar
@@ -113,7 +130,7 @@ class Home extends Component {
             let result = false;
             if (ingredientArray.length > 0) {
               let val = false;
-              for (let i = 0; i < ingredientArray.length; i++) {
+              for (let i = 0; i < ingredientArray.length; i += 1) {
                 val = el.toLowerCase().includes(ingredientArray[i].toLowerCase());
                 if (val === true) { result = true; }
               }
@@ -128,11 +145,6 @@ class Home extends Component {
           this.setState({ recipes, displayBook, isShowing: true });
         });
       this.reset();
-    }
-
-    reset() {
-      const ingredient = '';
-      this.setState({ ingredient });
     }
 
 
@@ -170,7 +182,7 @@ class Home extends Component {
             const books = [...uniqueSet];
             if (books.length > 0) {
               let r = '';
-              for (let i = 0; i < books.length; i++) {
+              for (let i = 0; i < books.length; i += 1) {
                 r += `r=http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23${books[i]}&`;
               }
               const url = `https://api.edamam.com/search?${r}app_id=${apiID}&app_key=${apiKey}&from=0&to=${nb}`;
@@ -211,21 +223,6 @@ class Home extends Component {
       }
     }
 
-    // mark a recipe api post
-    componentDidUpdate(prevProps, prevState) {
-      if (prevState.postBook !== this.state.postBook) {
-        const url = 'https://post-a-form.herokuapp.com/api/movies/';
-        axios.post(url, this.state.postBook)
-          .then((res) => res.data)
-          .then((res) => {
-            alert(`BookmarK added ID: ${res.id} !`);
-          })
-          .catch((e) => {
-            console.error(e);
-            alert(`Error Bookmark no added : ${e.message}`);
-          });
-      }
-    }
 
     // filter ingr
     handleInputChangeIngr = (value) => {
@@ -342,16 +339,19 @@ class Home extends Component {
   }
 
 
+  reset() {
+    const ingredient = '';
+    this.setState({ ingredient });
+  }
   // end
 
 
   render() {
     console.log(this.state);
     const {
-      ingredient, recipes, username, displayBook, diet, isVegan, isVegetarian, isPeanutFree, isNutFree,
-      isSugarConscious, isAlcoolFree, isShowing, show, ingr, caloriesMax, timeMax,
+      ingredient, recipes, username, displayBook, diet, isVegan, isVegetarian, isPeanutFree,
+      isNutFree, isSugarConscious, isAlcoolFree, isShowing, show, ingr, caloriesMax, timeMax,
     } = this.state;
-
 
     return (
       <div>
@@ -399,17 +399,15 @@ class Home extends Component {
         <Container className="card-template">
           <Row>
             {recipes.map((r) => (
-              <Col sm={6} lg={4}>
+              <Col key={r.uri} sm={6} lg={4}>
                 <ReactCardFlip isFlipped={r.isFlipped} flipDirection="vertical">
                   <SingleCard
-                    key={r.uri}
                     recipes={{ ...r }}
                     flip={this.handleFlip}
                     display={displayBook}
                     bookmarkF={this.handleStarChange}
                   />
                   <SingleCardVerso
-                    key={r.uri}
                     title={r.label}
                     flip={this.handleFlip}
                     uri={r.uri}

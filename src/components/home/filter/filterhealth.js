@@ -11,7 +11,6 @@ const FilterHealth = ({
   vega, vege, peanut, treenutfree, sugar, alcool, handleInputVega,
   handleInputVege, handleInputPeanut, handleInputSugar, handleInputAlcool, handleInputNutFree,
 }) => (
-
   <div className="filter-health-container">
     <fieldset className="fieldset-filter">
       <legend>
@@ -112,7 +111,6 @@ const FilterHealth = ({
       </label>
     </fieldset>
   </div>
-
 );
 
 

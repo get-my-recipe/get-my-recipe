@@ -1,7 +1,6 @@
 import React from 'react';
 import CircularSlider from '@fseehawer/react-circular-slider';
 import './circular.css';
-// import { ReactComponent as PowerIcon } from './assets/power.svg';
 
 const FilterCalories = ({ handleOnChangeCalories }) => (
 
@@ -15,8 +14,6 @@ const FilterCalories = ({ handleOnChangeCalories }) => (
     max={3000}
     dataIndex={3000}
     valueFontSize="1.5rem"
-  // prependToValue="$"
-  // appendToValue="cal"
     labelColor="#9EB25D"
     labelBottom
     knobColor="#9EB25D"
@@ -26,10 +23,7 @@ const FilterCalories = ({ handleOnChangeCalories }) => (
     trackColor="#F1DB4B"
     trackSize={7}
     onChange={(value) => { handleOnChangeCalories(value); }}
-  >
-    {/* <DragIcon x="9" y="8" width="18px" height="18px" /> */}
-  </CircularSlider>
+  />
 );
-
 
 export default FilterCalories;
