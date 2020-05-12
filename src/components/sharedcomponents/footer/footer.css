@@ -2,19 +2,24 @@
   display: flex;
   color: white;
   background-color: #9eb25d;
-  height: 220px;
+  height: 140px;
   justify-content: space-around;
   margin-top: 30px ;
   padding-top: 20px;
 }
 
-a:link {
+.containerFooter a:link {
   color: whitesmoke;
-  font-size: 25px;
+  font-size: .80rem!important;
 }
 
-a:visited {
+.containerFooter p {
+  font-size: .80rem!important;
+}
+
+.containerFooter a:visited {
   color: whitesmoke;
+  font-size: .80rem!important;
 }
 
 .containerFooter ul {

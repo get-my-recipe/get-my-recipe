@@ -4,12 +4,16 @@
 }
 
 a.nav-link {
-    color: #F1DB4B!important
+    color: #F1DB4B!important;
+    font-size: 1.25rem!important;
+
 }
+
 
 .navbar {
     background-color: #9EB25D;
     font-family: 'Raleway'; 
+    font-size: 15px;
     color: #F1DB4B;
     z-index: 10;
     white-space: nowrap;
