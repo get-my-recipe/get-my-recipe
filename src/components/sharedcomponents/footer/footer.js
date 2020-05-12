@@ -12,18 +12,18 @@ const Footer = () => (
     <Col sm={12} lg={12}>
       <footer className="containerFooter">
         <ul className="footerList">
-          <a href="https://www.linkedin.com/in/arnaud-duh%C3%A9-05a00b41/">
-            Arnaud Duhé
-          </a>
-          <a href="https://www.linkedin.com/in/aline-sinclaire-b8998810b/?originalSubdomain=ca">
+          <a href="https://www.linkedin.com/in/aline-sinclaire-b8998810b/?originalSubdomain=ca" rel="noopener noreferrer" target="_blank">
             Aline Sinclaire
           </a>
-          <a href="https://github.com/cath974">Catherine Blecon</a>
+          <a href="https://www.linkedin.com/in/arnaud-duh%C3%A9-05a00b41/" rel="noopener noreferrer" target="_blank">
+            Arnaud Duhé
+          </a>
+          <a href="https://github.com/cath974" rel="noopener noreferrer" target="_blank">Catherine Blecon</a>
         </ul>
 
 
         <ul className="footerList3">
-          <img className="tw" src={twitter} alt="twitter logo" />
+          <img className="tw" src={twitter} alt="twitter logo"/>
           <img className="fb" src={facebook} alt="facebook logo" />
           <img className="fb" src={insta} alt="facebook instagramme" />
         </ul>

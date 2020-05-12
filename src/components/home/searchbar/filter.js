@@ -29,24 +29,23 @@ function Filter({
                   handleChangeDiet={handleChangeDiet}
                 />
                 <FilterHealth
-                  vega={vega}
-                  vege={vege}
-                  peanut={peanut}
-                  treenutfree={treenutfree}
-                  sugar={sugar}
-                  alcool={alcool}
-                  handleInputVega={handleInputVega}
-                  handleInputVege={handleInputVege}
-                  handleInputPeanut={handleInputPeanut}
-                  handleInputSugar={handleInputSugar}
-                  handleInputAlcool={handleInputAlcool}
-                  handleInputNutFree={handleInputNutFree}
-                />
+                        vega={vega}
+                        vege={vege}
+                        peanut={peanut}
+                        treenutfree={treenutfree}
+                        sugar={sugar}
+                        alcool={alcool}
+                        handleInputVega={handleInputVega}
+                        handleInputVege={handleInputVege}
+                        handleInputPeanut={handleInputPeanut}
+                        handleInputSugar={handleInputSugar}
+                        handleInputAlcool={handleInputAlcool}
+                        handleInputNutFree={handleInputNutFree}
+                        /> 
+                <Filteringredient 
+                        handleInputChangeIngr={handleInputChangeIngr}
 
-
-                <Filteringredient
-                  handleInputChangeIngr={handleInputChangeIngr}
-                />
+                      />
                 <FilterCalories
                   handleOnChangeCalories={handleOnChangeCalories}
                 />

@@ -1,7 +1,13 @@
+.containerForm{
+    height:1100px;
+    width: 100%;
+    background-color: rgb(237, 248, 233);
+    }
+
 
 
 .contactUsForm {
-    background-color: #f1db4b;
+    background-color: #eefcce;
     width: 45%;
     margin: 0 auto;
     height: 700px;
@@ -10,16 +16,30 @@
     flex-direction: column;
     margin-top: 120px;
     margin-bottom: 120px;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding : 60px 50px 50px 50px;
     border-style: solid;
     border-color: #9eb25d;
     border-width: 10px;
 }
+input.form-control {
+    width: 100%;
+    }
+
+.label2 {
+    font-weight: bold;
+    }
+
+   footer.containerFooter {
+    margin: 0px;
+   }
 
 @media screen and (max-width: 840px) {
     .contactUsForm {
     width: 90%;
 };
 }
+@media screen and (max-width: 1290px) {
+    .contactUsForm {
+    padding : 6px; 
+    };
+    }

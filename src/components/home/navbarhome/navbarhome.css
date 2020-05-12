@@ -12,7 +12,7 @@
     margin-right: 0;
 }
 
-nav.navbar.navbar-expand-lg.navbar-light {
+nav.navbar.navbar-expand-md.navbar-light {
     justify-content: space-around;
 } 
 
@@ -24,7 +24,8 @@ form.form-inline {
 }
 
 input.form-control{
-    width: 120px;
+    width: 150px!important;
+    height: 28px;
 }
     
 .logo-nav {

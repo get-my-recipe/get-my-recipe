@@ -2,16 +2,24 @@
   display: flex;
   color: white;
   background-color: #9eb25d;
-  height: 200px;
+  height: 140px;
   justify-content: space-around;
-  margin-top: 10px ;
+  margin-top: 30px ;
+  padding-top: 20px;
 }
 
-a:link {
+.containerFooter a:link {
   color: whitesmoke;
+  font-size: .80rem!important;
 }
-a:visited {
+
+.containerFooter p {
+  font-size: .80rem!important;
+}
+
+.containerFooter a:visited {
   color: whitesmoke;
+  font-size: .80rem!important;
 }
 
 .containerFooter ul {
@@ -22,7 +30,9 @@ a:visited {
 }
 
 .copyRight {
+  margin-top: 35px;
   display: flex;
+  font-size: 25px;
   align-items: center;
 }
 
@@ -31,17 +41,14 @@ a:visited {
   justify-content: space-around;
 }
 
-.twitter {
-  margin-left: 6px;
-}
-
-
 .fb {
-  height: 45px;
-  width: 45px;
+  height: 50px;
+  width: 50px;
 }
 
 .tw {
+  margin-bottom : 10px;
+  margin-left: 6px;
   height: 35px;
   width: 35px;
 }

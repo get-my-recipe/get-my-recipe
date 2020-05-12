@@ -22,12 +22,17 @@
     width: 100%;
 }
 
+div.carousel-button-container {
+    height: 100%;
+    padding-right: 0!important;
+    margin: 0!important;
+}
+
 .carousel-closing-button {
     font-family: 'Raleway'; 
     background-color: #9EB25D; 
     color: #f1db4b;
     border-radius: 5px; 
-
 }
 
 .carousel-closing-button:hover {
