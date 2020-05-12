@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Filteringredient from '../filter/filteringredient';
@@ -19,7 +18,7 @@ function Filter({
       {show
           && (
             <Modal show={show}>
-              <Modal.Header>
+              <Modal.Header className="filter-modal-header">
                 <Modal.Title><strong>Filter selection</strong></Modal.Title>
               </Modal.Header>
               <Modal.Body>

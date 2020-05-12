@@ -1,11 +1,21 @@
+.filter-modal-header {
+    color: #9EB25D;
+}
+
 .diet-selection {
     display: flex;
     justify-content: center;
     padding: 5px;
 }
 
-.diet-selection h5{
+.diet-selection h4 
+{
     color: #9EB25D;
+    margin: auto 15px;
+}
+
+.diet-selection h5{
+    color: #f1db4b;
     margin: auto 15px;
 }
 
@@ -15,7 +25,7 @@
 
 .diet-selection option{
     font-family: 'Raleway';
-    color: #7e7b6a;
+    color: #9EB25D;
 }
 
 .diet-selection select:focus {
@@ -77,4 +87,5 @@ legend {
 .confirm-button:focus {
     outline:0;
 }
+
 

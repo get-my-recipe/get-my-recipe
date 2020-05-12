@@ -1,5 +1,5 @@
 .container-home-welcome-section {
-    height: 85vh;
+    height: 95vh;
     width: 100%;
 }
 
@@ -30,6 +30,7 @@
 .searchbar-container {
     background-color: white;
     position: absolute;
+    border-radius: 5px;  
     height: 40%;
     width: 75%;
     top: 36%;
@@ -46,7 +47,7 @@
 .searchbar-form {
     position: relative;
     top: 7%;
-    width: 80%;
+    width: 100%;
     text-align: center;
     margin: auto;
 }
@@ -117,5 +118,27 @@
     outline:0;
 }
 
+.single-active-filter {
+    color: #9EB25D; 
+}
 
+.active-filters img {
+    height: 25px;
+    padding-left: 9px;
+    padding-right: 9px;
+}
+
+p.single-active-filter {
+   margin-bottom: 0px;
+   padding-top: 10px; 
+   padding-bottom: 5px;
+}
+
+.badge {
+    height: 20px;
+    font-weight: 1100;
+    color: #9EB25D;
+    background-color: #f1db4b;
+    border-radius: 9px;
+}
 

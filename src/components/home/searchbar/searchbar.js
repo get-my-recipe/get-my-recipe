@@ -1,6 +1,13 @@
 import React from 'react';
+import { Badge } from 'react-bootstrap';
 import Filter from './filter';
 import Loader from '../loader/loader';
+import vegan from '../../../assets/health/vegan.png';
+import vegeterian from '../../../assets/health/vegeterian.png';
+import alcoollogo from '../../../assets/health/alcool.png';
+import nut from '../../../assets/health/nut.png';
+import peanutlogo from '../../../assets/health/peanut.png';
+import sugarlogo from '../../../assets/health/sugar.png';
 import '../home.css';
 
 
@@ -63,41 +70,53 @@ const SearchBar = ({
       </button>
 
       {/* filter text */}
-      <div>
+      <div className="active-filters">
         {(dietText !== 'no filter') && (
-        <p>
-          Diet =
-          {dietText}
+        <p className="single-active-filter">
+          Specific Diet:
+          {' '}
+          <Badge className="badge-filter">{dietText}</Badge>
         </p>
         )}
-
-        {(veganText) && <p>vegan </p>}
-        {(vegeText) && <p>vegetarian</p>}
-        {(peanutText) && <p>peanut-free</p>}
-        {(treenutfreeText) && <p>tree-nut-free</p>}
-        {(sugarText) && <p>sugar-conscious</p>}
-        {(alcoolText) && <p>alcohol-free</p>}
-
+        {(veganText) && (
+          <img src={vegan} alt="logo" />
+        )}
+        {(vegeText) && (
+          <img src={vegeterian} alt="logo" />
+        )}
+        {(peanutText) && (
+          <img src={peanutlogo} alt="logo" />
+        )}
+        {(treenutfreeText) && (
+          <img src={nut} alt="logo" />
+        )}
+        {(alcoolText) && (
+          <img src={alcoollogo} alt="logo" />
+        )}
+        {(sugarText) && (
+          <img src={sugarlogo} alt="logo" />
+        )}
         {(ingrText < 20) && (
-        <p>
-          Number max ingredients =
-          {ingrText}
+        <p className="single-active-filter">
+          Ingredients max:
+          {' '}
+          <Badge className="badge-filter">{ingrText}</Badge>
         </p>
         )}
         {(calText < 3000) && (
-        <p>
-          Number max calories =
-          {calText}
+        <p className="single-active-filter">
+          Calories max:
+          {' '}
+          <Badge className="badge-filter">{calText}</Badge>
         </p>
         )}
         {(timeText < 200) && (
-        <p>
-          Number max time =
-          {timeText}
+        <p className="single-active-filter">
+          Maximum Time:
+          {' '}
+          <Badge className="badge-filter">{timeText}</Badge>
         </p>
         )}
-
-
       </div>
 
 
