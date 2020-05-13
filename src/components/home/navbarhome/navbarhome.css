@@ -5,7 +5,8 @@
     z-index: 10;
     white-space: nowrap;
     position: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin: 5px 5px;
 }
 
 .navbar-brand {
@@ -13,8 +14,8 @@
 }
 
 nav.navbar.navbar-expand-md.navbar-light {
-    justify-content: space-around;
-} 
+    justify-content: space-between;
+}
 
 div#responsive-navbar-nav {
     text-align: center;
@@ -48,6 +49,17 @@ a.nav-link:hover{
     font-weight: 900;
 }
 
+@media (max-width: 580px){
+nav.navbar.navbar-expand-md.navbar-light {
+    justify-content: space-around;
+} 
+}
+
+@media (max-width: 385px){
+    nav.navbar.navbar-expand-md.navbar-light {
+        justify-content: center;
+    } 
+    }
 
 
 

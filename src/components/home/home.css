@@ -36,8 +36,12 @@
     top: 36%;
     left: 50%;
     transform: translate(-50%, 0);
+    box-shadow: 0 0 5px 1px #9eb25d;
+
+}
+
+.searchbar-container:hover {
     box-shadow: 0 0 10px 1px #9eb25d;
-    opacity: 1;   
 }
 
 .container-loader-search{

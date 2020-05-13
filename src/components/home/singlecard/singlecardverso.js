@@ -41,17 +41,13 @@ const SingleCardVerso = ({
     <ListGroup className="list-group-flush">
 
       <ListGroupItem>
-        <Badge variant="light">
+        <Badge className="badge-filter">
           {ingredientLines.length}
           {' '}
           ingredients
         </Badge>
       </ListGroupItem>
-
     </ListGroup>
-    <Card.Body>
-      <Card.Link href={url} target="_blank">Instructions</Card.Link>
-    </Card.Body>
   </Card>
 );
 export default SingleCardVerso;
