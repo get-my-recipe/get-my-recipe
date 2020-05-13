@@ -33,6 +33,9 @@ class Favourite extends React.Component {
           return (
             <div>
               <NavBarShared />
+              <h3 className="favorite-container">
+                List of favorite recipes
+              </h3>
               <Container className="card-template">
                 <Row>
                   {recipes.map((r) => (

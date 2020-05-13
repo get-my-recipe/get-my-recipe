@@ -146,3 +146,8 @@ p.single-active-filter {
     border-radius: 9px;
 }
 
+.favorite-container {
+    margin: 45px;
+    text-align: center;
+}
+
