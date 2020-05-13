@@ -106,6 +106,7 @@ const SingleCard = ({
       <ListGroupItem>
         <Badge className="badge-filter">
           Calories:
+          {' '}
           {Math.floor((recipes.calories) / recipes.yield)}
         </Badge>
       </ListGroupItem>

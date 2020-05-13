@@ -76,6 +76,10 @@
   a.card-link {
       color:  rgb(69, 83, 24);
   }
+
+  div.list-group-item {
+    text-align: left;
+  }
       
   .badge-filter {
   height: 20px;
@@ -99,19 +103,18 @@
   }
       
   .ask {
-      color: #9EB25D;
+      color: rgb(69, 83, 24);
   } 
 
 .card-verso-body {
   text-align: left;
+  color: #9EB25D;
 }
 
 .card-verso-title {
   text-align: center;
 }
-.card-verso-body li::marker {
-  color: rgb(69, 83, 24);
-}
+
       
      
       
