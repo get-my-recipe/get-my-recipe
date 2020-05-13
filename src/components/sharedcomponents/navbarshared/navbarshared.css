@@ -1,0 +1,55 @@
+.color-nav {
+    background-color: #9EB25D;
+}
+
+a.nav-link {
+    color: #F1DB4B!important;
+    font-size: 1.25rem!important;
+}
+
+.navbar {
+    background-color: #9EB25D;
+    font-family: 'Raleway'; 
+    font-size: 15px;
+    color: #F1DB4B;
+    z-index: 10;
+    white-space: nowrap;
+    position: flex;
+    justify-content: space-between;
+    margin: 5px 5px;
+}
+
+.navbar-brand {
+    margin-right: 0;
+}
+
+nav.navbar.navbar-expand-md.navbar-light {
+    justify-content: space-between;
+} 
+
+div#responsive-navbar-nav {
+    text-align: center;
+}
+form.form-inline {
+    display: inline-block;
+}
+
+input.form-control{
+    width: 120px;
+}
+    
+.logo-home {
+    height: 3.5em;
+}
+
+.bookmark-button {
+    font-family: 'Raleway'; 
+    color: #f1db4b; 
+    background-color: #9EB25D; 
+    border-radius: 5px;  
+    border-color:#f1db4b;
+}
+.bookmark-button:hover {
+    font-weight: 900;
+}
+

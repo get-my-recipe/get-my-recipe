@@ -1,0 +1,65 @@
+.navbar {
+    background-color: #9EB25D;
+    font-family: 'Raleway'; 
+    color: #F1DB4B;
+    z-index: 10;
+    white-space: nowrap;
+    position: flex;
+    justify-content: space-between;
+    margin: 5px 5px;
+}
+
+.navbar-brand {
+    margin-right: 0;
+}
+
+nav.navbar.navbar-expand-md.navbar-light {
+    justify-content: space-between;
+}
+
+div#responsive-navbar-nav {
+    text-align: center;
+}
+.navbar form.form-inline {
+    display: inline-block;
+    padding: 5px;
+}
+
+a.nav-link:hover{
+    font-weight: 900;
+}
+
+.navbar input.form-control{
+    width: 150px!important;
+    height: 28px;
+}
+    
+.logo-nav {
+    height: 3.5em;
+}
+
+.bookmark-button {
+    font-family: 'Raleway'; 
+    color: #f1db4b; 
+    background-color: #9EB25D; 
+    border-radius: 5px;  
+    border-color:#f1db4b;
+}
+.bookmark-button:hover {
+    font-weight: 900;
+}
+
+@media (max-width: 580px){
+nav.navbar.navbar-expand-md.navbar-light {
+    justify-content: space-around;
+} 
+}
+
+@media (max-width: 385px){
+    nav.navbar.navbar-expand-md.navbar-light {
+        justify-content: center;
+    } 
+    }
+
+
+

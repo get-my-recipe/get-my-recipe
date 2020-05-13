@@ -1,0 +1,44 @@
+
+.modal-content {
+    color: #F1DB4B;    
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.modal-header {
+    width: 100%;
+}
+
+.modal-title.h4{
+    position: relative;
+    left: 30%;
+}
+
+.modal-body{
+    padding: 0;
+    width: 100%;
+}
+
+div.carousel-button-container {
+    height: 100%;
+    padding-right: 0!important;
+    margin: 0!important;
+}
+
+.carousel-closing-button {
+    font-family: 'Raleway'; 
+    background-color: #9EB25D; 
+    color: #f1db4b;
+    border-radius: 5px; 
+}
+
+.carousel-closing-button:hover {
+    font-family: 'Raleway'; 
+    color: #9EB25D; 
+    background-color: #f1db4b;
+    border-radius: 5px;  
+}
+
+
+
