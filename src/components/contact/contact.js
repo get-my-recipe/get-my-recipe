@@ -1,19 +1,19 @@
-import React, { Component } from "react";
-import Form from "react-bootstrap/Form";
-import NavBarShared from "../sharedcomponents/navbarshared/navbarshared";
-import "./contact.css";
+import React, { Component } from 'react';
+import Form from 'react-bootstrap/Form';
+import NavBarShared from '../sharedcomponents/navbarshared/navbarshared';
+import './contact.css';
 
 class ContactForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: "",
+      message: '',
     };
   }
 
   onSubmit = (event) => {
     event.preventDefault();
-    alert(`${"Your message was sent successfully!"}`);
+    alert(`${'Your message was sent successfully!'}`);
   };
 
   handleChange = (event) => {
@@ -45,28 +45,25 @@ class ContactForm extends Component {
               </Form.Text>
             </Form.Group>
 
-            <h5>Tell us your inspiration of the day:</h5>
+            <Form.Label className="label2">Tell us your inspiration of the day:</Form.Label>
             <textarea
-              style={{ paddingLeft: "11px" }}
               placeholder="Write something here..."
               id="message-id"
               name="message"
               type="text"
               value={message}
               onChange={(event) => this.handleChange(event)}
-              rows={8}
+              rows={6}
             />
-            <p>
-              <div className="buttonBox">
-                <button
-                  type="submit"
-                  className="filter-button2"
-                  onClick={(event) => this.onSubmit(event)}
-                >
-                  send
-                </button>
-              </div>
-            </p>
+            <div className="buttonBox">
+              <button
+                type="submit"
+                className="filter-button2"
+                onClick={(event) => this.onSubmit(event)}
+              >
+                Send
+              </button>
+            </div>
           </form>
         </div>
       </div>
