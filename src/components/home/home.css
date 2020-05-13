@@ -36,8 +36,12 @@
     top: 36%;
     left: 50%;
     transform: translate(-50%, 0);
+    box-shadow: 0 0 5px 1px #9eb25d;
+
+}
+
+.searchbar-container:hover {
     box-shadow: 0 0 10px 1px #9eb25d;
-    opacity: 1;   
 }
 
 .container-loader-search{
@@ -137,8 +141,8 @@ p.single-active-filter {
 .badge {
     height: 20px;
     font-weight: 1100;
-    color: #9EB25D;
-    background-color: #f1db4b;
+    color: white;
+    background-color: rgb(69, 83, 24);
     border-radius: 9px;
 }
 
