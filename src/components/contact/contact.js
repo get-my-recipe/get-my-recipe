@@ -1,20 +1,19 @@
-
-import React, { Component } from 'react';
-import Form from 'react-bootstrap/Form';
-import NavBarShared from '../sharedcomponents/navbarshared/navbarshared';
-import './contact.css';
+import React, { Component } from "react";
+import Form from "react-bootstrap/Form";
+import NavBarShared from "../sharedcomponents/navbarshared/navbarshared";
+import "./contact.css";
 
 class ContactForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: '',
+      message: "",
     };
   }
 
   onSubmit = (event) => {
     event.preventDefault();
-    alert(`${'Your message was sent successfully!'}`);
+    alert(`${"Your message was sent successfully!"}`);
   };
 
   handleChange = (event) => {
@@ -45,9 +44,10 @@ class ContactForm extends Component {
                 We&apos;ll never share your email with anyone else.
               </Form.Text>
             </Form.Group>
+
             <h5>Tell us your inspiration of the day:</h5>
             <textarea
-              style={{ paddingLeft: '11px' }}
+              style={{ paddingLeft: "11px" }}
               placeholder="Write something here..."
               id="message-id"
               name="message"
@@ -57,9 +57,15 @@ class ContactForm extends Component {
               rows={8}
             />
             <p>
-              <button onClick={(event) => this.onSubmit(event)} type="submit">
-                Send
-              </button>
+              <div className="buttonBox">
+                <button
+                  type="submit"
+                  className="filter-button2"
+                  onClick={(event) => this.onSubmit(event)}
+                >
+                  send
+                </button>
+              </div>
             </p>
           </form>
         </div>
