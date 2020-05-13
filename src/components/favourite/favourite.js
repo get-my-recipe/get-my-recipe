@@ -32,7 +32,7 @@ class Favourite extends React.Component {
           const { recipes, displayBook } = this.state;
           return (
             <div>
-              <NavBarShared /> 
+              <NavBarShared />
               <Container className="card-template">
                 <Row>
                   {recipes.map((r) => (
