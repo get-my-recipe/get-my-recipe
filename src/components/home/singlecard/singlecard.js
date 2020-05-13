@@ -4,7 +4,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import {
-  ListGroup, ListGroupItem, Badge, Container, Row, Col,
+  ListGroup, ListGroupItem, Badge
 } from 'react-bootstrap';
 import alcool from '../../../assets/health/alcool.png';
 import nut from '../../../assets/health/nut.png';
@@ -15,12 +15,10 @@ import vegeterian from '../../../assets/health/vegeterian.png';
 import './singlecard.css';
 
 
+
 const SingleCard = ({
   display, recipes, bookmarkF, flip,
 }) => (
-  <Container>
-    <Row xs={12} sm={12} md={12} lg={12}>
-      <Col>
         <Card>
           <Card.Img
             variant="top"
@@ -103,8 +101,7 @@ const SingleCard = ({
             </Card.Link>
           </Card.Body>
         </Card>
-      </Col>
-    </Row>
-  </Container>
+  
+
 );
 export default SingleCard;

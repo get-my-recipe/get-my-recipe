@@ -15,7 +15,6 @@ const NavBarHome = ({ value, handleInputChange, book }) => (
       <img className="logo-nav" src={logo} alt="logo" />
     </Navbar.Brand>
     <Form inline>
-
       <FormControl
         type="text"
         placeholder="UserName"
@@ -32,11 +31,11 @@ const NavBarHome = ({ value, handleInputChange, book }) => (
     </Form>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse className="flex-grow-0" id="responsive-navbar-nav">
+      <ButtonCarousel />
       <Nav className="mr-auto">
         <Link className="nav-link" to="/contact">Contact</Link>
         <Link className="nav-link" to="/about">About us</Link>
       </Nav>
-      <ButtonCarousel />
     </Navbar.Collapse>
   </Navbar>
 
