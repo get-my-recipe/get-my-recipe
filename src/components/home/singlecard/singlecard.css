@@ -1,8 +1,3 @@
-
-
-
-
-
 .card {
   font-family: 'Raleway';
   font-weight: 600;
@@ -96,7 +91,7 @@
       
   .bookmark-star {
   padding: 10px;
-  color: #f1db4b;
+  color: #201d0a;
   }
       
   .is-bookmarked {
@@ -106,9 +101,19 @@
   .ask {
       color: #9EB25D;
   } 
-        
+
+.card-verso-body {
+  text-align: left;
+}
+
+.card-verso-title {
+  text-align: center;
+}
+.card-verso-body li::marker {
+  color: rgb(69, 83, 24);
+}
       
-      
+     
       
       
       

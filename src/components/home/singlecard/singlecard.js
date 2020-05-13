@@ -30,6 +30,7 @@ const SingleCard = ({
     <Card.Link title="Link to instructions" href={recipes.url} target="_blank">
       <Card.Title>{recipes.label}</Card.Title>
     </Card.Link>
+    <hr />
     <div className="bookmark-star">
       {(display) && (
       <span
@@ -42,7 +43,6 @@ const SingleCard = ({
     </div>
     <Card.Body>
       <Card.Text>
-
         {(recipes.healthLabels.includes('Alcohol-Free'))
         && (
         <Card.Img
