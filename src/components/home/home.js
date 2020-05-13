@@ -191,6 +191,10 @@ class Home extends Component {
                   const recipes = res.data;
                   const displayBook = false;
                   this.setState({ recipes, displayBook });
+                  this.props.history.push({
+                    pathname: '/favourite',
+                    state: { recipes, displayBook },
+                  });
                 });
             } else {
               alert('nothing in your bookmark');
@@ -198,6 +202,7 @@ class Home extends Component {
           });
       }
     }
+
 
     // mark a recipe change state.postBook
     handleStarChange = (uri) => {
