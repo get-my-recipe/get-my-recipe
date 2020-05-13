@@ -1,3 +1,46 @@
+.badge.badge-info {
+  background-color: rgb(69, 83, 24);
+  font-size:16px;
+}
+
+.badge.badge-success {
+  background-color: rgb(69, 83, 24);
+  font-size:16px;
+
+}
+
+.card-title.h5 {
+  font-size: 27px;
+  font-weight: bolder;
+  text-align: center;
+  }
+  
+  .col-lg-4.col-sm-6 {
+    padding: 10px;
+    }
+    
+
+  .card-body{
+    text-align: center;
+    }
+
+    .card-link {
+      color:rgb(51, 77, 98);
+      font-weight: bolder;
+      }
+
+      img.card-img {
+        width: 35px;
+        height: 35px;
+        margin: 5px;
+        }
+
+        .card {
+          font-family: 'Raleway';
+          font-size: 400;
+          margin: auto;
+          }
+ 
 .card {
 font-family: 'Raleway';
 font-size: 400;
