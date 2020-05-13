@@ -1,13 +1,24 @@
 .containerForm{
     height:1100px;
     width: 100%;
-    background-color: rgb(237, 248, 233);
+    }
+
+    .filter-button2 {
+        background-color: #9eb25d;
+        color: whitesmoke;
+        box-shadow:2px 2px 2px 2px;
+        
+    }
+    .buttonBox {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
     }
 
 .contactUsForm {
-    padding: 18px;
-    background-color: #eefcce;
-    width: 45%;
+    padding: 1%;
+    background-color:#c0cf8c;
+    width: 30%;
     margin: 0 auto;
     height: 700px;
     display: flex;
@@ -17,17 +28,24 @@
     margin-bottom: 120px;
     border-style: solid;
     border-color: #9eb25d;
-    border-width: 10px;
+    border-width: 3px;
 }
 .form-group input.form-control {
     width: 100%;
     }
 
+
 .label2 {
-    font-weight: bold;
+    color: whitesmoke;
+    font-size: 25px;
+
     }
 .contactUsForm h5 {
    margin: 0px;
+   color: whitesmoke;
+   font-style: italic;
+   font-size: 22px;
+
 }
 
 .contactUsForm .form-group{

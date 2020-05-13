@@ -9,6 +9,7 @@ import Home from './components/home/home';
 import Contact from './components/contact/contact';
 import About from './components/about/about';
 import Footer from './components/sharedcomponents/footer/footer';
+import Favourite from './components/favourite/favourite';
 
 const App = () => (
   <div>
@@ -16,6 +17,7 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <Route path="/contact" component={Contact} />
       <Route path="/about" component={About} />
+      <Route path="/favourite" component={Favourite} />
     </Switch>
     <Footer />
 
