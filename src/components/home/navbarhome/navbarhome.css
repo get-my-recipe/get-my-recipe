@@ -45,9 +45,13 @@ a.nav-link:hover{
     border-radius: 5px;  
     border-color:#f1db4b;
 }
+
 .bookmark-button:hover {
     font-weight: 900;
 }
+.nav-link {
+    margin: 0 5px;
+    }  
 
 @media (max-width: 580px){
 nav.navbar.navbar-expand-md.navbar-light {
@@ -60,6 +64,3 @@ nav.navbar.navbar-expand-md.navbar-light {
         justify-content: center;
     } 
     }
-
-
-

@@ -11,7 +11,7 @@ const NavBarHome = ({ value, handleInputChange, book }) => (
 
   <Navbar expand="md">
     <Navbar.Brand>
-      <Link className="nav-link" to="/">
+      <Link className="nav-link-logo" to="/">
         <div>
           <img
             src={logo}

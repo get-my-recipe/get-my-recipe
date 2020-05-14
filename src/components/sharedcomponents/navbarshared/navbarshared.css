@@ -7,7 +7,17 @@ a.nav-link {
     font-size: 1.25rem!important;
 }
 
-
+.navbar {
+    background-color: #9EB25D;
+    font-family: 'Raleway'; 
+    font-size: 15px;
+    color: #F1DB4B;
+    z-index: 10;
+    white-space: nowrap;
+    position: flex;
+    justify-content: space-between;
+    margin: 5px 5px;
+}
 
 .navbar-brand {
     margin-right: 0;
@@ -42,4 +52,3 @@ input.form-control{
 .bookmark-button:hover {
     font-weight: 900;
 }
-

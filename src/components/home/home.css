@@ -14,7 +14,6 @@
     transform: translate(-50%, -50%);
 }
 
-
 .container-home-image {
     background-image: url('../../assets/images/Image3.jpg');
     position: absolute;
@@ -37,7 +36,6 @@
     left: 50%;
     transform: translate(-50%, 0);
     box-shadow: 0 0 5px 1px #9eb25d;
-
 }
 
 .searchbar-container:hover {
@@ -150,4 +148,5 @@ p.single-active-filter {
     margin: 45px;
     text-align: center;
 }
+
 
