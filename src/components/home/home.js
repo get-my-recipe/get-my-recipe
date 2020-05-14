@@ -24,6 +24,7 @@ class Home extends Component {
     super();
     this.state = {
       ingredient: '',
+      ingredientAnswer: '',
       recipes: [],
       username: '',
       displayBook: true,
@@ -47,6 +48,8 @@ class Home extends Component {
       isShowing: true,
       show: false,
       showFav: false,
+      noanswer: false,
+
     };
   }
 
@@ -142,7 +145,11 @@ class Home extends Component {
             ...el, isFlipped: false, bookmarked: false, ask: addask[ind],
           }));
           const displayBook = true;
-          this.setState({ recipes, displayBook, isShowing: true });
+          let noanswer = false;
+          if (recipes.length === 0) { noanswer = true; }
+          this.setState({
+            recipes, displayBook, noanswer, isShowing: true,
+          });
         });
       this.reset();
     }
@@ -154,7 +161,7 @@ class Home extends Component {
       const { target } = event;
       const { value } = target;
       this.setState({
-        ingredient: value,
+        ingredient: value, ingredientAnswer: value, noanswer: false,
       });
     }
 
@@ -167,11 +174,13 @@ class Home extends Component {
         username: value,
       });
     }
+    //
 
     handleShowFav = () => {
       const { showFav } = this.state;
       this.setState({ showFav: !showFav });
     }
+
 
     // display book
     getBook = (event) => {
@@ -363,6 +372,7 @@ class Home extends Component {
     const {
       ingredient, recipes, username, displayBook, diet, isVegan, isVegetarian, isPeanutFree,
       isNutFree, isSugarConscious, isAlcoolFree, isShowing, show, ingr, caloriesMax, timeMax, showFav,
+      noanswer, ingredientAnswer,
     } = this.state;
 
     return (
@@ -408,6 +418,8 @@ class Home extends Component {
           alcoolText={isAlcoolFree}
           calText={caloriesMax}
           timeText={timeMax}
+          noanswer={noanswer}
+          search={ingredientAnswer}
         />
         <Container className="card-template">
           <Row>
