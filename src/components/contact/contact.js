@@ -25,9 +25,9 @@ class ContactForm extends Component {
   render() {
     const { message } = this.state;
     return (
-      <div className="containerForm">
-        <div>
-          <NavBarShared />
+      <div>
+        <NavBarShared />
+        <div className="containerForm">
           <form className="contactUsForm">
             <Form.Group controlId="formBasicEmail">
               <Form.Label className="label2">Name</Form.Label>
