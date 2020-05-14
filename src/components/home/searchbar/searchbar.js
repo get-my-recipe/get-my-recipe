@@ -19,7 +19,7 @@ const SearchBar = ({
   handleOnChangeCalories,
   handleOnChangeTime, isShowing, handleShow, show, handleClose, ingrText, dietText, veganText,
   vegeText, peanutText,
-  treenutfreeText, sugarText, alcoolText, calText, timeText, showFav,
+  treenutfreeText, sugarText, alcoolText, calText, timeText, showFav, noanswer, search,
 }) => (
 
   <div className="searchbar-container">
@@ -128,6 +128,14 @@ const SearchBar = ({
       && (
         <div className="container-loader-search">
           <Loader />
+        </div>
+      )}
+      {noanswer
+      && (
+        <div className="">
+          No Result for
+          {' '}
+          {search}
         </div>
       )}
     </form>
