@@ -147,8 +147,6 @@ class Home extends Component {
           const displayBook = true;
           let noanswer = false;
           if (recipes.length === 0) { noanswer = true; }
-
-          this.setState({ noanswer: false });
           this.setState({
             recipes, displayBook, noanswer, isShowing: true,
           });

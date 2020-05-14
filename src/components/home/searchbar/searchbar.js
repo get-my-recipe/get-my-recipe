@@ -132,10 +132,10 @@ const SearchBar = ({
       )}
       {noanswer
       && (
-        <div className="">
-          No Result for
+        <div className="no-answer-container">
+          No Result for:
           {' '}
-          {search}
+          <strong>{search}</strong>
         </div>
       )}
     </form>
