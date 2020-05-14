@@ -1,6 +1,5 @@
-.containerForm{
-    height:85vh;
-    display: contents;
+.contact-us-page{
+    height:calc(120vh - 130px);
     align-items: center;
     }
 
