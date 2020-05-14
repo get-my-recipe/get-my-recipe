@@ -46,7 +46,7 @@ class Home extends Component {
       timeMax: 200,
       isShowing: true,
       show: false,
-
+      showFav: false,
     };
   }
 
@@ -168,12 +168,18 @@ class Home extends Component {
       });
     }
 
+    handleShowFav = () => {
+      const { showFav } = this.state;
+      this.setState({ showFav: !showFav });
+    }
+
     // display book
     getBook = (event) => {
       event.preventDefault();
       if (this.state.username === '') {
         alert('Please, enter your username');
       } else {
+        this.handleShowFav();
         axios
           .get('https://post-a-form.herokuapp.com/api/movies/')
           .then((res) => {
@@ -195,6 +201,7 @@ class Home extends Component {
                     pathname: '/favourite',
                     state: { recipes, displayBook },
                   });
+                  this.handleShowFav();
                 });
             } else {
               alert('nothing in your bookmark');
@@ -355,7 +362,7 @@ class Home extends Component {
     console.log(this.state);
     const {
       ingredient, recipes, username, displayBook, diet, isVegan, isVegetarian, isPeanutFree,
-      isNutFree, isSugarConscious, isAlcoolFree, isShowing, show, ingr, caloriesMax, timeMax,
+      isNutFree, isSugarConscious, isAlcoolFree, isShowing, show, ingr, caloriesMax, timeMax, showFav,
     } = this.state;
 
     return (
@@ -390,6 +397,7 @@ class Home extends Component {
           handleShow={this.handleShow}
           handleClose={this.handleShowClose}
           show={show}
+          showFav={showFav}
           ingrText={ingr}
           dietText={diet}
           veganText={isVegan}

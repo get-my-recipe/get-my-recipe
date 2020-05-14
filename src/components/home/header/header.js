@@ -1,4 +1,3 @@
-
 import React from 'react';
 import NavBarHome from '../navbarhome/navbarhome';
 import '../home.css';

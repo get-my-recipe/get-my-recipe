@@ -69,39 +69,39 @@ class ButtonCarousel extends React.Component {
 
         {show
           && (
-              <Modal show={show} className="modal-carousel">
-                <Modal.Header>
-                  <Modal.Title>3 random recipies</Modal.Title>
-                  <button
-                    type="button"
-                    title="Close the window"
-                    className="carousel-closing-button"
-                    onClick={this.handleClose}
-                  >
-                    x
-                  </button>
-                </Modal.Header>
-                <Modal.Body>
-                  {isShowing
-                    ? (
-                      <RecipeCarousel
-                        randomRecipes={randomRecipes}
-                      />
-                    ) : (
-                      <Loader />
-                    )}
-                </Modal.Body>
-                <Modal.Footer>
-                  <button
-                    type="button"
-                    title="Close the window"
-                    className="carousel-closing-button"
-                    onClick={this.handleClose}
-                  >
-                    Close
-                  </button>
-                </Modal.Footer>
-              </Modal>
+          <Modal show={show} className="modal-carousel">
+            <Modal.Header>
+              <Modal.Title>3 random recipies</Modal.Title>
+              <button
+                type="button"
+                title="Close the window"
+                className="carousel-closing-button"
+                onClick={this.handleClose}
+              >
+                x
+              </button>
+            </Modal.Header>
+            <Modal.Body>
+              {isShowing
+                ? (
+                  <RecipeCarousel
+                    randomRecipes={randomRecipes}
+                  />
+                ) : (
+                  <Loader />
+                )}
+            </Modal.Body>
+            <Modal.Footer>
+              <button
+                type="button"
+                title="Close the window"
+                className="carousel-closing-button"
+                onClick={this.handleClose}
+              >
+                Close
+              </button>
+            </Modal.Footer>
+          </Modal>
           )}
       </div>
     );
