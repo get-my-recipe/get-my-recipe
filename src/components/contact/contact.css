@@ -3,11 +3,11 @@
     align-items: center;
 }
 
-form {
+.container-form form {
     padding: 1%;
     background-color:#c0cf8c;
-    width: 60%;
-    height: 60%;
+    width: 40%;
+    height: 500px;
     display: flex;
     margin: 70px auto;
     flex-direction: column;
@@ -15,15 +15,21 @@ form {
     border-color: #9eb25d;
     border-radius: 15px;
     border-width: 2px;
+    justify-content: space-between;
 }
 
 .form-group input.form-control {
     width: 100%;
 }
 
+div.form-group {
+    font-size: 1rem;
+    margin-bottom: 0; 
+}
+
 .label2 {
     color: whitesmoke;
-    font-size: 1.55em;
+    font-size: 1rem;
 }
 
 .contactUsForm h5 {
