@@ -49,6 +49,11 @@ a.nav-link:hover{
 .bookmark-button:hover {
     font-weight: 900;
 }
+
+.bookmark-button:focus {
+    outline:0;
+}
+
 .nav-link {
     margin: 0 5px;
     }  
