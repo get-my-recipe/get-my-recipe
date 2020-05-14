@@ -25,7 +25,7 @@ class ContactForm extends Component {
   render() {
     const { message } = this.state;
     return (
-      <div>
+      <div className="contact-us-page">
         <NavBarShared />
         <div className="containerForm">
           <form className="contactUsForm">
@@ -55,31 +55,17 @@ class ContactForm extends Component {
               onChange={(event) => this.handleChange(event)}
               rows={6}
             />
-            <Form.Text className="text-muted">
-              We&apos;ll never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>
-
-          <Form.Label className="label2">Tell us your inspiration of the day:</Form.Label>
-          <textarea
-            placeholder="Write something here..."
-            id="message-id"
-            name="message"
-            type="text"
-            value={message}
-            onChange={(event) => this.handleChange(event)}
-            rows={6}
-          />
-          <div className="buttonBox">
-            <button
-              type="submit"
-              className="filter-button2"
-              onClick={(event) => this.onSubmit(event)}
-            >
-              Send
-            </button>
-          </div>
-        </form>
+            <div className="buttonBox">
+              <button
+                type="submit"
+                className="filter-button2"
+                onClick={(event) => this.onSubmit(event)}
+              >
+                Send
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }
