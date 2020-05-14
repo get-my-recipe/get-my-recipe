@@ -52,7 +52,7 @@ class ContactForm extends Component {
             type="text"
             value={message}
             onChange={(event) => this.handleChange(event)}
-            rows={6}
+            rows={11}
           />
           <div className="buttonBox">
             <button

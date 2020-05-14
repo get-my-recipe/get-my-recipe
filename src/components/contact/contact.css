@@ -7,7 +7,7 @@
     padding: 1%;
     background-color:#c0cf8c;
     width: 40%;
-    height: 500px;
+    height: 540px;
     display: flex;
     margin: 70px auto;
     flex-direction: column;
@@ -60,17 +60,13 @@ div.form-group {
 
 @media screen and (max-width: 460px) {
     .label2 {
-        font-size: 1.1em;
+        font-size: .6em;
     }
 }
 
-@media screen and (max-width: 840px) {
-    .contactUsForm {
-    width: 90%;
+@media screen and (max-width: 650px) {
+    .container-form form {
+    width: 300px;
 };
 }
-@media screen and (max-width: 1000px) {
-    .contactUsForm {
-    padding : 14px; 
-    };
-    }
+
