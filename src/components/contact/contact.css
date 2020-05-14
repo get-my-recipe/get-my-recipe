@@ -1,5 +1,7 @@
 .containerForm{
-    height:95vh;
+    height:85vh;
+    display: contents;
+    align-items: center;
     }
 
     .contactUsForm {
@@ -8,7 +10,7 @@
         width: 60%;
         height: 60%;
         display: flex;
-        margin: 20px auto;
+        margin: 70px auto;
         flex-direction: column;
         border-style: solid;
         border-color: #9eb25d;
