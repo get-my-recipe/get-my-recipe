@@ -6,6 +6,7 @@
   justify-content: space-around;
   margin-top: 30px ;
   padding-top: 15px;
+  width: 100%;
 }
 
 .containerFooter a:link {
@@ -53,13 +54,4 @@
   width: 24px;
 }
 
-@media screen and (max-width: 961px) {
-  .containerFooter {
-    display: flex;
-    align-items: center;
-  }
 
-  .containerFooter ul {
-    margin: 0;
-  }
-}

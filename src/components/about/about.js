@@ -23,17 +23,17 @@ const About = () => (
     </div>
     <div className="cards-container">
       <div className="cards">
-        <img className="card-image" src={Aline} alt="Aline" />
+        <img className="card-image" src={Aline} alt="Aline" target="_blank" />
         <a href="https://www.linkedin.com/in/aline-sinclaire-b8998810b/?originalSubdomain=ca">
           Aline Sinclaire
         </a>
       </div>
       <div className="cards">
-        <img className="card-image" src={Catherine} alt="Catherine" />
+        <img className="card-image" src={Catherine} alt="Catherine" target="_blank" />
         <a href="https://github.com/cath974">Catherine Blecon</a>
       </div>
       <div className="cards">
-        <img className="card-image" src={Arnaud} alt="Arnaud" />
+        <img className="card-image" src={Arnaud} alt="Arnaud" target="_blank" />
         <a href="https://www.linkedin.com/in/arnaud-duh%C3%A9-05a00b41/">
           Arnaud Duhé
         </a>
