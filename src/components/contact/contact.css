@@ -1,25 +1,25 @@
-.contact-us-page{
+.form-wraper {
     position: relative;
     align-items: center;
-    }
+}
 
-    .contactUsForm {
-        padding: 1%;
-        background-color:#c0cf8c;
-        width: 60%;
-        height: 60%;
-        display: flex;
-        margin: 70px auto;
-        flex-direction: column;
-        border-style: solid;
-        border-color: #9eb25d;
-        border-radius: 15px;
-        border-width: 2px;
-    }
+form {
+    padding: 1%;
+    background-color:#c0cf8c;
+    width: 60%;
+    height: 60%;
+    display: flex;
+    margin: 70px auto;
+    flex-direction: column;
+    border-style: solid;
+    border-color: #9eb25d;
+    border-radius: 15px;
+    border-width: 2px;
+}
 
 .form-group input.form-control {
     width: 100%;
-    }
+}
 
 .label2 {
     color: whitesmoke;
@@ -27,17 +27,17 @@
 }
 
 .contactUsForm h5 {
-   margin: 0px;
-   color: whitesmoke;
-   font-style: italic;
-   font-size: 22px;
+    margin: 0px;
+    color: whitesmoke;
+    font-style: italic;
+    font-size: 22px;
 }
 
 .contactUsForm .form-group{
     margin: 0px;
 }
 
-   .buttonBox {
+.buttonBox {
     margin: 12px;
     display: flex;
     justify-content: center;
