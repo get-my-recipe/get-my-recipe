@@ -42,6 +42,11 @@
     box-shadow: 0 0 10px 1px #9eb25d;
 }
 
+.no-answer-container {
+    margin-top: 40px;
+    color: #9eb25d;
+}
+
 .container-loader-search{
     margin-top: 50px;
 }
