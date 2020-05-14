@@ -33,7 +33,7 @@ const NavBarHome = ({ value, handleInputChange, book }) => (
     <Navbar.Collapse className="flex-grow-0" id="responsive-navbar-nav">
       <ButtonCarousel />
       <Nav className="mr-auto">
-        <Link className="nav-link" to="/contact">Contact</Link>
+        <Link className="nav-link" to="/contact">Contact us</Link>
         <Link className="nav-link" to="/about">About us</Link>
       </Nav>
     </Navbar.Collapse>
